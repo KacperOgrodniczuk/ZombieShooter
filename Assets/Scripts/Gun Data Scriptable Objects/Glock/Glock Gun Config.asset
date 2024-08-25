@@ -16,7 +16,7 @@ MonoBehaviour:
   gunName: Glock
   modelPrefab: {fileID: 9034875939267182620, guid: 989d539a174794544afb855507303450,
     type: 3}
-  spawnPoint: {x: 0.1234, y: -0.0269, z: 0.5}
+  spawnPosition: {x: 0.1, y: -0.05, z: 0.5}
   spawnRotation: {x: 0, y: 0, z: 0}
   shootConfig: {fileID: 11400000, guid: 147d547c101acb048aa747aed115582f, type: 2}
   trailConfig: {fileID: 11400000, guid: deee1c72887c922468194f0d968bccfe, type: 2}

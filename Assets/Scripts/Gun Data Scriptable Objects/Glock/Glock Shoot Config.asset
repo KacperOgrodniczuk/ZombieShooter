@@ -19,4 +19,5 @@ MonoBehaviour:
   fireRate: 0.33
   recoilRecoveryTime: 1
   maxRecoilTime: 0.5
-  recoilKick: 25
+  recoilKick: 0.0051
+  recoilRotation: 1
