@@ -13,6 +13,7 @@ public class ShootConfigScriptableObject : ScriptableObject
     public float recoilKick = 0.005f;
     [Range(0f, 1f)]
     public float recoilRotation = 0.5f;
+    public int damage = 10;
 
     //need to rework this to return a vector 3 and be used for spread and recoil on gun/camera
     public Quaternion GetSpread(float shootTime)

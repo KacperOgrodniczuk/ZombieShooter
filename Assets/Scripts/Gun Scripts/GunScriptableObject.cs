@@ -76,6 +76,11 @@ public class GunScriptableObject : ScriptableObject
             if (Physics.Raycast(Camera.main.transform.position, shootDirection, out RaycastHit hit, float.MaxValue, shootConfig.HitMask))
             {
                 activeMonoBehaviour.StartCoroutine(PlayTrail(shootSystem.transform.position, hit.point, hit));
+
+                if (hit.collider.TryGetComponent<IDamageable>(out IDamageable damageable))
+                {
+                    damageable.TakeDamage(shootConfig.damage);
+                }
             }
             else
             {
