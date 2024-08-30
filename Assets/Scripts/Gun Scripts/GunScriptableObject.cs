@@ -77,7 +77,7 @@ public class GunScriptableObject : ScriptableObject
             {
                 activeMonoBehaviour.StartCoroutine(PlayTrail(shootSystem.transform.position, hit.point, hit));
 
-                if (hit.collider.TryGetComponent<IDamageable>(out IDamageable damageable))
+                if (hit.collider.TryGetComponent(out IDamageable damageable))
                 {
                     damageable.TakeDamage(shootConfig.damage);
                 }

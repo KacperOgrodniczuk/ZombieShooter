@@ -7,10 +7,10 @@ public interface IDamageable
     public int maxHealth { get;}
     public int currentHealth { get;}
 
-    public delegate void TakeDamageEvent(int damage);
+    public delegate void TakeDamageEvent();
     public event TakeDamageEvent OnTakeDamage;
 
-    public delegate void DeathEvent(Vector3 position);
+    public delegate void DeathEvent();
     public event DeathEvent OnDeath;
 
     public void TakeDamage(int damage);
