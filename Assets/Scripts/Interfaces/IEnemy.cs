@@ -4,8 +4,8 @@ using UnityEngine;
 
 public interface IEnemy
 {
-    void Wait();
-    void Chase();
-    void Attack();
-    void Die();
+    void WaitState();
+    void ChaseState();
+    void AttackState();
+    void DieState();
 }

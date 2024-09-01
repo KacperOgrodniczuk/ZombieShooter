@@ -3,11 +3,12 @@ using UnityEngine.AI;
 
 public class CommonEnemyBehaviour : MonoBehaviour, IEnemy
 {
+    
+    BaseEnemyState state;
     Transform player;
     NavMeshAgent agent;
-    BaseEnemyState state;
-    //EnemyAnimationManager enemyAnimationManager;
-    
+    Animator animator;
+
     private void OnEnable()
     {
         state = BaseEnemyState.Chasing;
@@ -16,7 +17,7 @@ public class CommonEnemyBehaviour : MonoBehaviour, IEnemy
     void Start()
     { 
         agent = GetComponent<NavMeshAgent>();
-        //enemyAnimationManager = GetComponent<EnemyAnimationManager>();
+        animator = GetComponent<Animator>();
         player = GameObject.FindWithTag("Player").transform;
     }
 
@@ -27,7 +28,7 @@ public class CommonEnemyBehaviour : MonoBehaviour, IEnemy
             case (BaseEnemyState.Waiting):
                 break;
             case (BaseEnemyState.Chasing):
-                Chase();
+                ChaseState();
                 break;
             case (BaseEnemyState.Attacking):
                 break;
@@ -37,22 +38,29 @@ public class CommonEnemyBehaviour : MonoBehaviour, IEnemy
         }
     }
 
-    public void Attack()
+    public void AttackState()
     {
         throw new System.NotImplementedException();
     }
 
-    public void Chase()
+    public void ChaseState()
     {
         agent.SetDestination(player.position);
+        animator.SetTrigger("Chase");
+        agent.updatePosition = false;
+        animator.applyRootMotion = true;
+        Vector3 rootMotion = animator.deltaPosition;
+        rootMotion.y = 0;
+        Vector3 newPosition = transform.position + rootMotion;
+        agent.nextPosition = newPosition;
     }
 
-    public void Die()
+    public void DieState()
     {
         throw new System.NotImplementedException();
     }
 
-    public void Wait()
+    public void WaitState()
     {
         throw new System.NotImplementedException();
     }
