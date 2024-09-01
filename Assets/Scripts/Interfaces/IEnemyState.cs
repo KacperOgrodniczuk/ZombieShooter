@@ -1,10 +1,6 @@
-using System.Collections;
-using System.Collections.Generic;
-using UnityEngine;
-
 public interface IEnemyState
 {
-    void EnterState();
-    void HandleState();
-    void ExitState();
+    void EnterState(CommonEnemyBehaviour enemy);
+    void UpdateState(CommonEnemyBehaviour enemy);
+    void ExitState(CommonEnemyBehaviour enemy);
 }

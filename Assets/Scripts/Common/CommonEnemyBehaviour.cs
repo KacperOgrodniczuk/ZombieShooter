@@ -1,67 +1,50 @@
 using UnityEngine;
 using UnityEngine.AI;
 
-public class CommonEnemyBehaviour : MonoBehaviour, IEnemy
+public class CommonEnemyBehaviour : MonoBehaviour
 {
-    
-    BaseEnemyState state;
-    Transform player;
-    NavMeshAgent agent;
-    Animator animator;
+    //Components
+    public Transform Player { get; private set; }
+    public NavMeshAgent Agent { get; private set; }
+    public Animator Animator { get; private set; }
+
+    //State management
+    IEnemyState currentState;
+    IEnemyState previousState;
+
+    //States
+    CommonChaseState chaseState = new CommonChaseState();
+    //To be implemented
+    //CommonSpawnState spawnState = new CommonSpawnState();
+    //CommonAttackState attackState = new CommonAttackState();
+    //CommonDieState dieState = new CommonDieState();
+
+    // Properties to expose components if needed
 
     private void OnEnable()
     {
-        state = BaseEnemyState.Chasing;
+        ChangeState(chaseState);
     }
 
-    void Start()
+    void Awake()
     { 
-        agent = GetComponent<NavMeshAgent>();
-        animator = GetComponent<Animator>();
-        player = GameObject.FindWithTag("Player").transform;
+        Agent = GetComponent<NavMeshAgent>();
+        Animator = GetComponent<Animator>();
+        Player = GameObject.FindWithTag("Player").transform;
     }
 
     void Update() 
     {
-        switch (state) 
-        {
-            case (BaseEnemyState.Waiting):
-                break;
-            case (BaseEnemyState.Chasing):
-                ChaseState();
-                break;
-            case (BaseEnemyState.Attacking):
-                break;
-            case (BaseEnemyState.Dying):
-                break;
-
-        }
+        currentState?.UpdateState(this);
     }
 
-    public void AttackState()
+    void ChangeState(IEnemyState newState)      //needs fininshing
     {
-        throw new System.NotImplementedException();
-    }
+        currentState?.ExitState(this);
 
-    public void ChaseState()
-    {
-        agent.SetDestination(player.position);
-        animator.SetTrigger("Chase");
-        agent.updatePosition = false;
-        animator.applyRootMotion = true;
-        Vector3 rootMotion = animator.deltaPosition;
-        rootMotion.y = 0;
-        Vector3 newPosition = transform.position + rootMotion;
-        agent.nextPosition = newPosition;
-    }
+        previousState = currentState;
+        currentState = newState;
 
-    public void DieState()
-    {
-        throw new System.NotImplementedException();
-    }
-
-    public void WaitState()
-    {
-        throw new System.NotImplementedException();
+        currentState?.EnterState(this);
     }
 }
