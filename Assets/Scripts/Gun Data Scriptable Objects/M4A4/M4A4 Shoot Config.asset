@@ -14,10 +14,11 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   HitMask:
     serializedVersion: 2
-    m_Bits: 1
+    m_Bits: 385
   spread: {x: 5, y: 5}
   fireRate: 0.1
   recoilRecoveryTime: 1
   maxRecoilTime: 2
   recoilKick: 0.005
   recoilRotation: 1
+  damage: 10

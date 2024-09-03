@@ -3,6 +3,10 @@ using UnityEngine.AI;
 
 public class CommonEnemyBehaviour : MonoBehaviour
 {
+    //Variables
+    public float attackRange { get;  private set; } = 1f;
+
+
     //Components
     public Transform Player { get; private set; }
     public NavMeshAgent Agent { get; private set; }
@@ -13,7 +17,7 @@ public class CommonEnemyBehaviour : MonoBehaviour
     IEnemyState previousState;
 
     //States
-    CommonChaseState chaseState = new CommonChaseState();
+    CommonChaseState chaseState = new CommonChaseState();       //These states need converting to scriptableObjects so that I can store attackRange and damage values on them.
     //To be implemented
     //CommonSpawnState spawnState = new CommonSpawnState();
     //CommonAttackState attackState = new CommonAttackState();

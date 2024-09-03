@@ -26,5 +26,6 @@ public class CommonChaseState : IEnemyState
 
         //Transition logic here.
 
+
     }
 }
