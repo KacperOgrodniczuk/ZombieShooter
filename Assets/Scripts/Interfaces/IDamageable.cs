@@ -1,7 +1,7 @@
 public interface IDamageable 
 {
-    public int maxHealth { get;}
-    public int currentHealth { get;}
+    public int MaxHealth { get;}
+    public int CurrentHealth { get;}
 
     public delegate void TakeDamageEvent();
     public event TakeDamageEvent OnTakeDamage;

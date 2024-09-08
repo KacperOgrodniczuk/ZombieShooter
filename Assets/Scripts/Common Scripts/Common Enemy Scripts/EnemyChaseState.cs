@@ -1,0 +1,47 @@
+using UnityEngine;
+
+public class EnemyChaseState : EnemyState
+{
+    public override EnemyStateMachine enemy { get; protected set; }
+
+    public EnemyChaseState(EnemyStateMachine enemy)
+    { 
+        this.enemy = enemy;
+    }
+
+    public override void EnterState()
+    {
+        enemy.Animator.SetBool("Chase", true);
+    }
+
+    public override void ExitState()
+    {
+        enemy.Animator.SetBool("Chase", false);
+    }
+
+    public override void UpdateState()
+    {
+        enemy.Agent.SetDestination(enemy.Player.position);
+
+        //fixing animation 
+        Vector3 rootMotion = enemy.Animator.deltaPosition;
+        rootMotion.y = enemy.Agent.nextPosition.y;
+        Vector3 newPosition = enemy.transform.position + rootMotion;
+        enemy.Agent.nextPosition = newPosition;
+
+        //Transition logic here.
+        if (DistanceFromPlayer() < enemy.AttackRange)
+        {
+            enemy.ChangeState(enemy.AttackState);
+        }
+    }
+
+    public float DistanceFromPlayer()
+    {
+        return Vector3.Distance(enemy.transform.position, enemy.Player.position);
+    }
+
+    //public bool PlayerInFieldOfView()
+    //{ 
+    //}
+}

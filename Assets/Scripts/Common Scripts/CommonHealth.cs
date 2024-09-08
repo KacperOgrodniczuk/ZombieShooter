@@ -2,25 +2,26 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class CommonHealth : MonoBehaviour, IDamageable
+public class CommonHealth : MonoBehaviour, IDamageable      //need to do another one that derives from this but only for player with hp regen.
 {
     [SerializeField]
     private int _maxHealth = 100;
+    [SerializeField]
     private int _currentHealth;
 
-    public int maxHealth { get => _maxHealth; private set => _currentHealth = value; }
-    public int currentHealth { get => _currentHealth; private set => _currentHealth = value; }
+    public int MaxHealth { get => _maxHealth; private set => _maxHealth = value; }
+    public int CurrentHealth { get => _currentHealth; private set => _currentHealth = value; }
 
     public event IDamageable.TakeDamageEvent OnTakeDamage;
     public event IDamageable.DeathEvent OnDeath;
 
     public void TakeDamage(int damage)
     {
-        currentHealth -= damage;
+        CurrentHealth -= damage;
 
         OnTakeDamage?.Invoke();
         
-        if (currentHealth <= 0) OnDeath?.Invoke();
+        if (CurrentHealth <= 0) OnDeath?.Invoke();
     }
 
     //Temporary function,
@@ -33,7 +34,7 @@ public class CommonHealth : MonoBehaviour, IDamageable
 
     void OnEnable() 
     {
-        currentHealth = maxHealth;
+        CurrentHealth = MaxHealth;
         OnDeath += Die;     //will need deleting/ammending as outlined above Die function
     }
 

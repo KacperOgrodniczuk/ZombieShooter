@@ -294,7 +294,7 @@ PrefabInstance:
     - target: {fileID: 400933087380112208, guid: 757192ab60feff94688a7f6b2c681631,
         type: 3}
       propertyPath: m_LocalPosition.z
-      value: 5
+      value: 10
       objectReference: {fileID: 0}
     - target: {fileID: 400933087380112208, guid: 757192ab60feff94688a7f6b2c681631,
         type: 3}
@@ -337,6 +337,11 @@ PrefabInstance:
       value: ZombieTest (2)
       objectReference: {fileID: 0}
     - target: {fileID: 5462020476176649375, guid: 757192ab60feff94688a7f6b2c681631,
+        type: 3}
+      propertyPath: m_Enabled
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5924924177612268094, guid: 757192ab60feff94688a7f6b2c681631,
         type: 3}
       propertyPath: m_Enabled
       value: 0
@@ -660,7 +665,7 @@ PrefabInstance:
     - target: {fileID: 400933087380112208, guid: 757192ab60feff94688a7f6b2c681631,
         type: 3}
       propertyPath: m_LocalPosition.z
-      value: 5
+      value: 10
       objectReference: {fileID: 0}
     - target: {fileID: 400933087380112208, guid: 757192ab60feff94688a7f6b2c681631,
         type: 3}
@@ -703,6 +708,11 @@ PrefabInstance:
       value: ZombieTest (1)
       objectReference: {fileID: 0}
     - target: {fileID: 5462020476176649375, guid: 757192ab60feff94688a7f6b2c681631,
+        type: 3}
+      propertyPath: m_Enabled
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5924924177612268094, guid: 757192ab60feff94688a7f6b2c681631,
         type: 3}
       propertyPath: m_Enabled
       value: 0
@@ -1224,7 +1234,7 @@ CharacterController:
   m_Enabled: 1
   serializedVersion: 3
   m_Height: 2
-  m_Radius: 0.5
+  m_Radius: 0.25
   m_SlopeLimit: 45
   m_StepOffset: 0.3
   m_SkinWidth: 0.08
@@ -1256,7 +1266,7 @@ PrefabInstance:
     - target: {fileID: 400933087380112208, guid: 757192ab60feff94688a7f6b2c681631,
         type: 3}
       propertyPath: m_LocalPosition.z
-      value: 20
+      value: 5
       objectReference: {fileID: 0}
     - target: {fileID: 400933087380112208, guid: 757192ab60feff94688a7f6b2c681631,
         type: 3}
@@ -2224,6 +2234,7 @@ GameObject:
   - component: {fileID: 3792515563170162085}
   - component: {fileID: 6625392280124283803}
   - component: {fileID: 6625392280124283804}
+  - component: {fileID: 6625392280124283805}
   m_Layer: 7
   m_Name: Player
   m_TagString: Player
@@ -2622,6 +2633,20 @@ MonoBehaviour:
   bopLimit: {x: 0.05, y: 0.01, z: 0.05}
   bopMultiplier: {x: 1, y: 1, z: 1}
   offsetPosition: {x: 0, y: 0, z: 0}
+--- !u!114 &6625392280124283805
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1768850201400702410}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 9224b8d0dace24a45a27c4c61eebeebc, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _maxHealth: 100
+  _currentHealth: 0
 --- !u!20 &6752513827207866920
 Camera:
   m_ObjectHideFlags: 0
