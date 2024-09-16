@@ -21,7 +21,7 @@ public class PlayerManager : MonoBehaviour
     private void Update()
     {
         playerLocomotionManager.HandleAllMovement();
-        playerActions.HandleAllClicks();
+        playerActions.HandleAllActionInput();
         playerSwayAndBop.HandleAllSwayAndBop();
     }
 

@@ -11,6 +11,7 @@ public class PlayerInputManager : MonoBehaviour
     public Vector2 movementInput;
     public Vector2 mouseInput;
     public bool leftClick;
+    public bool reloadInput;
 
     private void Awake()
     {
@@ -31,6 +32,8 @@ public class PlayerInputManager : MonoBehaviour
             playerControls.PlayerCamera.MouseDelta.performed += i => mouseInput = i.ReadValue<Vector2>();
 
             playerControls.PlayerActions.LeftClick.performed += i => leftClick = i.ReadValueAsButton();
+
+            playerControls.PlayerActions.Reload.performed += i => reloadInput = i.ReadValueAsButton();
         }
 
         playerControls.Enable();

@@ -138,7 +138,7 @@ public partial class @PlayerControls: IInputActionCollection2, IDisposable
                 },
                 {
                     ""name"": ""Reload"",
-                    ""type"": ""Button"",
+                    ""type"": ""PassThrough"",
                     ""id"": ""d27d09e1-6b12-4768-ad41-bebfb6c15b40"",
                     ""expectedControlType"": ""Button"",
                     ""processors"": """",

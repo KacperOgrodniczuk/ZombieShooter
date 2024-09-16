@@ -41,6 +41,9 @@ public class GunScriptableObject : ScriptableObject
 
         shootSystem = model.GetComponentInChildren<ParticleSystem>();
 
+        ammoConfig.currentAmmo = ammoConfig.maxAmmo;
+        ammoConfig.currentClipAmmo = ammoConfig.clipSize;
+
         return model;
     }
 

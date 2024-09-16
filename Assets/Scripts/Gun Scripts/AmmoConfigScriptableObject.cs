@@ -1,15 +1,15 @@
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 
-[CreateAssetMenu(fileName = "Gun Config", menuName = "Guns/Ammo Configuration", order = 3)]
+[CreateAssetMenu(fileName = "Ammo Config", menuName = "Guns/Ammo Configuration", order = 3)]
 public class AmmoConfigScriptableObject : ScriptableObject
 {
     public int maxAmmo = 120;
     public int clipSize = 30;
 
-    public int currentAmmo = 120;
-    public int currentClipAmmo = 30;
+    [HideInInspector]
+    public int currentAmmo;
+    [HideInInspector]
+    public int currentClipAmmo;
 
     public void Reload()
     {
@@ -24,5 +24,10 @@ public class AmmoConfigScriptableObject : ScriptableObject
 
         //take away from ammo stockpile
         currentAmmo -= reloadAmount;
+    }
+
+    public bool CanReload()
+    { 
+        return currentAmmo < clipSize && currentAmmo > 0;
     }
 }
