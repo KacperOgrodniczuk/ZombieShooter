@@ -13,6 +13,7 @@ public class GunScriptableObject : ScriptableObject
 
     public ShootConfigScriptableObject shootConfig;
     public TrailConfigScriptableObject trailConfig;
+    public AmmoConfigScriptableObject ammoConfig;
 
     private MonoBehaviour activeMonoBehaviour;
     private GameObject model;
@@ -47,15 +48,18 @@ public class GunScriptableObject : ScriptableObject
     {
         if (wantsToShoot)
         {
-            recoilValue = Mathf.Clamp01(recoilValue + (Time.deltaTime / shootConfig.maxRecoilTime));
-            Shoot();
+            if (ammoConfig.currentClipAmmo > 0)
+            {
+                recoilValue = Mathf.Clamp01(recoilValue + (Time.deltaTime / shootConfig.maxRecoilTime));
+                Shoot();
+            }
         }
         else
         {
             recoilValue = Mathf.Clamp01(recoilValue - (Time.deltaTime / shootConfig.recoilRecoveryTime));
         }
 
-        //Smoothly move back to original position and rotation
+        //Smoothly move back to original position and rotation      this recoil system will need a rework at some point.
         model.transform.localPosition = Vector3.Lerp(model.transform.localPosition, spawnPosition, Time.deltaTime / shootConfig.recoilRecoveryTime);
         model.transform.localRotation = Quaternion.Slerp(model.transform.localRotation, originalRotation, Time.deltaTime / shootConfig.recoilRecoveryTime);
     }
@@ -73,13 +77,13 @@ public class GunScriptableObject : ScriptableObject
             Vector3 shootDirection = spread * Camera.main.transform.forward;
             shootDirection.Normalize();
 
+            ammoConfig.currentClipAmmo--;
+
             if (Physics.Raycast(Camera.main.transform.position, shootDirection, out RaycastHit hit, float.MaxValue, shootConfig.HitMask))
             {
                 activeMonoBehaviour.StartCoroutine(PlayTrail(shootSystem.transform.position, hit.point, hit));
 
-                //There's probably some way to optimise this by caching a reference to Idamageable or something.
                 hit.collider.GetComponentInParent<IDamageable>()?.TakeDamage(shootConfig.damage);
-
             }
             else
             {
@@ -88,10 +92,10 @@ public class GunScriptableObject : ScriptableObject
 
             ApplyRecoil();
 
+            //TODO
             //Shoot system, at the moment it's entirely raycast based,
             //but I might make it projectile based
-            //(with raycasts checking whether the bullets hit a target in between their locations each frame)
-            //TODO
+            //with raycasts checking whether the bullets hit a target in between their locations each frame)
         }
 
     }
