@@ -6,6 +6,7 @@ using UnityEngine.Rendering;
 
 public class SwayAndBop : MonoBehaviour
 {
+    public bool enableSwayAndBop = true;
 
     [Header("Sway and Bop Target Object Transforms")]
     [SerializeField]
@@ -54,7 +55,7 @@ public class SwayAndBop : MonoBehaviour
 
     public void HandleAllSwayAndBop()
     {
-        if (swayAndBopTransform == null) return;        //we don't have a target therefore don't do anything
+        if (!enableSwayAndBop || swayAndBopTransform == null) return;        //we don't have a target therefore don't do anything
 
         GetInput();
         Sway();

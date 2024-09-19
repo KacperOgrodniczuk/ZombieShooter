@@ -4,6 +4,8 @@ using UnityEngine;
 
 public class PlayerManager : MonoBehaviour
 {
+    public Animator playerAnimator { get; private set; }
+    
     [HideInInspector]
     public PlayerLocomotionManager playerLocomotionManager;
     [HideInInspector]
@@ -16,6 +18,7 @@ public class PlayerManager : MonoBehaviour
         playerLocomotionManager = GetComponent<PlayerLocomotionManager>();
         playerSwayAndBop = GetComponent<SwayAndBop>();
         playerActions = GetComponent<PlayerActions>();
+        playerAnimator = GetComponentInChildren<Animator>();
     }
 
     private void Update()

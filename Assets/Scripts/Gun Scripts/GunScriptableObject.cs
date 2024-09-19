@@ -62,9 +62,7 @@ public class GunScriptableObject : ScriptableObject
             recoilValue = Mathf.Clamp01(recoilValue - (Time.deltaTime / shootConfig.recoilRecoveryTime));
         }
 
-        //Smoothly move back to original position and rotation      this recoil system will need a rework at some point.
-        model.transform.localPosition = Vector3.Lerp(model.transform.localPosition, spawnPosition, Time.deltaTime / shootConfig.recoilRecoveryTime);
-        model.transform.localRotation = Quaternion.Slerp(model.transform.localRotation, originalRotation, Time.deltaTime / shootConfig.recoilRecoveryTime);
+        //RecoverFromRecoil();
     }
 
 
@@ -103,7 +101,7 @@ public class GunScriptableObject : ScriptableObject
 
     }
 
-    public void ApplyRecoil()
+    void ApplyRecoil()
     {
         //Apply recoil position
         targetPosition = Vector3.back * shootConfig.recoilKick;
@@ -119,6 +117,13 @@ public class GunScriptableObject : ScriptableObject
 
         //Apply camera recoil
         PlayerCameraManager.instance.ApplyCameraRecoil();
+    }
+
+    void RecoverFromRecoil()
+    {
+        //Smoothly move back to original position and rotation      this recoil system will need a rework at some point.
+        model.transform.localPosition = Vector3.Lerp(model.transform.localPosition, spawnPosition, Time.deltaTime / shootConfig.recoilRecoveryTime);
+        model.transform.localRotation = Quaternion.Slerp(model.transform.localRotation, originalRotation, Time.deltaTime / shootConfig.recoilRecoveryTime);
     }
 
     private IEnumerator PlayTrail(Vector3 startPoint, Vector3 endPoint, RaycastHit hit)

@@ -11,7 +11,7 @@ public class AmmoConfigScriptableObject : ScriptableObject
     [HideInInspector]
     public int currentClipAmmo;
 
-    public void Reload()
+    public void UpdateAmmoAfterReload()
     {
         //Check how many bullets we should reload.
         int clipMissingAmmo = clipSize - currentClipAmmo;

@@ -39,10 +39,10 @@ public class PlayerGunSelector : MonoBehaviour
         GameObject spawnedGun = gun.Spawn(gunHolder, this);
 
         //IK magic 
-        rightIKConstraint.data.target = spawnedGun.transform.Find("Right Hand Target");
-        leftIKConstraint.data.target = spawnedGun.transform.Find("Left Hand Target"); ;
+        //rightIKConstraint.data.target = spawnedGun.transform.Find("Right Hand Target");
+        //leftIKConstraint.data.target = spawnedGun.transform.Find("Left Hand Target"); ;
 
         //Force a rig rebuild because it might not update properly.
-        rigBuilder.Build();
+        //rigBuilder.Build();
     }
 }
