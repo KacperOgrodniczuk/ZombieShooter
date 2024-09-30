@@ -91,7 +91,7 @@ public class GunScriptableObject : ScriptableObject
                 activeMonoBehaviour.StartCoroutine(PlayTrail(shootSystem.transform.position, Camera.main.transform.position + (shootDirection * trailConfig.missDistance), new RaycastHit()));
             }
 
-            ApplyRecoil();
+            //ApplyRecoil();
 
             //TODO
             //Shoot system, at the moment it's entirely raycast based,

@@ -12,6 +12,7 @@ public class PlayerManager : MonoBehaviour
     public PlayerActions playerActions;
     [HideInInspector]
     public SwayAndBop playerSwayAndBop;
+    
 
     private void Awake()
     {
