@@ -24,6 +24,7 @@ public class AmmoConfigScriptableObject : ScriptableObject
 
         //take away from ammo stockpile
         currentAmmo -= reloadAmount;
+
     }
 
     public bool CanReload()

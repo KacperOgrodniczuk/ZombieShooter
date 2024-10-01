@@ -11,8 +11,8 @@ public class PlayerAnimationEvents : MonoBehaviour
     private PlayerManager playerManager;
 
 
-    void EndReload()
+    public void EndReload()
     { 
-        
+        playerManager.playerActions.EndReload();
     }
 }
