@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.Animations.Rigging;
 
-public class PlayerGunSelector : MonoBehaviour
+public class PlayerWeaponManager : MonoBehaviour
 {
     [SerializeField]
     private GunType gunType;
@@ -11,14 +11,8 @@ public class PlayerGunSelector : MonoBehaviour
     private Transform gunHolder;
     [SerializeField]
     private List<GunScriptableObject> guns;
-
-    //script assumes your gun prefab will have ik targets and properly named too...
     [SerializeField]
-    private TwoBoneIKConstraint rightIKConstraint;
-    [SerializeField]
-    private TwoBoneIKConstraint leftIKConstraint;
-    [SerializeField]
-    private RigBuilder rigBuilder;
+    private UIManager uiManager;
 
     [Space]
     [Header("Runtime Filled")]
@@ -38,11 +32,6 @@ public class PlayerGunSelector : MonoBehaviour
         PlayerCameraManager.instance.CurrentGunData(activeGun);
         GameObject spawnedGun = gun.Spawn(gunHolder, this);
 
-        //IK magic 
-        //rightIKConstraint.data.target = spawnedGun.transform.Find("Right Hand Target");
-        //leftIKConstraint.data.target = spawnedGun.transform.Find("Left Hand Target"); ;
-
-        //Force a rig rebuild because it might not update properly.
-        //rigBuilder.Build();
+        uiManager.SubscribeToWeapon(activeGun);
     }
 }

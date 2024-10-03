@@ -1,3 +1,4 @@
+using System;
 using UnityEngine;
 
 [CreateAssetMenu(fileName = "Ammo Config", menuName = "Guns/Ammo Configuration", order = 3)]
@@ -7,7 +8,7 @@ public class AmmoConfigScriptableObject : ScriptableObject
     public int clipSize = 30;
 
     [HideInInspector]
-    public int currentAmmo;
+    public int currentStockpileAmmo;
     [HideInInspector]
     public int currentClipAmmo;
 
@@ -17,18 +18,26 @@ public class AmmoConfigScriptableObject : ScriptableObject
         int clipMissingAmmo = clipSize - currentClipAmmo;
 
         //Check if you have enough ammo left, if not reload whatever is left.
-        int reloadAmount = Mathf.Min(clipMissingAmmo, currentAmmo);
+        int reloadAmount = Mathf.Min(clipMissingAmmo, currentStockpileAmmo);
 
         //set the current clip amount to the clip capacity
         currentClipAmmo += reloadAmount;
 
         //take away from ammo stockpile
-        currentAmmo -= reloadAmount;
+        currentStockpileAmmo -= reloadAmount;
 
+    }
+
+    /// <summary>
+    /// Reduce the current clip ammo by <b>one</b>
+    /// </summary>
+    public void DeductOneFromClip()
+    {
+        currentClipAmmo--;
     }
 
     public bool CanReload()
     { 
-        return currentAmmo < clipSize && currentAmmo > 0;
+        return currentStockpileAmmo < clipSize && currentStockpileAmmo > 0;
     }
 }

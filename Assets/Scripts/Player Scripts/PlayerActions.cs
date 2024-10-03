@@ -5,7 +5,7 @@ using UnityEngine;
 public class PlayerActions : MonoBehaviour
 {
     [SerializeField]
-    private PlayerGunSelector gunSelector;
+    private PlayerWeaponManager gunSelector;
 
     private PlayerManager playerManager;
 

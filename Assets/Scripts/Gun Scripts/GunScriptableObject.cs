@@ -1,3 +1,4 @@
+using System;
 using System.Collections;
 using UnityEngine;
 using UnityEngine.Pool;
@@ -5,16 +6,22 @@ using UnityEngine.Pool;
 [CreateAssetMenu(fileName = "Gun Config", menuName = "Guns/Gun Configuration", order = 0)]
 public class GunScriptableObject : ScriptableObject
 {
+    [Header("Fields")]
     public GunType type;
     public string gunName;
     public GameObject modelPrefab;
     public Vector3 spawnPosition;
     public Vector3 spawnRotation;
 
+    [Header("Scriptable Obejct Configs")]
     public ShootConfigScriptableObject shootConfig;
     public TrailConfigScriptableObject trailConfig;
     public AmmoConfigScriptableObject ammoConfig;
 
+    [HideInInspector]
+    public event Action<int, int> OnAmmoChange;
+
+    [Header("Private Fields")]
     private MonoBehaviour activeMonoBehaviour;
     private GameObject model;
     private ParticleSystem shootSystem;
@@ -41,7 +48,7 @@ public class GunScriptableObject : ScriptableObject
 
         shootSystem = model.GetComponentInChildren<ParticleSystem>();
 
-        ammoConfig.currentAmmo = ammoConfig.maxAmmo;
+        ammoConfig.currentStockpileAmmo = ammoConfig.maxAmmo;
         ammoConfig.currentClipAmmo = ammoConfig.clipSize;
 
         return model;
@@ -78,7 +85,8 @@ public class GunScriptableObject : ScriptableObject
             Vector3 shootDirection = spread * Camera.main.transform.forward;
             shootDirection.Normalize();
 
-            ammoConfig.currentClipAmmo--;
+            ammoConfig.DeductOneFromClip();
+            OnAmmoChange?.Invoke(ammoConfig.currentClipAmmo, ammoConfig.currentStockpileAmmo);
 
             if (Physics.Raycast(Camera.main.transform.position, shootDirection, out RaycastHit hit, float.MaxValue, shootConfig.HitMask))
             {
@@ -107,7 +115,7 @@ public class GunScriptableObject : ScriptableObject
         targetPosition = Vector3.back * shootConfig.recoilKick;
 
         //Apply rotation position
-        Vector3 recoilRotation = new Vector3(0, Random.Range(-shootConfig.recoilRotation, shootConfig.recoilRotation), 0);
+        Vector3 recoilRotation = new Vector3(0, UnityEngine.Random.Range(-shootConfig.recoilRotation, shootConfig.recoilRotation), 0);
 
         targetRotation = Quaternion.Euler(recoilRotation);
 
