@@ -12,6 +12,11 @@ public class AmmoConfigScriptableObject : ScriptableObject
     [HideInInspector]
     public int currentClipAmmo;
 
+    public event Action<int, int> OnAmmoChange;
+
+    /// <summary>
+    /// Update clip and ammo stockpile after a reload.
+    /// </summary>
     public void UpdateAmmoAfterReload()
     {
         //Check how many bullets we should reload.
@@ -26,6 +31,7 @@ public class AmmoConfigScriptableObject : ScriptableObject
         //take away from ammo stockpile
         currentStockpileAmmo -= reloadAmount;
 
+        OnAmmoChange?.Invoke(currentClipAmmo, currentStockpileAmmo);
     }
 
     /// <summary>
@@ -34,10 +40,11 @@ public class AmmoConfigScriptableObject : ScriptableObject
     public void DeductOneFromClip()
     {
         currentClipAmmo--;
+        OnAmmoChange?.Invoke(currentClipAmmo, currentStockpileAmmo);
     }
 
     public bool CanReload()
     { 
-        return currentStockpileAmmo < clipSize && currentStockpileAmmo > 0;
+        return currentClipAmmo < clipSize && currentStockpileAmmo > 0;
     }
 }

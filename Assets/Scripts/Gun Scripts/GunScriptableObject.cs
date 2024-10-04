@@ -18,9 +18,6 @@ public class GunScriptableObject : ScriptableObject
     public TrailConfigScriptableObject trailConfig;
     public AmmoConfigScriptableObject ammoConfig;
 
-    [HideInInspector]
-    public event Action<int, int> OnAmmoChange;
-
     [Header("Private Fields")]
     private MonoBehaviour activeMonoBehaviour;
     private GameObject model;
@@ -86,7 +83,6 @@ public class GunScriptableObject : ScriptableObject
             shootDirection.Normalize();
 
             ammoConfig.DeductOneFromClip();
-            OnAmmoChange?.Invoke(ammoConfig.currentClipAmmo, ammoConfig.currentStockpileAmmo);
 
             if (Physics.Raycast(Camera.main.transform.position, shootDirection, out RaycastHit hit, float.MaxValue, shootConfig.HitMask))
             {

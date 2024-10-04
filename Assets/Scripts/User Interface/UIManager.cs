@@ -8,21 +8,21 @@ public class UIManager : MonoBehaviour
     public Text ammoInMagText;
     public Text ammoStockPileText;
 
-    GunScriptableObject lastGunSubscribedTo;
+    AmmoConfigScriptableObject lastAmmoSubscribedTo;
 
-    public void SubscribeToWeapon(GunScriptableObject gunScriptableObject)
+    public void SubscribeToAmmoEvents(AmmoConfigScriptableObject ammoScriptableObject)
     {
-        if (lastGunSubscribedTo != null) {
-            lastGunSubscribedTo.OnAmmoChange -= UpdateAmmoUI;
+        if (lastAmmoSubscribedTo != null) {
+            lastAmmoSubscribedTo.OnAmmoChange -= UpdateAmmoUI;
         }
 
-        gunScriptableObject.OnAmmoChange += UpdateAmmoUI;
-        lastGunSubscribedTo = gunScriptableObject;
+        ammoScriptableObject.OnAmmoChange += UpdateAmmoUI;
+        lastAmmoSubscribedTo = ammoScriptableObject;
     }
 
     void UpdateAmmoUI(int currentClipAmmo, int currentStockpileAmmo) {
         //Code to update ammo on the UI
-        Debug.Log("UpdateAmmoUI() Function ran, just need to actually hook it up to the UI now!");
+        Debug.Log("Clip ammo: " + currentClipAmmo + ". Stockpile ammo: " + currentStockpileAmmo + ".");
     }
 
 }

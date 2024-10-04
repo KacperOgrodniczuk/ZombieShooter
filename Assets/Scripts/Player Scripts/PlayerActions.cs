@@ -29,9 +29,7 @@ public class PlayerActions : MonoBehaviour
 
         gunSelector.activeGun.Tick(PlayerInputManager.instance.leftClick);
 
-        if (gunSelector.activeGun.ammoConfig.currentClipAmmo <= 0
-            && gunSelector.activeGun.ammoConfig.CanReload()
-            && !isReloading)
+        if (gunSelector.activeGun.ammoConfig.currentClipAmmo <= 0 && CanReload())
         {
             Reload();
         }
@@ -39,10 +37,15 @@ public class PlayerActions : MonoBehaviour
 
     void HandleReloadInput()
     {
-        if (PlayerInputManager.instance.reloadInput && !isReloading)
+        if (PlayerInputManager.instance.reloadInput && CanReload())
         {
             Reload();
         }
+    }
+
+    bool CanReload()
+    {
+        return !isReloading && gunSelector.activeGun.ammoConfig.CanReload();
     }
 
     void Reload() 

@@ -32,6 +32,6 @@ public class PlayerWeaponManager : MonoBehaviour
         PlayerCameraManager.instance.CurrentGunData(activeGun);
         GameObject spawnedGun = gun.Spawn(gunHolder, this);
 
-        uiManager.SubscribeToWeapon(activeGun);
+        uiManager.SubscribeToAmmoEvents(activeGun.ammoConfig);
     }
 }
