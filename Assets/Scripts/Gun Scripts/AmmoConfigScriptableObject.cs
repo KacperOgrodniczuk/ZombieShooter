@@ -14,6 +14,11 @@ public class AmmoConfigScriptableObject : ScriptableObject
 
     public event Action<int, int> OnAmmoChange;
 
+    public void TriggerOnAmmoChangeEvent()
+    {
+        OnAmmoChange?.Invoke(currentClipAmmo, currentStockpileAmmo);
+    }
+
     /// <summary>
     /// Update clip and ammo stockpile after a reload.
     /// </summary>

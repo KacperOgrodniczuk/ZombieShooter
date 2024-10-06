@@ -1,12 +1,10 @@
-using System.Collections;
-using System.Collections.Generic;
+using TMPro;
 using UnityEngine;
-using UnityEngine.UI;
 
 public class UIManager : MonoBehaviour
 {
-    public Text ammoInMagText;
-    public Text ammoStockPileText;
+    [SerializeField]
+     TMP_Text ammoText;
 
     AmmoConfigScriptableObject lastAmmoSubscribedTo;
 
@@ -17,12 +15,13 @@ public class UIManager : MonoBehaviour
         }
 
         ammoScriptableObject.OnAmmoChange += UpdateAmmoUI;
+        ammoScriptableObject.TriggerOnAmmoChangeEvent();
         lastAmmoSubscribedTo = ammoScriptableObject;
     }
 
     void UpdateAmmoUI(int currentClipAmmo, int currentStockpileAmmo) {
         //Code to update ammo on the UI
-        Debug.Log("Clip ammo: " + currentClipAmmo + ". Stockpile ammo: " + currentStockpileAmmo + ".");
+        ammoText.text = currentClipAmmo.ToString() + " / " + currentStockpileAmmo.ToString();
     }
 
 }
