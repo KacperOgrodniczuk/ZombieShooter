@@ -3,11 +3,11 @@ using UnityEngine;
 
 public class EnemyAttackState : EnemyState
 {
-    public override EnemyStateMachine enemy { get; protected set; }
+    public override EnemyManager enemy { get; protected set; }
 
     private EnemyAttack _enemyAttack;
 
-    public EnemyAttackState(EnemyStateMachine enemy)
+    public EnemyAttackState(EnemyManager enemy)
     {
         this.enemy = enemy;
         _enemyAttack = enemy.GetComponent<EnemyAttack>();
@@ -17,12 +17,10 @@ public class EnemyAttackState : EnemyState
     {
         enemy.Animator.CrossFade("Attack", 0.25f);
         enemy.isPerformingAction = true;     
-        enemy.Agent.updateRotation = false;
     }
 
     public override void ExitState()
     {
-        enemy.Agent.updateRotation = true;
         _enemyAttack.ResetAttack();
     }
 

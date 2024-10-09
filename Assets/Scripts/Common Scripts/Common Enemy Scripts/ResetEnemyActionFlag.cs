@@ -4,14 +4,14 @@ using UnityEngine;
 
 public class ResetEnemyActionFlag : StateMachineBehaviour
 {
-    EnemyStateMachine enemyStateMachine;
+    EnemyManager enemyStateMachine;
 
     //OnStateEnter is called when a transition starts and the state machine starts to evaluate this state
     override public void OnStateEnter(Animator animator, AnimatorStateInfo stateInfo, int layerIndex)
     {
         if (enemyStateMachine == null)
         {
-            enemyStateMachine = animator.GetComponent<EnemyStateMachine>();
+            enemyStateMachine = animator.GetComponent<EnemyManager>();
         }
 
         enemyStateMachine.isPerformingAction = false;

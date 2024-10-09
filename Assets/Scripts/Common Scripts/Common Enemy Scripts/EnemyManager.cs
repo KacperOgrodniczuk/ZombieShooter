@@ -1,7 +1,7 @@
 using UnityEngine;
 using UnityEngine.AI;
 
-public class EnemyStateMachine : MonoBehaviour
+public class EnemyManager : MonoBehaviour
 {
     [Header("Enemy Fields")]
     [SerializeField]
@@ -11,7 +11,7 @@ public class EnemyStateMachine : MonoBehaviour
     [SerializeField]
     private float _speedMultiplier = 1f;
 
-    //Variables
+    //Variables - done this way so that they show up in the inspector and can be tweaked.
     public float AttackRange { get => _stopChaseRange;  private set => _stopChaseRange = value; }
     public int AttackDamage { get => _attackDamage;  private set => _attackDamage = value; }
     public float SpeedMultiplier { get => _speedMultiplier;  private set => _speedMultiplier = value; }
@@ -27,9 +27,9 @@ public class EnemyStateMachine : MonoBehaviour
     //States
     public EnemyChaseState ChaseState { get; private set; }
     public EnemyAttackState AttackState { get; private set; }
+    public EnemySpawnState spawnState { get; private set; }
     //To be implemented
-    //public CommonSpawnState spawnState = new CommonSpawnState();
-    //public CommonDieState dieState = new CommonDieState();
+    //public EnemyDieState dieState = new CommonDieState();
 
     [Header("Flags")]
     public bool isPerformingAction = false;
@@ -38,6 +38,7 @@ public class EnemyStateMachine : MonoBehaviour
     { 
         ChaseState = new EnemyChaseState(this);
         AttackState = new EnemyAttackState(this);
+        spawnState = new EnemySpawnState();
 
         Agent = GetComponent<NavMeshAgent>();
         Animator = GetComponent<Animator>();

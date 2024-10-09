@@ -2,9 +2,9 @@ using UnityEngine;
 
 public class EnemyChaseState : EnemyState
 {
-    public override EnemyStateMachine enemy { get; protected set; }
+    public override EnemyManager enemy { get; protected set; }
 
-    public EnemyChaseState(EnemyStateMachine enemy)
+    public EnemyChaseState(EnemyManager enemy)
     { 
         this.enemy = enemy;
     }
@@ -12,11 +12,15 @@ public class EnemyChaseState : EnemyState
     public override void EnterState()
     {
         enemy.Animator.SetBool("Chase", true);
+        enemy.Agent.updateRotation = true;
+        enemy.Agent.updatePosition = true;
     }
 
     public override void ExitState()
     {
         enemy.Animator.SetBool("Chase", false);
+        enemy.Agent.updateRotation = false;
+        enemy.Agent.updatePosition = false;
     }
 
     public override void UpdateState()
