@@ -1180,7 +1180,7 @@ Transform:
   - {fileID: 8655929147911701570}
   - {fileID: 7798335519726046770}
   m_Father: {fileID: 0}
-  m_RootOrder: -1
+  m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 180, z: 0}
 --- !u!95 &5924924177612268094
 Animator:
@@ -1195,7 +1195,7 @@ Animator:
   m_Controller: {fileID: 9100000, guid: 1cce05aa5c4485446a7f55caf78ef06c, type: 2}
   m_CullingMode: 1
   m_UpdateMode: 0
-  m_ApplyRootMotion: 0
+  m_ApplyRootMotion: 1
   m_LinearVelocityBlending: 0
   m_StabilizeFeet: 0
   m_WarningMessage: 
@@ -1238,6 +1238,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _maxHealth: 100
+  _currentHealth: 0
 --- !u!114 &5462020476176649375
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1247,7 +1248,7 @@ MonoBehaviour:
   m_GameObject: {fileID: 4186678995409349667}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 37c0335097095214e909aa54997bf22b, type: 3}
+  m_Script: {fileID: 11500000, guid: 350aedf5c65de9b4ca6b4fcf7ef5fe07, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   _stopChaseRange: 1

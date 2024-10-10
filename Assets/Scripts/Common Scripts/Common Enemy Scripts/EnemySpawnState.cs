@@ -1,24 +1,32 @@
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 
 public class EnemySpawnState : EnemyState
 {
     public override EnemyManager enemy { get; protected set; }
 
+    public EnemySpawnState(EnemyManager enemy)
+    {
+        this.enemy = enemy;
+    }
+
     public override void EnterState()
     {
-        // Start the animation
-        throw new System.NotImplementedException();
+        Vector3 enemyPosition = enemy.transform.position;
+        enemyPosition.y -= 2f;    // This is the root motion climbing animation offset.
+        enemy.transform.position = enemyPosition;
+        enemy.isPerformingAction = true;
+        enemy.Animator.Play("Spawn");
     }
 
     public override void ExitState()
     {
-        throw new System.NotImplementedException();
     }
 
     public override void UpdateState()
     {
-        throw new System.NotImplementedException();
+        if (!enemy.isPerformingAction)
+        {
+            enemy.ChangeState(enemy.ChaseState);
+        }
     }
 }

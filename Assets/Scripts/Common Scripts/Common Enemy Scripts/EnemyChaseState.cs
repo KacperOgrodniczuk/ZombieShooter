@@ -12,15 +12,11 @@ public class EnemyChaseState : EnemyState
     public override void EnterState()
     {
         enemy.Animator.SetBool("Chase", true);
-        enemy.Agent.updateRotation = true;
-        enemy.Agent.updatePosition = true;
     }
 
     public override void ExitState()
     {
         enemy.Animator.SetBool("Chase", false);
-        enemy.Agent.updateRotation = false;
-        enemy.Agent.updatePosition = false;
     }
 
     public override void UpdateState()
@@ -45,7 +41,8 @@ public class EnemyChaseState : EnemyState
         return Vector3.Distance(enemy.transform.position, enemy.Player.position);
     }
 
-    //public bool PlayerInFieldOfView()
+    //This will need adding so that zombies don't attack the player when not facing their direction.
+    //public bool PlayerInFieldOfView() 
     //{ 
     //}
 }

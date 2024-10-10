@@ -38,7 +38,7 @@ public class EnemyManager : MonoBehaviour
     { 
         ChaseState = new EnemyChaseState(this);
         AttackState = new EnemyAttackState(this);
-        spawnState = new EnemySpawnState();
+        spawnState = new EnemySpawnState(this);
 
         Agent = GetComponent<NavMeshAgent>();
         Animator = GetComponent<Animator>();
@@ -51,9 +51,9 @@ public class EnemyManager : MonoBehaviour
 
     private void OnEnable()
     {
-        ChangeState(ChaseState);       //this will need to be changed to spawn state later on
-                                        //also will need to reset health at some point i think 
-                                        //because i want to use object pooling for wave spawning.
+        ChangeState(spawnState);
+        //also will need to reset health at some point i think 
+        //because i want to use object pooling for wave spawning.
     }
 
     void Update() 
