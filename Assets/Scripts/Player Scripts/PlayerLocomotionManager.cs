@@ -6,11 +6,17 @@ public class PlayerLocomotionManager : MonoBehaviour
 {
     CharacterController characterController;
     [SerializeField] Transform playerArms;   //Player arms transform ussed purely to manipulate the pivot.
-    float speed = 2.5f;
     
+    [Header("Speed variables")]
+    float currentSpeed;
+    [SerializeField] float runSpeed = 4f;
+    [SerializeField] float sprintSpeed = 6f;
+
     private void Start()
     {
         characterController = GetComponent<CharacterController>();
+
+        currentSpeed = runSpeed;
     }
 
     public void HandleAllMovement()
@@ -29,7 +35,7 @@ public class PlayerLocomotionManager : MonoBehaviour
         Vector3 moveDirection = transform.right * moveInput.x + transform.forward * moveInput.y;
         moveDirection = Vector3.Normalize(moveDirection);
 
-        characterController.Move((moveDirection * speed) * Time.deltaTime);
+        characterController.Move((moveDirection * currentSpeed) * Time.deltaTime);
     }
 
     void HandlePlayerRotation()

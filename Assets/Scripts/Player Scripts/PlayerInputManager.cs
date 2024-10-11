@@ -8,10 +8,11 @@ public class PlayerInputManager : MonoBehaviour
 
     PlayerControls playerControls;
 
-    public Vector2 movementInput;
-    public Vector2 mouseInput;
-    public bool leftClick;
-    public bool reloadInput;
+    public Vector2 movementInput {get; private set;}
+    public Vector2 mouseInput { get; private set;}
+    public bool leftClick { get;  private set;}
+    public bool reloadInput {get; private set;}
+    public bool sprintInput { get; private set;}
 
     private void Awake()
     {
@@ -27,12 +28,16 @@ public class PlayerInputManager : MonoBehaviour
         {
             playerControls = new PlayerControls();      //Gotta make sure player contols exist and then pass some values baby
 
-            //value passthrough
+            // Value passthrough
+            // Player Movement
             playerControls.PlayerMovement.Movement.performed += i => movementInput = i.ReadValue<Vector2>();
+            playerControls.PlayerMovement.Sprint.performed += i => sprintInput = i.ReadValueAsButton();
+            
+            //Player Camera
             playerControls.PlayerCamera.MouseDelta.performed += i => mouseInput = i.ReadValue<Vector2>();
 
+            // Player Actions
             playerControls.PlayerActions.LeftClick.performed += i => leftClick = i.ReadValueAsButton();
-
             playerControls.PlayerActions.Reload.performed += i => reloadInput = i.ReadValueAsButton();
         }
 
