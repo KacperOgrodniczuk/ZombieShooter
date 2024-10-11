@@ -74,9 +74,9 @@ public class PlayerCameraManager : MonoBehaviour
         if (activeShootConfig == null) return;
 
         //Apply rotation position
-        Vector3 recoilRotation = new Vector3(-activeShootConfig.recoilRotation, Random.Range(-activeShootConfig.recoilRotation, activeShootConfig.recoilRotation), 0);
+        //Vector3 recoilRotation = new Vector3(-activeShootConfig.recoilRotation, Random.Range(-activeShootConfig.recoilRotation, activeShootConfig.recoilRotation), 0);
 
-        targetRecoilRotation = cameraRecoil.transform.localRotation * Quaternion.Euler(recoilRotation);
+        //targetRecoilRotation = cameraRecoil.transform.localRotation * Quaternion.Euler(recoilRotation);
     }
 
     /// <summary>

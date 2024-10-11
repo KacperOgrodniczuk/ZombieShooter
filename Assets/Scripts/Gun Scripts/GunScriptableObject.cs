@@ -51,13 +51,12 @@ public class GunScriptableObject : ScriptableObject
         return model;
     }
 
-    public void Tick(bool wantsToShoot)
+    public void Tick(bool wantsToShoot, bool isReloading)
     {
         if (wantsToShoot)
         {
-            if (ammoConfig.currentClipAmmo > 0)
+            if (ammoConfig.currentClipAmmo > 0 && !isReloading)
             {
-                recoilValue = Mathf.Clamp01(recoilValue + (Time.deltaTime / shootConfig.maxRecoilTime));
                 Shoot();
             }
         }
@@ -65,8 +64,6 @@ public class GunScriptableObject : ScriptableObject
         {
             recoilValue = Mathf.Clamp01(recoilValue - (Time.deltaTime / shootConfig.recoilRecoveryTime));
         }
-
-        //RecoverFromRecoil();
     }
 
 
@@ -74,6 +71,7 @@ public class GunScriptableObject : ScriptableObject
     {
         if (Time.time > (shootConfig.fireRate + lastShootTime))
         {
+            recoilValue = Mathf.Clamp01(recoilValue + (Time.deltaTime / shootConfig.maxRecoilTime));
             lastShootTime = Time.time;
             shootSystem.Play();
 
@@ -95,32 +93,32 @@ public class GunScriptableObject : ScriptableObject
                 activeMonoBehaviour.StartCoroutine(PlayTrail(shootSystem.transform.position, Camera.main.transform.position + (shootDirection * trailConfig.missDistance), new RaycastHit()));
             }
 
-            //ApplyRecoil();
-
             //TODO
             //Shoot system, at the moment it's entirely raycast based,
-            //but I might make it projectile based
-            //with raycasts checking whether the bullets hit a target in between their locations each frame)
+            //but I might make it hybrid, (projectile based with raycasts checking whether the bullets hit a target in between their locations each frame)
         }
 
     }
 
+    // The recoil system needs to be reworked, maybe just apply the recoil
+    // to the arms directly instead of the gun. This way i don't need to have
+    // IK targets that make the arms follow the gun as it recoils.
     void ApplyRecoil()
     {
         //Apply recoil position
-        targetPosition = Vector3.back * shootConfig.recoilKick;
+        //targetPosition = Vector3.back * shootConfig.recoilKick;
 
         //Apply rotation position
-        Vector3 recoilRotation = new Vector3(0, UnityEngine.Random.Range(-shootConfig.recoilRotation, shootConfig.recoilRotation), 0);
+        //Vector3 recoilRotation = new Vector3(0, UnityEngine.Random.Range(-shootConfig.recoilRotation, shootConfig.recoilRotation), 0);
 
-        targetRotation = Quaternion.Euler(recoilRotation);
+        //targetRotation = Quaternion.Euler(recoilRotation);
 
         //Can't decide which one I want to use, will need further testing after camera recoil is added.
-        model.transform.localPosition += targetPosition;
-        model.transform.localRotation *= targetRotation;
+        //model.transform.localPosition += targetPosition;
+        //model.transform.localRotation *= targetRotation;
 
         //Apply camera recoil
-        PlayerCameraManager.instance.ApplyCameraRecoil();
+        //PlayerCameraManager.instance.ApplyCameraRecoil();
     }
 
     void RecoverFromRecoil()

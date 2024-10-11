@@ -12,6 +12,7 @@ public class EnemyChaseState : EnemyState
     public override void EnterState()
     {
         enemy.Animator.SetBool("Chase", true);
+        enemy.Agent.updatePosition = false;
     }
 
     public override void ExitState()
@@ -23,7 +24,7 @@ public class EnemyChaseState : EnemyState
     {
         enemy.Agent.SetDestination(enemy.Player.position);
 
-        //fixing animation 
+        //fixing ai agent
         Vector3 rootMotion = enemy.Animator.deltaPosition;
         rootMotion.y = enemy.Agent.nextPosition.y;
         Vector3 newPosition = enemy.transform.position + rootMotion;
