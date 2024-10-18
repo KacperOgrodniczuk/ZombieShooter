@@ -30,17 +30,16 @@ public class SwayAndBop : MonoBehaviour
     public float smoothRot = 12f;
 
     [Header("Bobbing Variable")]
-    public Vector3 travelLimit = Vector3.one * 0.025f; //The maximum limits of travel from move input
-    public Vector3 bopLimit = Vector3.one * 0.01f; //the limits of travel from bopping over time.
-
     public Vector3 bopMultiplier = Vector3.one;
+
+    Vector3 travelLimit = Vector3.one * 0.025f; //The maximum limits of travel from move input
+    Vector3 bopLimit = Vector3.one * 0.01f; //the limits of travel from bopping over time.
 
     float speedCurve;
     float curveSin { get => Mathf.Sin(speedCurve); }
     float curveCos { get => Mathf.Cos(speedCurve); }
 
     Vector3 bopPosition;
-    Vector3 bobEulerRotation;
 
     public Vector3 offsetPosition;
 
@@ -61,12 +60,6 @@ public class SwayAndBop : MonoBehaviour
         Sway();
         Bop();
         ApplySwayAndBop();
-    }
-
-    public void SetSwayAndBopObject(Transform newSwayAndBopObject)
-    { 
-        swayAndBopTransform = newSwayAndBopObject;
-        offsetPosition = swayAndBopTransform.localPosition;
     }
 
     void GetInput() {
@@ -96,16 +89,12 @@ public class SwayAndBop : MonoBehaviour
         bopPosition.x = (curveCos * bopLimit.x * (characterController.isGrounded ? 1 : 0)) - (movementInput.x * travelLimit.x);
         bopPosition.y = (curveSin * bopLimit.y) - (characterController.velocity.y * travelLimit.y);
         bopPosition.z = -(movementInput.y * travelLimit.z);
-
-        bobEulerRotation.x = (movementInput != Vector2.zero ? bopMultiplier.x * (Mathf.Sin(2 * speedCurve)) : bopMultiplier.x * (Mathf.Sin(2 * speedCurve) / 2));
-        bobEulerRotation.y = (movementInput != Vector2.zero ? bopMultiplier.y * curveCos : 0);
-        bobEulerRotation.z = (movementInput != Vector2.zero ? bopMultiplier.z * curveCos * movementInput.x : 0);
     }
 
     void ApplySwayAndBop()
     {
         swayAndBopTransform.localPosition = Vector3.Lerp(swayAndBopTransform.localPosition, swayPos + bopPosition + offsetPosition, Time.deltaTime * smooth);
-        swayAndBopTransform.localRotation = Quaternion.Slerp(swayAndBopTransform.localRotation, Quaternion.Euler(swayEulerRot) * Quaternion.Euler(bobEulerRotation), Time.deltaTime * smoothRot);
+        swayAndBopTransform.localRotation = Quaternion.Slerp(swayAndBopTransform.localRotation, Quaternion.Euler(swayEulerRot), Time.deltaTime * smoothRot);
     }
 
 

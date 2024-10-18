@@ -8,7 +8,7 @@ public class PlayerManager : MonoBehaviour
     
     [HideInInspector]
     public PlayerLocomotionManager playerLocomotionManager;
-    [HideInInspector]
+    [HideInInspector]   
     public PlayerActions playerActions;
     [HideInInspector]
     public SwayAndBop playerSwayAndBop;

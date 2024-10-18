@@ -1,5 +1,3 @@
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 
 public class PlayerLocomotionManager : MonoBehaviour
@@ -9,26 +7,48 @@ public class PlayerLocomotionManager : MonoBehaviour
     
     [Header("Speed variables")]
     float currentSpeed;
-    [SerializeField] float runSpeed = 4f;
+    [SerializeField] float runSpeed = 4f;   //Reminder; Unity priorotises values in inspector over code. (Get's me everytime)
     [SerializeField] float sprintSpeed = 6f;
+
+    PlayerManager playerManager;
+
+    public bool isSprinting { get; private set; } = false;
 
     private void Start()
     {
+        playerManager = GetComponent<PlayerManager>();
+
         characterController = GetComponent<CharacterController>();
 
         currentSpeed = runSpeed;
     }
 
-    public void HandleAllMovement()
+    public void HandleAllMovement()     //Called in player manager
     {
+        HandleSprintInput();
         HandleGroundMovement();
         HandlePlayerRotation();
+    }
+
+    void HandleSprintInput()
+    {
+        bool sprintInput = PlayerInputManager.instance.sprintInput;
+
+        playerManager.playerAnimator.SetBool("Sprinting", sprintInput);
+        currentSpeed = sprintInput ? sprintSpeed : runSpeed;
+
+
+        /*
+         * TODO:
+         * Prevent the player from being able to shoot while sprinting
+         * Make the player cancel a reload animation when they choose to sprint
+        */
     }
 
     void HandleGroundMovement()
     {
         Vector2 moveInput = PlayerInputManager.instance.movementInput;
-
+        
         //yeyeye i know back and forward should be z but it's y cause we passing vector2s around so second value is y not z
         //get over it
 
