@@ -27,7 +27,10 @@ public class PlayerActions : MonoBehaviour
     {
         if (gunSelector.activeGun == null) return;
 
-        gunSelector.activeGun.Tick(PlayerInputManager.instance.leftClick, isReloading);
+        bool shootInput = PlayerInputManager.instance.leftClick;
+        bool canShoot = !isReloading && !playerManager.playerLocomotionManager.isSprinting;
+
+        gunSelector.activeGun.Tick(shootInput, canShoot);
 
         if (gunSelector.activeGun.ammoConfig.currentClipAmmo <= 0 && CanReload())
         {

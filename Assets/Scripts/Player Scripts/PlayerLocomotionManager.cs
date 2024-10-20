@@ -33,10 +33,13 @@ public class PlayerLocomotionManager : MonoBehaviour
     void HandleSprintInput()
     {
         bool sprintInput = PlayerInputManager.instance.sprintInput;
+        bool canSprint = !playerManager.playerActions.isReloading;
 
-        playerManager.playerAnimator.SetBool("Sprinting", sprintInput);
-        currentSpeed = sprintInput ? sprintSpeed : runSpeed;
+        isSprinting = sprintInput && canSprint;
 
+        currentSpeed = isSprinting ? sprintSpeed : runSpeed;
+
+        playerManager.playerAnimator.SetBool("Sprinting", isSprinting);
 
         /*
          * TODO:

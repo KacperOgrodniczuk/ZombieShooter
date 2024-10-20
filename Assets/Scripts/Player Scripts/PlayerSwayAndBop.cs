@@ -31,9 +31,9 @@ public class SwayAndBop : MonoBehaviour
 
     [Header("Bobbing Variable")]
     public Vector3 travelLimit = Vector3.one * 0.025f; //The maximum limits of travel from move input
-    public Vector3 bopLimit = Vector3.one * 0.05f; //the limits of travel from bopping over time.
+    public Vector3 bopLimit = Vector3.one * 0.01f; //the limits of travel from bopping over time.
 
-    public Vector3 bopMultiplier = Vector3.one;
+    // Currently no multiplier but can introduce one if I need the level of bop to vary e.g. after sprinting  when the character is breating heavier.
 
     float speedCurveMultiplier = 2f;
     float speedCurve;
@@ -98,9 +98,6 @@ public class SwayAndBop : MonoBehaviour
         bopPosition.y = (curveSin * bopLimit.y) - (characterController.velocity.y * travelLimit.y);
         bopPosition.z = -(movementInput.y * travelLimit.z);
 
-        bobEulerRotation.x = (movementInput != Vector2.zero ? bopMultiplier.x * Mathf.Sin(2 * speedCurve) : bopMultiplier.x * Mathf.Sin(2 * speedCurve) / 2);
-        bobEulerRotation.y = (movementInput != Vector2.zero ? bopMultiplier.y * curveCos : 0);
-        bobEulerRotation.z = (movementInput != Vector2.zero ? bopMultiplier.z * curveCos * movementInput.x : 0);
     }
 
     void ApplySwayAndBop()

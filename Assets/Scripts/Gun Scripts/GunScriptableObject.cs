@@ -51,11 +51,11 @@ public class GunScriptableObject : ScriptableObject
         return model;
     }
 
-    public void Tick(bool wantsToShoot, bool isReloading)
+    public void Tick(bool wantsToShoot, bool canShoot)
     {
         if (wantsToShoot)
         {
-            if (ammoConfig.currentClipAmmo > 0 && !isReloading)
+            if (ammoConfig.currentClipAmmo > 0 && canShoot)
             {
                 Shoot();
             }
