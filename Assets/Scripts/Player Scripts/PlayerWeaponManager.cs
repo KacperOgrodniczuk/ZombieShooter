@@ -12,7 +12,7 @@ public class PlayerWeaponManager : MonoBehaviour
     [SerializeField]
     private List<GunScriptableObject> guns;
     [SerializeField]
-    private UIManager uiManager;
+    UIManager uiManager;
 
     [Space]
     [Header("Runtime Filled")]

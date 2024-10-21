@@ -4,9 +4,21 @@ using UnityEngine;
 public class UIManager : MonoBehaviour
 {
     [SerializeField]
-     TMP_Text ammoText;
+    TMP_Text ammoText;
+    [SerializeField]
+    TMP_Text survivalPointsText;
 
     AmmoConfigScriptableObject lastAmmoSubscribedTo;
+
+    public void SubscribeToSurvivalPointsEvents(PlayerSurvivalPointsManager survivalPointsManager)
+    {
+        
+    }
+
+    void UpdateSurvivalPointUI(int currentSurvivalPoints)
+    { 
+        survivalPointsText.text = currentSurvivalPoints.ToString();
+    }
 
     public void SubscribeToAmmoEvents(AmmoConfigScriptableObject ammoScriptableObject)
     {

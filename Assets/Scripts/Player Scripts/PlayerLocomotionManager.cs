@@ -3,14 +3,22 @@ using UnityEngine;
 public class PlayerLocomotionManager : MonoBehaviour
 {
     CharacterController characterController;
-    [SerializeField] Transform playerArms;   //Player arms transform ussed purely to manipulate the pivot.
+    [SerializeField] Transform playerArms;   // Player arms transform ussed purely to manipulate the pivot.
     
     [Header("Speed variables")]
     float currentSpeed;
-    [SerializeField] float runSpeed = 4f;   //Reminder; Unity priorotises values in inspector over code. (Get's me everytime)
+    [SerializeField] float runSpeed = 4f;   // Reminder; Unity priorotises values in inspector over code. (Get's me everytime)
     [SerializeField] float sprintSpeed = 6f;
 
+    [SerializeField] float maxStamina = 10f;
+    float currentStamina;
+    float staminaThreshold = 2f;    // Minimum stamina required to be able to sprint.
+    float staminaRecoveryDelay = 2f;
+    float regenTimer = 0f;
+
     PlayerManager playerManager;
+
+    Vector2 moveInput;
 
     public bool isSprinting { get; private set; } = false;
 
@@ -21,36 +29,64 @@ public class PlayerLocomotionManager : MonoBehaviour
         characterController = GetComponent<CharacterController>();
 
         currentSpeed = runSpeed;
+        currentStamina = maxStamina;
     }
 
     public void HandleAllMovement()     //Called in player manager
     {
-        HandleSprintInput();
+        GetMovementInput();
         HandleGroundMovement();
         HandlePlayerRotation();
     }
 
-    void HandleSprintInput()
+    void HandleSprintMovement()
     {
         bool sprintInput = PlayerInputManager.instance.sprintInput;
-        bool canSprint = !playerManager.playerActions.isReloading;
+        bool canSprint = !playerManager.playerActions.isReloading && currentStamina > staminaThreshold && moveInput.y > 0.5f;
 
-        isSprinting = sprintInput && canSprint;
+        if (isSprinting)
+        {
+            currentSpeed = sprintSpeed;
+            currentStamina -= Time.deltaTime;
 
-        currentSpeed = isSprinting ? sprintSpeed : runSpeed;
+            if (!sprintInput || currentStamina <= 0f || moveInput.y < 0.5f)
+            { 
+                isSprinting = false;
+                regenTimer = staminaRecoveryDelay;    //Reset the regen timer when we stop sprinting
+            }
+        }
+        else if (!isSprinting)
+        {
+            isSprinting = sprintInput && canSprint;
+
+            currentSpeed = runSpeed;
+
+            if(regenTimer >= 0f)
+                regenTimer -= Time.deltaTime;
+
+            if (regenTimer <= 0f)
+            {
+                if (currentStamina < maxStamina)
+                    currentStamina += Time.deltaTime;
+            }
+        }
 
         playerManager.playerAnimator.SetBool("Sprinting", isSprinting);
 
         /*
          * TODO:
-         * Prevent the player from being able to shoot while sprinting
          * Make the player cancel a reload animation when they choose to sprint
         */
     }
 
+    void GetMovementInput()
+    {
+        moveInput = PlayerInputManager.instance.movementInput;
+    }
+
     void HandleGroundMovement()
     {
-        Vector2 moveInput = PlayerInputManager.instance.movementInput;
+        HandleSprintMovement();
         
         //yeyeye i know back and forward should be z but it's y cause we passing vector2s around so second value is y not z
         //get over it
