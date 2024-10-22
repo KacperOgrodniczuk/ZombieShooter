@@ -42,7 +42,7 @@ public class PlayerLocomotionManager : MonoBehaviour
     void HandleSprintMovement()
     {
         bool sprintInput = PlayerInputManager.instance.sprintInput;
-        bool canSprint = !playerManager.playerActions.isReloading && currentStamina > staminaThreshold && moveInput.y > 0.5f;
+        bool canSprint = !playerManager.PlayerActions.isReloading && currentStamina > staminaThreshold && moveInput.y > 0.5f;
 
         if (isSprinting)
         {
@@ -71,7 +71,7 @@ public class PlayerLocomotionManager : MonoBehaviour
             }
         }
 
-        playerManager.playerAnimator.SetBool("Sprinting", isSprinting);
+        playerManager.PlayerAnimator.SetBool("Sprinting", isSprinting);
 
         /*
          * TODO:

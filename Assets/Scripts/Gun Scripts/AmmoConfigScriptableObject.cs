@@ -36,7 +36,7 @@ public class AmmoConfigScriptableObject : ScriptableObject
         //take away from ammo stockpile
         currentStockpileAmmo -= reloadAmount;
 
-        OnAmmoChange?.Invoke(currentClipAmmo, currentStockpileAmmo);
+        TriggerOnAmmoChangeEvent();
     }
 
     /// <summary>

@@ -28,10 +28,12 @@ public class GunScriptableObject : ScriptableObject
     private Vector3 targetPosition;
     private Quaternion originalRotation;
     private Quaternion targetRotation;
+    private PlayerManager playerManager;
 
     public GameObject Spawn(Transform parent, MonoBehaviour activeMonoBehaviour)
     {
         this.activeMonoBehaviour = activeMonoBehaviour;
+        playerManager = this.activeMonoBehaviour.GetComponent<PlayerManager>();
         lastShootTime = 0;
         trailPool = new ObjectPool<TrailRenderer>(CreateTrail);
 

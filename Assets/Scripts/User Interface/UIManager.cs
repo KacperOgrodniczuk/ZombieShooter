@@ -8,11 +8,21 @@ public class UIManager : MonoBehaviour
     [SerializeField]
     TMP_Text survivalPointsText;
 
+    // Fields to keep track of scripts subscribed to.
+    PlayerSurvivalPointsManager survivalPointsManager;
     AmmoConfigScriptableObject lastAmmoSubscribedTo;
 
     public void SubscribeToSurvivalPointsEvents(PlayerSurvivalPointsManager survivalPointsManager)
     {
-        
+        if (survivalPointsManager == null)
+        {
+            Debug.LogWarning("Attempting to subscribe to a null AmmoConfigScriptableObject");
+            return;
+        }
+
+        survivalPointsManager.OnSurvivalPointsChange += UpdateSurvivalPointUI;
+        survivalPointsManager.TriggerOnSurvivalPointsChange();
+        this.survivalPointsManager = survivalPointsManager;
     }
 
     void UpdateSurvivalPointUI(int currentSurvivalPoints)
@@ -22,7 +32,12 @@ public class UIManager : MonoBehaviour
 
     public void SubscribeToAmmoEvents(AmmoConfigScriptableObject ammoScriptableObject)
     {
-        if (lastAmmoSubscribedTo != null) {
+        if (ammoScriptableObject == null) {
+            Debug.LogWarning("Attempting to subscribe to a null AmmoConfigScriptableObject");
+            return;
+        }
+
+        if(lastAmmoSubscribedTo != null) {
             lastAmmoSubscribedTo.OnAmmoChange -= UpdateAmmoUI;
         }
 
@@ -31,9 +46,22 @@ public class UIManager : MonoBehaviour
         lastAmmoSubscribedTo = ammoScriptableObject;
     }
 
-    void UpdateAmmoUI(int currentClipAmmo, int currentStockpileAmmo) {
+    void UpdateAmmoUI(int currentClipAmmo, int currentStockpileAmmo) 
+    {
         //Code to update ammo on the UI
-        ammoText.text = currentClipAmmo.ToString() + " / " + currentStockpileAmmo.ToString();
+        ammoText.text = $"{currentClipAmmo} / {currentStockpileAmmo}";
     }
 
+    private void OnDestroy()
+    {
+        if (lastAmmoSubscribedTo != null)
+        {
+            lastAmmoSubscribedTo.OnAmmoChange -= UpdateAmmoUI;
+        }
+
+        if (survivalPointsManager != null)
+        {
+            survivalPointsManager.OnSurvivalPointsChange -= UpdateSurvivalPointUI;
+        }
+    }
 }

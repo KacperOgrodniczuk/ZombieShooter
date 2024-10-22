@@ -1,3 +1,4 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
@@ -11,8 +12,8 @@ public class PlayerWeaponManager : MonoBehaviour
     private Transform gunHolder;
     [SerializeField]
     private List<GunScriptableObject> guns;
-    [SerializeField]
-    UIManager uiManager;
+
+    PlayerManager playerManager;
 
     [Space]
     [Header("Runtime Filled")]
@@ -20,6 +21,8 @@ public class PlayerWeaponManager : MonoBehaviour
 
     private void Start()
     {
+        playerManager = GetComponent<PlayerManager>();
+
         GunScriptableObject gun = guns.Find(gun => gun.type == gunType);
         
         if ( gun == null)
@@ -31,7 +34,8 @@ public class PlayerWeaponManager : MonoBehaviour
         activeGun = gun;
         PlayerCameraManager.instance.CurrentGunData(activeGun);
         GameObject spawnedGun = gun.Spawn(gunHolder, this);
+        spawnedGun.name = spawnedGun.name.Replace("(Clone)", "").Trim();    // Clean up the name cause animations don't work otherwise.
 
-        uiManager.SubscribeToAmmoEvents(activeGun.ammoConfig);
+        playerManager.UIManager.SubscribeToAmmoEvents(activeGun.ammoConfig);
     }
 }

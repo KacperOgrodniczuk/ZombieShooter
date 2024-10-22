@@ -1,32 +1,32 @@
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 
+// A manager class for the player, with easy access to any relevant references.
 public class PlayerManager : MonoBehaviour
 {
-    public Animator playerAnimator { get; private set; }
-    
-    [HideInInspector]
-    public PlayerLocomotionManager playerLocomotionManager;
-    [HideInInspector]   
-    public PlayerActions playerActions;
-    [HideInInspector]
-    public SwayAndBop playerSwayAndBop;
-    
+    public Animator PlayerAnimator { get; private set; }
+    public PlayerLocomotionManager PlayerLocomotionManager { get; private set; }
+    public PlayerActions PlayerActions { get; private set; }
+    public SwayAndBop PlayerSwayAndBop { get; private set; }
+    public PlayerSurvivalPointsManager PlayerSurvivalPointsManager { get; private set; }
+
+    [SerializeField]
+    private UIManager _UIManager;
+    public UIManager UIManager { get => _UIManager; private set => _UIManager = value; }
 
     private void Awake()
     {
-        playerLocomotionManager = GetComponent<PlayerLocomotionManager>();
-        playerSwayAndBop = GetComponent<SwayAndBop>();
-        playerActions = GetComponent<PlayerActions>();
-        playerAnimator = GetComponentInChildren<Animator>();
+        PlayerLocomotionManager = GetComponent<PlayerLocomotionManager>();
+        PlayerSwayAndBop = GetComponent<SwayAndBop>();
+        PlayerActions = GetComponent<PlayerActions>();
+        PlayerAnimator = GetComponentInChildren<Animator>();
+        PlayerSurvivalPointsManager = GetComponent<PlayerSurvivalPointsManager>();
     }
 
     private void Update()
     {
-        playerLocomotionManager.HandleAllMovement();
-        playerActions.HandleAllActionInput();
-        playerSwayAndBop.HandleAllSwayAndBop();
+        PlayerLocomotionManager.HandleAllMovement();
+        PlayerActions.HandleAllActionInput();
+        PlayerSwayAndBop.HandleAllSwayAndBop();
     }
 
 

@@ -1,17 +1,14 @@
 using UnityEngine;
 
-public class CommonHealth : MonoBehaviour, IDamageable
+public class PlayerHealthManager : MonoBehaviour, IDamageable
 {
+    // TODO: 
+    // Add health regen after not being hit for a few seconds
+
     [SerializeField]
     private int _maxHealth = 100;
     [SerializeField]
     private int _currentHealth;
-    [Header("Survival Points")]
-    [SerializeField]
-    private int damagePoints = 10;
-    [SerializeField]
-    private int killPoints = 100;
-
     public int MaxHealth { get => _maxHealth; private set => _maxHealth = value; }
     public int CurrentHealth { get => _currentHealth; private set => _currentHealth = value; }
 
@@ -23,7 +20,7 @@ public class CommonHealth : MonoBehaviour, IDamageable
         CurrentHealth -= damage;
 
         OnTakeDamage?.Invoke();
-        
+
         if (CurrentHealth <= 0) OnDeath?.Invoke();
     }
 
@@ -35,14 +32,14 @@ public class CommonHealth : MonoBehaviour, IDamageable
         Destroy(gameObject);
     }
 
-    void OnEnable() 
+    void OnEnable()
     {
         CurrentHealth = MaxHealth;
         OnDeath += Die;     //will need deleting/ammending as outlined above Die function
     }
 
     void OnDisable()
-    { 
+    {
         OnDeath -= Die;     //will need deleting/ammending as outlined above Die function
     }
 }

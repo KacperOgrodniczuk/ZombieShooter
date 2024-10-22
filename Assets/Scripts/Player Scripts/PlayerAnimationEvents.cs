@@ -13,6 +13,6 @@ public class PlayerAnimationEvents : MonoBehaviour
 
     public void EndReload()
     { 
-        playerManager.playerActions.EndReload();
+        playerManager.PlayerActions.EndReload();
     }
 }

@@ -28,7 +28,7 @@ public class PlayerActions : MonoBehaviour
         if (gunSelector.activeGun == null) return;
 
         bool shootInput = PlayerInputManager.instance.leftClick;
-        bool canShoot = !isReloading && !playerManager.playerLocomotionManager.isSprinting;
+        bool canShoot = !isReloading && !playerManager.PlayerLocomotionManager.isSprinting;
 
         gunSelector.activeGun.Tick(shootInput, canShoot);
 
@@ -54,7 +54,7 @@ public class PlayerActions : MonoBehaviour
     void Reload() 
     { 
         isReloading = true;
-        playerManager.playerAnimator.SetTrigger("Reload");
+        playerManager.PlayerAnimator.SetTrigger("Reload");
     }
 
     public void EndReload()
