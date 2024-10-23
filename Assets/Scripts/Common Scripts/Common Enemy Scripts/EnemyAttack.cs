@@ -22,7 +22,7 @@ public class EnemyAttack : MonoBehaviour
         {
             if (alreadyHit.Contains(collider)) return;
 
-            collider.GetComponent<IDamageable>()?.TakeDamage(damage);
+            collider.GetComponent<PlayerHealthManager>()?.TakeDamage(damage);
             alreadyHit.Add(collider);
         }
     }

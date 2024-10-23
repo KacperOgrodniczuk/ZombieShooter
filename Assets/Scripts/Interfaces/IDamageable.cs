@@ -9,5 +9,5 @@ public interface IDamageable
     public delegate void DeathEvent();
     public event DeathEvent OnDeath;
 
-    public void TakeDamage(int damage);
+    public void TakeDamage(int damage, PlayerSurvivalPointsManager playerSurvivalPointsManager);
 }

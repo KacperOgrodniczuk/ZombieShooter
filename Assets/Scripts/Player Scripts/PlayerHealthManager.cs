@@ -15,13 +15,13 @@ public class PlayerHealthManager : MonoBehaviour, IDamageable
     public event IDamageable.TakeDamageEvent OnTakeDamage;
     public event IDamageable.DeathEvent OnDeath;
 
-    public void TakeDamage(int damage)
+    public void TakeDamage(int damage, PlayerSurvivalPointsManager playerSurvivalPointsManager = null)
     {
         CurrentHealth -= damage;
 
         OnTakeDamage?.Invoke();
 
-        if (CurrentHealth <= 0) OnDeath?.Invoke();
+        if (CurrentHealth <= 0) Die();
     }
 
     //Temporary function,
@@ -29,17 +29,16 @@ public class PlayerHealthManager : MonoBehaviour, IDamageable
     //and wave spawner with enemies stored in an object pool is implemented.
     void Die()
     {
+        OnDeath?.Invoke();
         Destroy(gameObject);
     }
 
     void OnEnable()
     {
         CurrentHealth = MaxHealth;
-        OnDeath += Die;     //will need deleting/ammending as outlined above Die function
     }
 
     void OnDisable()
     {
-        OnDeath -= Die;     //will need deleting/ammending as outlined above Die function
     }
 }

@@ -88,7 +88,7 @@ public class GunScriptableObject : ScriptableObject
             {
                 activeMonoBehaviour.StartCoroutine(PlayTrail(shootSystem.transform.position, hit.point, hit));
 
-                hit.collider.GetComponentInParent<IDamageable>()?.TakeDamage(shootConfig.damage);
+                hit.collider.GetComponentInParent<IDamageable>()?.TakeDamage(shootConfig.damage, playerManager.PlayerSurvivalPointsManager);
             }
             else
             {
