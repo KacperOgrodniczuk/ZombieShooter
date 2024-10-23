@@ -39,8 +39,8 @@ public class WaveSpawner : MonoBehaviour
 
         for (int i = 0; i < enemyCount; i++)
         {
-            SpawnEnemy();
             yield return new WaitForSeconds(spawnInterval);
+            SpawnEnemy();
         }
 
         waveSpawning = false;
@@ -57,14 +57,15 @@ public class WaveSpawner : MonoBehaviour
         enemiesAlive++;
     }
 
-    void OnEnemyDeath()
+    void OnEnemyDeath(IDamageable damageable)
     {
         enemiesAlive--;
+
+        damageable.OnDeath -= OnEnemyDeath;
 
         if (enemiesAlive == 0 && !waveSpawning)
         {
             currentWaveIndex++;
-
             StartCoroutine(SpawnWave(currentWaveIndex));
         }
     }

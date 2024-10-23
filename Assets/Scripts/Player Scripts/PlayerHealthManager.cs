@@ -1,6 +1,6 @@
 using UnityEngine;
 
-public class PlayerHealthManager : MonoBehaviour, IDamageable
+public class PlayerHealthManager : MonoBehaviour
 {
     // TODO: 
     // Add health regen after not being hit for a few seconds
@@ -12,14 +12,9 @@ public class PlayerHealthManager : MonoBehaviour, IDamageable
     public int MaxHealth { get => _maxHealth; private set => _maxHealth = value; }
     public int CurrentHealth { get => _currentHealth; private set => _currentHealth = value; }
 
-    public event IDamageable.TakeDamageEvent OnTakeDamage;
-    public event IDamageable.DeathEvent OnDeath;
-
     public void TakeDamage(int damage, PlayerSurvivalPointsManager playerSurvivalPointsManager = null)
     {
         CurrentHealth -= damage;
-
-        OnTakeDamage?.Invoke();
 
         if (CurrentHealth <= 0) Die();
     }
@@ -29,7 +24,6 @@ public class PlayerHealthManager : MonoBehaviour, IDamageable
     //and wave spawner with enemies stored in an object pool is implemented.
     void Die()
     {
-        OnDeath?.Invoke();
         Destroy(gameObject);
     }
 

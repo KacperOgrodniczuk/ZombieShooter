@@ -14,7 +14,7 @@ TagManager:
   - ArmsAndWeapons
   - Player
   - Enemy
-  - Head
+  - EnemyWeakPoint
   - 
   - 
   - 

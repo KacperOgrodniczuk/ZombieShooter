@@ -1,13 +1,14 @@
+
 public interface IDamageable 
 {
-    public int MaxHealth { get;}
-    public int CurrentHealth { get;}
+    int MaxHealth { get;}
+    int CurrentHealth { get;}
 
-    public delegate void TakeDamageEvent();
-    public event TakeDamageEvent OnTakeDamage;
+    delegate void TakeDamageEvent();
+    event TakeDamageEvent OnTakeDamage;
 
-    public delegate void DeathEvent();
-    public event DeathEvent OnDeath;
+    delegate void DeathEvent(IDamageable damageable);
+    event DeathEvent OnDeath;
 
-    public void TakeDamage(int damage, PlayerSurvivalPointsManager playerSurvivalPointsManager);
+    void TakeDamage(int damage, PlayerSurvivalPointsManager playerSurvivalPointsManager = null);
 }

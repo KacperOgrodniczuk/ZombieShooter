@@ -88,7 +88,14 @@ public class GunScriptableObject : ScriptableObject
             {
                 activeMonoBehaviour.StartCoroutine(PlayTrail(shootSystem.transform.position, hit.point, hit));
 
-                hit.collider.GetComponentInParent<IDamageable>()?.TakeDamage(shootConfig.damage, playerManager.PlayerSurvivalPointsManager);
+                if (hit.collider.gameObject.layer == LayerMask.NameToLayer("EnemyWeakPoint"))
+                { 
+                    hit.collider.GetComponentInParent<IDamageable>()?.TakeDamage(Mathf.RoundToInt(shootConfig.damage * shootConfig.weakPointDamageMultiplier), playerManager.PlayerSurvivalPointsManager);
+                }
+                else if (hit.collider.gameObject.layer == LayerMask.NameToLayer("Enemy"))
+                {
+                    hit.collider.GetComponentInParent<IDamageable>()?.TakeDamage(shootConfig.damage, playerManager.PlayerSurvivalPointsManager);
+                }
             }
             else
             {

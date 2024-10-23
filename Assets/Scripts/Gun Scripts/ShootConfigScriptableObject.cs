@@ -6,6 +6,7 @@ public class ShootConfigScriptableObject : ScriptableObject
     public LayerMask HitMask;
     [Tooltip("The angle of the spread on X and Y respectively.")]
     public int damage = 10;
+    public float weakPointDamageMultiplier = 5f;
     public float fireRate = 0.25f;
     public float recoilRecoveryTime = 1f;
     public float maxRecoilTime = 0.5f;
