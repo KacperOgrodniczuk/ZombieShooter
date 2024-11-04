@@ -20,6 +20,7 @@ public class EnemyManager : MonoBehaviour
     public Transform Player { get; private set; }
     public NavMeshAgent Agent { get; private set; }
     public Animator Animator { get; private set; }
+    public IDamageable damageable { get; private set; }
 
     //State management
     EnemyState currentState;
@@ -31,6 +32,7 @@ public class EnemyManager : MonoBehaviour
     //To be implemented
     //public EnemyDieState dieState = new CommonDieState();
 
+
     [Header("Flags")]
     public bool isPerformingAction = false;
 
@@ -40,9 +42,10 @@ public class EnemyManager : MonoBehaviour
         AttackState = new EnemyAttackState(this);
         spawnState = new EnemySpawnState(this);
 
+        Player = GameObject.FindWithTag("Player").transform;
         Agent = GetComponent<NavMeshAgent>();
         Animator = GetComponent<Animator>();
-        Player = GameObject.FindWithTag("Player").transform;
+        damageable = GetComponent<IDamageable>();
 
         Agent.updatePosition = false;
         Animator.applyRootMotion = true;

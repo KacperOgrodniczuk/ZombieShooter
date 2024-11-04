@@ -4,7 +4,11 @@ public class EnemyChaseState : EnemyState
 {
     public override EnemyManager enemy { get; protected set; }
 
-    public ChaseSpeed chaseSpeed { get; protected set; }
+    public float speed { get; protected set; }
+
+    //TODO need to implement a function that switches the animation from walking to running (and later on to sprinting) based on speed.
+    // e.g. if the speed it 1 set animation to walking, if 1.15 set the animation to walking and the animation speed to 1.15
+    // and if above certain threshold change animation to running and adjust animation speed.
 
     public EnemyChaseState(EnemyManager enemy)
     { 
@@ -42,13 +46,6 @@ public class EnemyChaseState : EnemyState
     public float DistanceFromPlayer()
     {
         return Vector3.Distance(enemy.transform.position, enemy.Player.position);
-    }
-
-    // enum used for animations, 
-    public enum ChaseSpeed
-    {
-        Walk,
-        Run
     }
 
     //This will need adding so that zombies don't attack the player when not facing their direction.

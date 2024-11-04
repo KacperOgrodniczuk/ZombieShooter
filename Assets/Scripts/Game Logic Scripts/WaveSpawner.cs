@@ -11,7 +11,9 @@ public class WaveSpawner : MonoBehaviour
 
     [Header("Difficulty Scaling")]
     float enemyCountScaling = 3f;       //How many enemies to spawn in per wave.
-    float enemySpeedScaling;
+    float enemySpeedScaling = 1;
+    float maxEnemySpeed = 2f;
+    float curentEnemySpeed = 1f;
     float enemySpawnTimeScaling = 1.1f;
     float enemyDamageScaling;
 
@@ -53,6 +55,9 @@ public class WaveSpawner : MonoBehaviour
     {
         Transform spawnPoint = spawnPoints[Random.Range(0, spawnPoints.Length)];
         GameObject spawnedEnemy = Instantiate(enemyPrefab, spawnPoint.position, spawnPoint.rotation);
+
+        EnemyManager enemyManager = spawnedEnemy.GetComponent<EnemyManager>();
+
 
         IDamageable damageable = spawnedEnemy.GetComponent<IDamageable>();          // For now this works but I need to adapt it to use objectPools in the future.
         damageable.OnDeath += OnEnemyDeath;                                         // I will also need to grab the enemy manager script and access the reference to IDamageable
