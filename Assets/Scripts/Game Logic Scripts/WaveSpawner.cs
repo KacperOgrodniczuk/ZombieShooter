@@ -7,17 +7,15 @@ public class WaveSpawner : MonoBehaviour
     public GameObject enemyPrefab;
 
     [Header("Base Wave Settings")]
-    int startingEnemyCount = 3;
     float startSpawnInterval = 10f;
 
     [Header("Difficulty Scaling")]
-    float enemyCountScaling = 3f;
+    float enemyCountScaling = 3f;       //How many enemies to spawn in per wave.
     float enemySpeedScaling;
     float enemySpawnTimeScaling = 1.1f;
     float enemyDamageScaling;
 
     //TODO:
-    // Implement the zombie count increasing overtime.
     // Implement the zombies speeding up over time.
     // Implement the zombie damage scaling overtime.
 
@@ -77,7 +75,7 @@ public class WaveSpawner : MonoBehaviour
 
     int CalculateEnemyCount(int waveIndex)
     {
-        return Mathf.CeilToInt(startingEnemyCount * enemyCountScaling * waveIndex);
+        return Mathf.CeilToInt(enemyCountScaling * waveIndex);
     }
 
     float CalculateSpawnInterval(int waveIndex)

@@ -4,6 +4,8 @@ public class EnemyChaseState : EnemyState
 {
     public override EnemyManager enemy { get; protected set; }
 
+    public ChaseSpeed chaseSpeed { get; protected set; }
+
     public EnemyChaseState(EnemyManager enemy)
     { 
         this.enemy = enemy;
@@ -40,6 +42,13 @@ public class EnemyChaseState : EnemyState
     public float DistanceFromPlayer()
     {
         return Vector3.Distance(enemy.transform.position, enemy.Player.position);
+    }
+
+    // enum used for animations, 
+    public enum ChaseSpeed
+    {
+        Walk,
+        Run
     }
 
     //This will need adding so that zombies don't attack the player when not facing their direction.
