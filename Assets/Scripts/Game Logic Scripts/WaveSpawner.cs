@@ -11,11 +11,9 @@ public class WaveSpawner : MonoBehaviour
 
     [Header("Difficulty Scaling")]
     float enemyCountScaling = 3f;       //How many enemies to spawn in per wave.
-    float enemySpeedScaling = 1;
-    float maxEnemySpeed = 2f;
-    float curentEnemySpeed = 1f;
     float enemySpawnTimeScaling = 1.1f;
-    float enemyDamageScaling;
+    int maxEnemiesAllowedAliveIncrease = 1;
+
 
     //TODO:
     // Implement the zombies speeding up over time.
@@ -23,7 +21,7 @@ public class WaveSpawner : MonoBehaviour
 
     int currentWaveIndex = 1;
     int enemiesAlive = 0;
-    int maxEnemiesAlive = 30;
+    int maxEnemiesAllowedAlive = 3;
     int waveStartDelay = 10;    // The wave delay is the same for every wave
 
     bool waveSpawning = false;
@@ -44,11 +42,15 @@ public class WaveSpawner : MonoBehaviour
 
         for (int i = 0; i < enemyCount; i++)
         {
+            // Wait until there's space for more enemies
+            yield return new WaitUntil(() => enemiesAlive < maxEnemiesAllowedAlive);
+
             yield return new WaitForSeconds(spawnInterval);
             SpawnEnemy();
         }
 
         waveSpawning = false;
+        maxEnemiesAllowedAlive += maxEnemiesAllowedAliveIncrease;
     }
 
     void SpawnEnemy()
