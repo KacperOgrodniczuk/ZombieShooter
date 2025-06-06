@@ -3,7 +3,6 @@ using UnityEngine;
 public class PlayerLocomotionManager : MonoBehaviour
 {
     CharacterController characterController;
-    [SerializeField] Transform playerArms;   // Player arms transform ussed purely to manipulate the pivot.
     
     [Header("Speed variables")]
     float currentSpeed;
@@ -36,7 +35,6 @@ public class PlayerLocomotionManager : MonoBehaviour
     {
         GetMovementInput();
         HandleGroundMovement();
-        HandlePlayerRotation();
     }
 
     void HandleSprintMovement()
@@ -95,18 +93,5 @@ public class PlayerLocomotionManager : MonoBehaviour
         moveDirection = Vector3.Normalize(moveDirection);
 
         characterController.Move((moveDirection * currentSpeed) * Time.deltaTime);
-    }
-
-    void HandlePlayerRotation()
-    {
-        //Note how this is only getting the camera's holder rotation, meaning it is only taking the 
-        //rotation of Y into consideration.
-        Quaternion cameraHolderRotation = PlayerCameraManager.instance.transform.rotation;
-        transform.rotation = cameraHolderRotation;
-
-        //This is taking in the pivot point rotation and is used on the arms mesh alone,
-        //rather than the whole player object.
-        Quaternion cameraPivotRotation = PlayerCameraManager.instance.cameraPivotTransform.rotation;
-        playerArms.rotation = cameraPivotRotation;
     }
 }

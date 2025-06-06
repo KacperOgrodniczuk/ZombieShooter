@@ -30,11 +30,11 @@ public class SwayAndBop : MonoBehaviour
     public Vector3 bopLimit = Vector3.one * 0.01f; //the limits of travel from bopping over time.
 
     // Currently no multiplier but can introduce one if I need the level of bop to vary e.g. after sprinting  when the character is breating heavier.
-
-    float speedCurveMultiplier = 2f;
+    [Header("Curve Settings")]
     float speedCurve;
     float curveSin { get => Mathf.Sin(speedCurve); }
     float curveCos { get => Mathf.Cos(speedCurve); }
+    public float speedCurveMultiplier = 2f;
 
     Vector3 bopPosition;
     Vector3 bobEulerRotation;

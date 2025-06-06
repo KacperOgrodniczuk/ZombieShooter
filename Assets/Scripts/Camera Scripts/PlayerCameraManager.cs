@@ -34,13 +34,14 @@ public class PlayerCameraManager : MonoBehaviour
         Cursor.lockState = CursorLockMode.Locked;
         Cursor.visible = false;
 
+        if(cameraRecoil != null)
         originalRecoilRotation = cameraRecoil.localRotation;
     }
 
     public void HandleAllCameraMovement() 
     {
         HandleCameraRotation();
-        HandleCameraRecoilRecovery();
+        //HandleCameraRecoilRecovery();
     }
 
     void HandleCameraRotation()
@@ -58,6 +59,8 @@ public class PlayerCameraManager : MonoBehaviour
         cameraRotation = Vector3.zero;
 
         cameraRotation.x = mouseY;
+        
+        if (cameraPivotTransform != null)
         cameraPivotTransform.localRotation = Quaternion.Euler(cameraRotation);
     }
 
