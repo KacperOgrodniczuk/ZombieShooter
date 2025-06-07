@@ -4,13 +4,9 @@ using UnityEngine;
 
 public class PlayerActions : MonoBehaviour
 {
-    [SerializeField]
-    private PlayerWeaponManager gunSelector;
-
     private PlayerManager playerManager;
 
     public bool isReloading { get; private set; } = false;
-    public float reloadSpeed = 1f;
 
     private void Awake()
     {
@@ -25,14 +21,14 @@ public class PlayerActions : MonoBehaviour
 
     void HandleLeftClick()
     {
-        if (gunSelector.activeGun == null) return;
+        if (playerManager.PlayerWeaponManager.activeGun == null) return;
 
         bool shootInput = PlayerInputManager.instance.leftClick;
         bool canShoot = !isReloading && !playerManager.PlayerLocomotionManager.isSprinting;
 
-        gunSelector.activeGun.Tick(shootInput, canShoot);
+        playerManager.PlayerWeaponManager.activeGun.Tick(shootInput, canShoot);
 
-        if (gunSelector.activeGun.ammoConfig.currentClipAmmo <= 0 && CanReload())
+        if (playerManager.PlayerWeaponManager.activeGun.ammoConfig.currentClipAmmo <= 0 && CanReload())
         {
             Reload();
         }
@@ -48,7 +44,7 @@ public class PlayerActions : MonoBehaviour
 
     bool CanReload()
     {
-        return !isReloading && gunSelector.activeGun.ammoConfig.CanReload();
+        return !isReloading && playerManager.PlayerWeaponManager.activeGun.ammoConfig.CanReload();
     }
 
     void Reload() 
@@ -59,7 +55,7 @@ public class PlayerActions : MonoBehaviour
 
     public void EndReload()
     {
-        gunSelector.activeGun.ammoConfig.UpdateAmmoAfterReload();
+        playerManager.PlayerWeaponManager.activeGun.ammoConfig.UpdateAmmoAfterReload();
         isReloading = false;
     }
 }

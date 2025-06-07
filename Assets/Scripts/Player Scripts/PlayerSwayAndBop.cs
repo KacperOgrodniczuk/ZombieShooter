@@ -6,7 +6,9 @@ public class SwayAndBop : MonoBehaviour
 
     [Header("Sway and Bop Target Object Transforms")]
     [SerializeField]
-    private Transform swayAndBopTransform;
+    private Transform swayAndBopArmsOnlyTransform;
+    [SerializeField]
+    private Transform swayAndBopWholeBodyTransform;
 
     [Header("Input Variables")]
     Vector2 movementInput;
@@ -39,7 +41,8 @@ public class SwayAndBop : MonoBehaviour
     Vector3 bopPosition;
     Vector3 bobEulerRotation;
 
-    public Vector3 offsetPosition;
+    public Vector3 armsOffsetPosition;
+    public Vector3 spineOffsetPosition;
 
     CharacterController characterController;
 
@@ -47,23 +50,18 @@ public class SwayAndBop : MonoBehaviour
     {
         characterController = GetComponent<CharacterController>();
 
-        offsetPosition = swayAndBopTransform.localPosition;
+        armsOffsetPosition = swayAndBopArmsOnlyTransform.localPosition;
+        spineOffsetPosition = swayAndBopWholeBodyTransform.localPosition;
     }
 
     public void HandleAllSwayAndBop()
     {
-        if (!enableSwayAndBop || swayAndBopTransform == null) return;        //we don't have a target therefore don't do anything
+        if (!enableSwayAndBop || swayAndBopArmsOnlyTransform == null || swayAndBopWholeBodyTransform == null) return;        //we don't have a target therefore don't do anything
 
         GetInput();
         Sway();
         Bop();
         ApplySwayAndBop();
-    }
-
-    public void SetSwayAndBopObject(Transform newSwayAndBopObject)
-    { 
-        swayAndBopTransform = newSwayAndBopObject;
-        offsetPosition = swayAndBopTransform.localPosition;
     }
 
     void GetInput() {
@@ -98,8 +96,11 @@ public class SwayAndBop : MonoBehaviour
 
     void ApplySwayAndBop()
     {
-        swayAndBopTransform.localPosition = Vector3.Lerp(swayAndBopTransform.localPosition, swayPos + bopPosition + offsetPosition, Time.deltaTime * smooth);
-        swayAndBopTransform.localRotation = Quaternion.Slerp(swayAndBopTransform.localRotation, Quaternion.Euler(swayEulerRot) * Quaternion.Euler(bobEulerRotation), Time.deltaTime * smoothRot);
+        swayAndBopArmsOnlyTransform.localPosition = Vector3.Lerp(swayAndBopArmsOnlyTransform.localPosition, swayPos + bopPosition + armsOffsetPosition, Time.deltaTime * smooth);
+        swayAndBopArmsOnlyTransform.localRotation = Quaternion.Slerp(swayAndBopArmsOnlyTransform.localRotation, Quaternion.Euler(swayEulerRot) * Quaternion.Euler(bobEulerRotation), Time.deltaTime * smoothRot);
+
+        swayAndBopWholeBodyTransform.localPosition = Vector3.Lerp(swayAndBopWholeBodyTransform.localPosition, swayPos + bopPosition + spineOffsetPosition, Time.deltaTime * smooth);
+        swayAndBopWholeBodyTransform.localRotation = Quaternion.Slerp(swayAndBopWholeBodyTransform.localRotation, Quaternion.Euler(swayEulerRot) * Quaternion.Euler(bobEulerRotation), Time.deltaTime * smoothRot);
     }
 
 

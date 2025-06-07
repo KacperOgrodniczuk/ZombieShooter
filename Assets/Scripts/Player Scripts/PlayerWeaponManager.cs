@@ -9,7 +9,9 @@ public class PlayerWeaponManager : MonoBehaviour
     [SerializeField]
     private GunType gunType;
     [SerializeField]
-    private Transform gunHolder;
+    private Transform gunHolderArms;
+    [SerializeField]
+    private Transform gunHolderWholeBody;
     [SerializeField]
     private List<GunScriptableObject> guns;
 
@@ -33,8 +35,22 @@ public class PlayerWeaponManager : MonoBehaviour
 
         activeGun = gun;
         PlayerCameraManager.instance.CurrentGunData(activeGun);
-        GameObject spawnedGun = gun.Spawn(gunHolder, this);
-        spawnedGun.name = spawnedGun.name.Replace("(Clone)", "").Trim();    // Clean up the name cause animations don't work otherwise.
+
+        //Spawn the gun in the whole body rig but only cast the shadow, do not render the gun.
+        GameObject spawnedWholeBodyGun = gun.Spawn(gunHolderWholeBody, this);
+        MeshRenderer[] renderers = spawnedWholeBodyGun.GetComponentsInChildren<MeshRenderer>();
+        foreach (MeshRenderer renderer in renderers)
+        {
+            renderer.shadowCastingMode = UnityEngine.Rendering.ShadowCastingMode.ShadowsOnly;
+        }
+
+        //Spawn the gun in fps arms rig and prevent it from casting shadows to avoid a weird gun floating shadow.
+        GameObject spawnedArmsOnlyGun = gun.Spawn(gunHolderArms, this);
+        renderers = spawnedArmsOnlyGun.GetComponentsInChildren<MeshRenderer>();
+        foreach (MeshRenderer renderer in renderers)
+        {
+            renderer.shadowCastingMode = UnityEngine.Rendering.ShadowCastingMode.Off;
+        }
 
         playerManager.UIManager.SubscribeToAmmoEvents(activeGun.ammoConfig);
     }

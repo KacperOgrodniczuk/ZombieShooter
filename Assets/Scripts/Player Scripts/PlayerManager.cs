@@ -8,6 +8,7 @@ public class PlayerManager : MonoBehaviour
     public PlayerActions PlayerActions { get; private set; }
     public SwayAndBop PlayerSwayAndBop { get; private set; }
     public PlayerSurvivalPointsManager PlayerSurvivalPointsManager { get; private set; }
+    public PlayerWeaponManager PlayerWeaponManager { get; private set; }
 
     [SerializeField]
     private UIManager _UIManager;
@@ -20,6 +21,7 @@ public class PlayerManager : MonoBehaviour
         PlayerActions = GetComponent<PlayerActions>();
         PlayerAnimator = GetComponentInChildren<Animator>();
         PlayerSurvivalPointsManager = GetComponent<PlayerSurvivalPointsManager>();
+        PlayerWeaponManager = GetComponent<PlayerWeaponManager>();
     }
 
     private void Update()
@@ -28,7 +30,6 @@ public class PlayerManager : MonoBehaviour
         PlayerActions.HandleAllActionInput();
         PlayerSwayAndBop.HandleAllSwayAndBop();
     }
-
 
     private void LateUpdate()
     {
