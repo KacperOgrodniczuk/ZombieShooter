@@ -1,6 +1,6 @@
 using UnityEngine;
 
-public class CommonHealth : MonoBehaviour, IDamageable
+public class EnemyHealth : MonoBehaviour, IDamageable
 {
     [SerializeField]
     private int _maxHealth = 100;
@@ -18,6 +18,13 @@ public class CommonHealth : MonoBehaviour, IDamageable
     public event IDamageable.TakeDamageEvent OnTakeDamage;
     public event IDamageable.DeathEvent OnDeath;
 
+    private EnemyManager _enemyManager;
+
+    private void Awake()
+    {
+        _enemyManager = GetComponent<EnemyManager>();
+    }
+
     public void TakeDamage(int damage, PlayerSurvivalPointsManager playerSurvivalPointsManager = null)     // Need to have a think about how to grab the specific player
     {
         CurrentHealth -= damage;
@@ -28,14 +35,12 @@ public class CommonHealth : MonoBehaviour, IDamageable
         if (CurrentHealth <= 0) Die(playerSurvivalPointsManager);
     }
 
-    //Temporary function,
-    //will need replacing/deleting when enemy manager/animator manager is implemented
-    //and wave spawner with enemies stored in an object pool is implemented.
     void Die(PlayerSurvivalPointsManager playerSurvivalPointsManager = null)
     {
         OnDeath?.Invoke(this);
         playerSurvivalPointsManager?.AddSurvivalPoints(killPoints);
-        Destroy(gameObject);
+
+        _enemyManager.ChangeState(_enemyManager.deathState);
     }
 
     void OnEnable() 
