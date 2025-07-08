@@ -10,8 +10,10 @@ public class PlayerCameraManager : MonoBehaviour
 
     [Header("Recoil")]
     public Transform cameraRecoil;     //Separate transform to keep track of recoil used purely to allow recoil to automatically recover back
-    Quaternion originalRecoilRotation;
-    Quaternion targetRecoilRotation;
+
+    Vector3 currentRecoilEuler;
+    Vector3 targetRecoilEuler;
+    Vector3 recoilVelocity = Vector3.zero;
 
     float mouseX;
     float mouseY;
@@ -33,15 +35,12 @@ public class PlayerCameraManager : MonoBehaviour
 
         Cursor.lockState = CursorLockMode.Locked;
         Cursor.visible = false;
-
-        if(cameraRecoil != null)
-        originalRecoilRotation = cameraRecoil.localRotation;
     }
 
     public void HandleAllCameraMovement() 
     {
         HandleCameraRotation();
-        //HandleCameraRecoilRecovery();
+        HandleCameraRecoilRecovery();
     }
 
     void HandleCameraRotation()
@@ -67,9 +66,12 @@ public class PlayerCameraManager : MonoBehaviour
     void HandleCameraRecoilRecovery()
     {
         if (activeShootConfig == null) return;
-        // Smoothly move the camera back to its original position and rotation
-        cameraRecoil.transform.localRotation = Quaternion.Slerp(cameraRecoil.transform.localRotation, targetRecoilRotation, Time.deltaTime / activeShootConfig.fireRate);
-        targetRecoilRotation = Quaternion.Slerp(targetRecoilRotation, originalRecoilRotation, Time.deltaTime / activeShootConfig.recoilRecoveryTime);
+
+        float smoothTime = activeShootConfig.recoilRecoveryTime;
+
+        currentRecoilEuler = Vector3.SmoothDamp(currentRecoilEuler, targetRecoilEuler, ref recoilVelocity, smoothTime);
+ 
+        cameraRecoil.localRotation = Quaternion.Euler(currentRecoilEuler);
     }
 
     public void ApplyCameraRecoil()
@@ -77,9 +79,13 @@ public class PlayerCameraManager : MonoBehaviour
         if (activeShootConfig == null) return;
 
         //Apply rotation position
-        //Vector3 recoilRotation = new Vector3(-activeShootConfig.recoilRotation, Random.Range(-activeShootConfig.recoilRotation, activeShootConfig.recoilRotation), 0);
+        Vector3 recoilRotation = new Vector3(
+            -activeShootConfig.recoilRotation.x, 
+            Random.Range(-activeShootConfig.recoilRotation.y, activeShootConfig.recoilRotation.y),
+            0
+        );
 
-        //targetRecoilRotation = cameraRecoil.transform.localRotation * Quaternion.Euler(recoilRotation);
+        targetRecoilEuler += recoilRotation;
     }
 
     /// <summary>

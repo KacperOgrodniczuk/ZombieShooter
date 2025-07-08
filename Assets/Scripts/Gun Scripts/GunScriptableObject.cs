@@ -1,5 +1,6 @@
 using System;
 using System.Collections;
+using System.Linq;
 using UnityEngine;
 using UnityEngine.Pool;
 
@@ -84,6 +85,8 @@ public class GunScriptableObject : ScriptableObject
 
             ammoConfig.DeductOneFromClip();
 
+            ApplyRecoil();
+
             if (Physics.Raycast(Camera.main.transform.position, shootDirection, out RaycastHit hit, float.MaxValue, shootConfig.HitMask))
             {
                 activeMonoBehaviour.StartCoroutine(PlayTrail(shootSystem.transform.position, hit.point, hit));
@@ -127,7 +130,7 @@ public class GunScriptableObject : ScriptableObject
         //model.transform.localRotation *= targetRotation;
 
         //Apply camera recoil
-        //PlayerCameraManager.instance.ApplyCameraRecoil();
+        PlayerCameraManager.instance.ApplyCameraRecoil();
     }
 
     void RecoverFromRecoil()

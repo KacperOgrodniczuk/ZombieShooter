@@ -10,14 +10,14 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: c672564bb5c9dc741ad58aece7bed4f7, type: 3}
-  m_Name: Glock Gun Config
+  m_Name: IB1911 Gun Config
   m_EditorClassIdentifier: 
   type: 1
-  gunName: Glock
+  gunName: Ironbite 1911
   modelPrefab: {fileID: 7173815278906741782, guid: e7461e3cb4dfd384ea54841be167ca84,
     type: 3}
   spawnPosition: {x: -0.0462, y: 0.1485, z: -0.031}
   spawnRotation: {x: -65.938, y: -41.199, z: 34.65}
-  shootConfig: {fileID: 11400000, guid: 147d547c101acb048aa747aed115582f, type: 2}
-  trailConfig: {fileID: 11400000, guid: deee1c72887c922468194f0d968bccfe, type: 2}
-  ammoConfig: {fileID: 11400000, guid: ed725fd23096f304c885ce68634f577b, type: 2}
+  shootConfig: {fileID: 11400000, guid: af6dbf7fb095e1241b1e4e2941c525c7, type: 2}
+  trailConfig: {fileID: 11400000, guid: dddf09db78fc8f945aca87f18bb2c6c2, type: 2}
+  ammoConfig: {fileID: 11400000, guid: 4141b107f5364214681ec62b1cba0328, type: 2}

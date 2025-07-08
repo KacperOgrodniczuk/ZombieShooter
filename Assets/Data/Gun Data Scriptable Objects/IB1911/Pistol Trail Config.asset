@@ -10,7 +10,7 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 93c8054b146740f4f8b91a3e2476b9da, type: 3}
-  m_Name: M4A4 Trail Config
+  m_Name: Pistol Trail Config
   m_EditorClassIdentifier: 
   material: {fileID: 2100000, guid: d6b81c211a5922a4a8d362665edd4c52, type: 2}
   widthCurve:

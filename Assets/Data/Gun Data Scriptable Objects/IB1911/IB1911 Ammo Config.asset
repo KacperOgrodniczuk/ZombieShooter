@@ -10,9 +10,9 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 002d9ae67489d4d4aa92b50dd3783238, type: 3}
-  m_Name: M4A4 Ammo Config
+  m_Name: IB1911 Ammo Config
   m_EditorClassIdentifier: 
-  maxAmmo: 180
-  clipSize: 30
-  currentAmmo: 180
-  currentClipAmmo: 30
+  maxAmmo: 60
+  clipSize: 15
+  currentAmmo: 60
+  currentClipAmmo: 14

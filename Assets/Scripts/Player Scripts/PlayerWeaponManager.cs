@@ -37,16 +37,16 @@ public class PlayerWeaponManager : MonoBehaviour
         PlayerCameraManager.instance.CurrentGunData(activeGun);
 
         //Spawn the gun in the whole body rig but only cast the shadow, do not render the gun.
-        GameObject spawnedWholeBodyGun = gun.Spawn(gunHolderWholeBody, this);
+        /*GameObject spawnedWholeBodyGun = gun.Spawn(gunHolderWholeBody, this);
         MeshRenderer[] renderers = spawnedWholeBodyGun.GetComponentsInChildren<MeshRenderer>();
         foreach (MeshRenderer renderer in renderers)
         {
             renderer.shadowCastingMode = UnityEngine.Rendering.ShadowCastingMode.ShadowsOnly;
-        }
+        }*/
 
         //Spawn the gun in fps arms rig and prevent it from casting shadows to avoid a weird gun floating shadow.
         GameObject spawnedArmsOnlyGun = gun.Spawn(gunHolderArms, this);
-        renderers = spawnedArmsOnlyGun.GetComponentsInChildren<MeshRenderer>();
+        MeshRenderer[] renderers = spawnedArmsOnlyGun.GetComponentsInChildren<MeshRenderer>();
         foreach (MeshRenderer renderer in renderers)
         {
             renderer.shadowCastingMode = UnityEngine.Rendering.ShadowCastingMode.Off;

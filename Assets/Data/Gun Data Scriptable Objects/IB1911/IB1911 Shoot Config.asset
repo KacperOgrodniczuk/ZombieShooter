@@ -10,16 +10,16 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: d58fe7cbfc57c0a488ed2f01d4252c35, type: 3}
-  m_Name: Glock Shoot Config
+  m_Name: IB1911 Shoot Config
   m_EditorClassIdentifier: 
   HitMask:
     serializedVersion: 2
     m_Bits: 897
-  damage: 10
-  weakPointDamageMultiplier: 5
-  fireRate: 0.33
-  recoilRecoveryTime: 1
-  maxRecoilTime: 0.5
-  spread: {x: 1, y: 1}
-  recoilKick: {x: 0, y: 0, z: 0.05}
-  recoilRotation: {x: 1, y: 1, z: 0}
+  damage: 34
+  weakPointDamageMultiplier: 2
+  fireRate: 0.18
+  recoilRecoveryTime: 0.08
+  maxRecoilTime: 0.15
+  spread: {x: 0.3, y: 0.3}
+  recoilKick: {x: 0.005, y: 0, z: -0.02}
+  recoilRotation: {x: 1.3, y: 0.6, z: 0}
