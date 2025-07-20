@@ -18,8 +18,8 @@ MonoBehaviour:
   damage: 34
   weakPointDamageMultiplier: 2
   fireRate: 0.18
-  recoilRecoveryTime: 0.08
-  maxRecoilTime: 0.15
+  recoilRecoveryTime: 0.15
+  maxRecoilTime: 0.3
   spread: {x: 0.3, y: 0.3}
   recoilKick: {x: 0.005, y: 0, z: -0.02}
-  recoilRotation: {x: 1.3, y: 0.6, z: 0}
+  recoilRotation: {x: 1.2, y: 0.5, z: 0}

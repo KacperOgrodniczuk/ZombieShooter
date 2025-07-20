@@ -1,6 +1,3 @@
-using System.Collections;
-using System.Collections.Generic;
-using TMPro;
 using UnityEngine;
 
 public class PlayerCameraManager : MonoBehaviour
@@ -11,8 +8,7 @@ public class PlayerCameraManager : MonoBehaviour
     [Header("Recoil")]
     public Transform cameraRecoil;     //Separate transform to keep track of recoil used purely to allow recoil to automatically recover back
 
-    Vector3 currentRecoilEuler;
-    Vector3 targetRecoilEuler;
+    Vector3 currentRecoilEuler = Vector3.zero;
     Vector3 recoilVelocity = Vector3.zero;
 
     float mouseX;
@@ -69,7 +65,7 @@ public class PlayerCameraManager : MonoBehaviour
 
         float smoothTime = activeShootConfig.recoilRecoveryTime;
 
-        currentRecoilEuler = Vector3.SmoothDamp(currentRecoilEuler, targetRecoilEuler, ref recoilVelocity, smoothTime);
+        currentRecoilEuler = Vector3.SmoothDamp(currentRecoilEuler, Vector3.zero, ref recoilVelocity, smoothTime);
  
         cameraRecoil.localRotation = Quaternion.Euler(currentRecoilEuler);
     }
@@ -85,7 +81,7 @@ public class PlayerCameraManager : MonoBehaviour
             0
         );
 
-        targetRecoilEuler += recoilRotation;
+        currentRecoilEuler += recoilRotation;
     }
 
     /// <summary>
