@@ -1,9 +1,10 @@
 using System.Collections;
+using System.Collections.Generic;
 using UnityEngine;
 
 public class WaveSpawner : MonoBehaviour
 {
-    public Transform[] spawnPoints;
+    public Transform[] SpawnPoints;
     public GameObject enemyPrefab;
 
     [Header("Base Wave Settings")]
@@ -14,6 +15,7 @@ public class WaveSpawner : MonoBehaviour
     float enemySpawnTimeScaling = 1.1f;
     int maxEnemiesAllowedAliveIncrease = 1;
 
+    public Transform SpawnPointsRoot;  //the script will automatically grab all the transforms attached to this object.
 
     //TODO:
     // Implement the zombies speeding up over time.
@@ -29,6 +31,24 @@ public class WaveSpawner : MonoBehaviour
     private void Start()
     {
         StartCoroutine(SpawnWave(currentWaveIndex));
+        GetSpawnPoints();
+    }
+
+    void GetSpawnPoints() {
+        Transform[] allTransforms = SpawnPointsRoot.GetComponentsInChildren<Transform>();
+
+        int childCount = allTransforms.Length - 1;
+        SpawnPoints = new Transform[childCount];
+        int index = 0;
+
+        for (int i = 0; i < allTransforms.Length; i++)
+        {
+            if (allTransforms[i] != SpawnPointsRoot)
+            {
+                SpawnPoints[index] = allTransforms[i];
+                index++;
+            }
+        }
     }
 
     IEnumerator SpawnWave(int waveIndex)
@@ -55,7 +75,7 @@ public class WaveSpawner : MonoBehaviour
 
     void SpawnEnemy()
     {
-        Transform spawnPoint = spawnPoints[Random.Range(0, spawnPoints.Length)];
+        Transform spawnPoint = SpawnPoints[Random.Range(0, SpawnPoints.Length)];
         GameObject spawnedEnemy = Instantiate(enemyPrefab, spawnPoint.position, spawnPoint.rotation);
 
         EnemyManager enemyManager = spawnedEnemy.GetComponent<EnemyManager>();

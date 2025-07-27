@@ -7,8 +7,6 @@ public class SwayAndBop : MonoBehaviour
     [Header("Sway and Bop Target Object Transforms")]
     [SerializeField]
     private Transform swayAndBopArmsOnlyTransform;
-    [SerializeField]
-    private Transform swayAndBopWholeBodyTransform;
 
     [Header("Input Variables")]
     Vector2 movementInput;
@@ -17,7 +15,7 @@ public class SwayAndBop : MonoBehaviour
     [Header("Sway Variables")]
     public float step = 0.001f;
     public float maxStepDistance = 0.05f;
-    
+
     public float rotationStep = 1f;
     public float maxRotationStep = 4f;
 
@@ -51,12 +49,11 @@ public class SwayAndBop : MonoBehaviour
         characterController = GetComponent<CharacterController>();
 
         armsOffsetPosition = swayAndBopArmsOnlyTransform.localPosition;
-        spineOffsetPosition = swayAndBopWholeBodyTransform.localPosition;
     }
 
     public void HandleAllSwayAndBop()
     {
-        if (!enableSwayAndBop || swayAndBopArmsOnlyTransform == null || swayAndBopWholeBodyTransform == null) return;        //we don't have a target therefore don't do anything
+        if (!enableSwayAndBop || swayAndBopArmsOnlyTransform == null) return;        //we don't have a target therefore don't do anything
 
         GetInput();
         Sway();
@@ -64,7 +61,8 @@ public class SwayAndBop : MonoBehaviour
         ApplySwayAndBop();
     }
 
-    void GetInput() {
+    void GetInput()
+    {
         movementInput = PlayerInputManager.instance.movementInput;
         movementInput.Normalize();
         mouseInput = PlayerInputManager.instance.mouseInput;
@@ -87,7 +85,7 @@ public class SwayAndBop : MonoBehaviour
     void Bop()
     {
         speedCurve += Time.deltaTime * ((characterController.velocity.magnitude > 0.1f ? characterController.velocity.magnitude : 1) * speedCurveMultiplier);
-        
+
         bopPosition.x = (curveCos * bopLimit.x * (characterController.isGrounded ? 1 : 0)) - (movementInput.x * travelLimit.x);
         bopPosition.y = (curveSin * bopLimit.y) - (characterController.velocity.y * travelLimit.y);
         bopPosition.z = -(movementInput.y * travelLimit.z);
@@ -98,9 +96,6 @@ public class SwayAndBop : MonoBehaviour
     {
         swayAndBopArmsOnlyTransform.localPosition = Vector3.Lerp(swayAndBopArmsOnlyTransform.localPosition, swayPos + bopPosition + armsOffsetPosition, Time.deltaTime * smooth);
         swayAndBopArmsOnlyTransform.localRotation = Quaternion.Slerp(swayAndBopArmsOnlyTransform.localRotation, Quaternion.Euler(swayEulerRot) * Quaternion.Euler(bobEulerRotation), Time.deltaTime * smoothRot);
-
-        swayAndBopWholeBodyTransform.localPosition = Vector3.Lerp(swayAndBopWholeBodyTransform.localPosition, swayPos + bopPosition + spineOffsetPosition, Time.deltaTime * smooth);
-        swayAndBopWholeBodyTransform.localRotation = Quaternion.Slerp(swayAndBopWholeBodyTransform.localRotation, Quaternion.Euler(swayEulerRot) * Quaternion.Euler(bobEulerRotation), Time.deltaTime * smoothRot);
     }
 
 

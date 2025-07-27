@@ -1,0 +1,20 @@
+using UnityEngine;
+
+public class PlayerAnimationManager : MonoBehaviour
+{
+    public PlayerManager PlayerManager;
+
+    public Animator Animator;
+
+    private void Awake()
+    {
+        PlayerManager = GetComponent<PlayerManager>();
+        Animator = GetComponentInChildren<Animator>();
+    }
+
+    public void PlayTargetAnimation(string targetAnimation, bool ispPerformingAction)
+    {
+        Animator.CrossFade(targetAnimation, 0.15f);
+        PlayerManager.PlayerActions.isPerformingAction = ispPerformingAction;
+    }
+}

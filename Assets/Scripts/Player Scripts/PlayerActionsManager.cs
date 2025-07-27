@@ -2,11 +2,11 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class PlayerActions : MonoBehaviour
+public class PlayerActionsManager : MonoBehaviour
 {
     private PlayerManager playerManager;
 
-    public bool isReloading { get; private set; } = false;
+    public bool isPerformingAction = false;
 
     private void Awake()
     {
@@ -24,7 +24,7 @@ public class PlayerActions : MonoBehaviour
         if (playerManager.PlayerWeaponManager.activeGun == null) return;
 
         bool shootInput = PlayerInputManager.instance.leftClick;
-        bool canShoot = !isReloading && !playerManager.PlayerLocomotionManager.isSprinting;
+        bool canShoot = !isPerformingAction && !playerManager.PlayerLocomotionManager.isSprinting;
 
         playerManager.PlayerWeaponManager.activeGun.Tick(shootInput, canShoot);
 
@@ -44,18 +44,16 @@ public class PlayerActions : MonoBehaviour
 
     bool CanReload()
     {
-        return !isReloading && playerManager.PlayerWeaponManager.activeGun.ammoConfig.CanReload();
+        return !isPerformingAction && playerManager.PlayerWeaponManager.activeGun.ammoConfig.CanReload();
     }
 
     void Reload() 
-    { 
-        isReloading = true;
-        playerManager.PlayerAnimator.SetTrigger("Reload");
+    {
+        playerManager.PlayerAnimationManager.PlayTargetAnimation("Reload", true);
     }
 
     public void EndReload()
     {
         playerManager.PlayerWeaponManager.activeGun.ammoConfig.UpdateAmmoAfterReload();
-        isReloading = false;
     }
 }
