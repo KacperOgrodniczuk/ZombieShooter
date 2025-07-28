@@ -29,7 +29,7 @@ public class UIManager : MonoBehaviour
         survivalPointsText.text = currentSurvivalPoints.ToString();
     }
 
-    void UpdateInteractPromptUI(string interactPrompt)
+    public void UpdateInteractPromptUI(string interactPrompt)
     { 
         interactPromptText.text = interactPrompt;
     }

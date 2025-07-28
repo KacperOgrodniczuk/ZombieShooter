@@ -3,7 +3,7 @@ using UnityEngine;
 public class PlayerHealthManager : MonoBehaviour
 {
     // TODO: 
-    // Add health regen after not being hit for a few seconds
+    // Add EnemyHealth regen after not being hit for a few seconds
 
     [SerializeField]
     private int _maxHealth = 100;

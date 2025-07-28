@@ -23,7 +23,7 @@ public class EnemyManager : MonoBehaviour
     public Transform Player { get; private set; }
     public NavMeshAgent Agent { get; private set; }
     public Animator Animator { get; private set; }
-    public IDamageable damageable { get; private set; }
+    public IDamageable Damageable { get; private set; }
 
     //State management
     EnemyState currentState;
@@ -48,7 +48,7 @@ public class EnemyManager : MonoBehaviour
         Player = GameObject.FindWithTag("Player").transform;
         Agent = GetComponent<NavMeshAgent>();
         Animator = GetComponent<Animator>();
-        damageable = GetComponent<IDamageable>();
+        Damageable = GetComponent<IDamageable>();
 
         Agent.updatePosition = false;
         Animator.applyRootMotion = true;

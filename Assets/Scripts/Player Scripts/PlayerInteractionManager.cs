@@ -1,25 +1,48 @@
 using System.Collections;
 using System.Collections.Generic;
+using Unity.VisualScripting;
 using UnityEngine;
+using static UnityEngine.UI.Image;
 
 public class PlayerInteractionManager : MonoBehaviour
 {
+    public PlayerManager playerManager { get; private set; }
+
     [Header("Interaction Settings")]
-    public float interactRange;
+    public float interactRange = 1;
 
     [SerializeField] private LayerMask interactableLayer;
 
     private IInteractable currentInteractable;
+    private string prompt = "";
+
+
+    private void Awake()
+    {
+        playerManager = GetComponent<PlayerManager>();
+    }
 
     void Update()
     {
         DetectInteratables();    
+
+        UpdateUIPrompt();
+
+        //if press button and not performing action interact with a thing
+        if (PlayerInputManager.instance.interactInput && currentInteractable != null)
+        {
+            currentInteractable.Interact(playerManager);
+        }
     }
 
     void DetectInteratables()
     {
         Ray ray = new Ray(PlayerCameraManager.instance.camera.transform.position, PlayerCameraManager.instance.camera.transform.forward);
         RaycastHit hit;
+
+        //Debug
+        Debug.DrawRay(PlayerCameraManager.instance.camera.transform.position, PlayerCameraManager.instance.camera.transform.forward * interactRange, Color.red);
+
 
         currentInteractable = null;
 
@@ -28,4 +51,15 @@ public class PlayerInteractionManager : MonoBehaviour
             currentInteractable = hit.collider.GetComponent<IInteractable>();
         }
     }
+
+    void UpdateUIPrompt()
+    {
+        if (currentInteractable != null)
+            prompt = currentInteractable.GetInteractionPrompt();
+        else
+            prompt = "";
+
+        playerManager.UIManager.UpdateInteractPromptUI(prompt);
+    }
+
 }

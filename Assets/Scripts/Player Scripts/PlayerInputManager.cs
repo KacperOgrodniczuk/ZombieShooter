@@ -13,6 +13,7 @@ public class PlayerInputManager : MonoBehaviour
     public bool leftClick { get;  private set;}
     public bool reloadInput {get; private set;}
     public bool sprintInput { get; private set;}
+    public bool interactInput { get; private set; }
 
     private void Awake()
     {
@@ -39,6 +40,7 @@ public class PlayerInputManager : MonoBehaviour
             // Player Actions
             playerControls.PlayerActions.LeftClick.performed += i => leftClick = i.ReadValueAsButton();
             playerControls.PlayerActions.Reload.performed += i => reloadInput = i.ReadValueAsButton();
+            playerControls.PlayerActions.Interact.performed += i => interactInput = i.ReadValueAsButton();
         }
 
         playerControls.Enable();

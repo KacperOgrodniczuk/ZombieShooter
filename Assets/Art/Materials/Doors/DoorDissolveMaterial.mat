@@ -111,10 +111,10 @@ Material:
     - _DetailAlbedoMapScale: 1
     - _DetailNormalMapScale: 1
     - _DissolveAmount: 0
-    - _DissolveSampleScale: 5
+    - _DissolveSampleScale: 20
     - _DstBlend: 0
     - _DstBlendAlpha: 0
-    - _EdgeThickness: 0.1
+    - _EdgeThickness: 0.2
     - _EnvironmentReflections: 1
     - _GlossMapScale: 0
     - _Glossiness: 0
