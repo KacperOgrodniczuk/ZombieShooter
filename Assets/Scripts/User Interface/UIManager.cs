@@ -3,10 +3,9 @@ using UnityEngine;
 
 public class UIManager : MonoBehaviour
 {
-    [SerializeField]
-    TMP_Text ammoText;
-    [SerializeField]
-    TMP_Text survivalPointsText;
+    [SerializeField] TMP_Text ammoText;
+    [SerializeField] TMP_Text survivalPointsText;
+    [SerializeField] TMP_Text interactPromptText;
 
     // Fields to keep track of scripts subscribed to.
     PlayerSurvivalPointsManager survivalPointsManager;
@@ -28,6 +27,11 @@ public class UIManager : MonoBehaviour
     void UpdateSurvivalPointUI(int currentSurvivalPoints)
     { 
         survivalPointsText.text = currentSurvivalPoints.ToString();
+    }
+
+    void UpdateInteractPromptUI(string interactPrompt)
+    { 
+        interactPromptText.text = interactPrompt;
     }
 
     public void SubscribeToAmmoEvents(AmmoConfigScriptableObject ammoScriptableObject)

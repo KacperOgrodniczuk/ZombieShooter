@@ -4,7 +4,7 @@ using UnityEngine;
 public class PlayerManager : MonoBehaviour
 {
     public PlayerLocomotionManager PlayerLocomotionManager { get; private set; }
-    public PlayerActionsManager PlayerActions { get; private set; }
+    public PlayerGameplayActionsManager PlayerActions { get; private set; }
     public SwayAndBop PlayerSwayAndBop { get; private set; }
     public PlayerSurvivalPointsManager PlayerSurvivalPointsManager { get; private set; }
     public PlayerWeaponManager PlayerWeaponManager { get; private set; }
@@ -18,7 +18,7 @@ public class PlayerManager : MonoBehaviour
     {
         PlayerLocomotionManager = GetComponent<PlayerLocomotionManager>();
         PlayerSwayAndBop = GetComponent<SwayAndBop>();
-        PlayerActions = GetComponent<PlayerActionsManager>();
+        PlayerActions = GetComponent<PlayerGameplayActionsManager>();
         PlayerSurvivalPointsManager = GetComponent<PlayerSurvivalPointsManager>();
         PlayerWeaponManager = GetComponent<PlayerWeaponManager>();
         PlayerAnimationManager = GetComponent<PlayerAnimationManager>();

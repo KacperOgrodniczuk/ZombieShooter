@@ -2,9 +2,9 @@ using UnityEngine;
 
 public class PlayerAnimationManager : MonoBehaviour
 {
-    public PlayerManager PlayerManager;
+    [HideInInspector] public PlayerManager PlayerManager;
 
-    public Animator Animator;
+    public Animator Animator { get; private set; }
 
     private void Awake()
     {

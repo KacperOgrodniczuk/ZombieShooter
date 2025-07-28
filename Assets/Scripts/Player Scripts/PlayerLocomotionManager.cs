@@ -70,11 +70,6 @@ public class PlayerLocomotionManager : MonoBehaviour
         }
 
         playerManager.PlayerAnimationManager.Animator.SetBool("Sprinting", isSprinting);
-
-        /*
-         * TODO:
-         * Make the player cancel a reload animation when they choose to sprint
-        */
     }
 
     void GetMovementInput()

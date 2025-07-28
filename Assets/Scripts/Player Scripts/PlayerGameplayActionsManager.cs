@@ -2,7 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class PlayerActionsManager : MonoBehaviour
+public class PlayerGameplayActionsManager : MonoBehaviour
 {
     private PlayerManager playerManager;
 

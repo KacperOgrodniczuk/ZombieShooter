@@ -5,6 +5,8 @@ public class PlayerCameraManager : MonoBehaviour
     public static PlayerCameraManager instance;
     public Transform cameraPivotTransform;      //Attach the camera to this.
 
+    public Camera camera { get; private set; }
+
     [Header("Recoil")]
     public Transform cameraRecoil;     //Separate transform to keep track of recoil used purely to allow recoil to automatically recover back
 
@@ -31,6 +33,8 @@ public class PlayerCameraManager : MonoBehaviour
 
         Cursor.lockState = CursorLockMode.Locked;
         Cursor.visible = false;
+
+        camera = GetComponentInChildren<Camera>();
     }
 
     public void HandleAllCameraMovement() 
