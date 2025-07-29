@@ -39,6 +39,18 @@ public class AmmoConfigScriptableObject : ScriptableObject
         TriggerOnAmmoChangeEvent();
     }
 
+    public void AddAmmoToStockPile(int ammoCount)
+    { 
+        currentStockpileAmmo += ammoCount;
+
+        if (currentStockpileAmmo > maxAmmo)
+        {
+            currentStockpileAmmo = maxAmmo;
+        }
+
+        TriggerOnAmmoChangeEvent();
+    }
+
     /// <summary>
     /// Reduce the current clip ammo by <b>one</b>
     /// </summary>
@@ -46,6 +58,11 @@ public class AmmoConfigScriptableObject : ScriptableObject
     {
         currentClipAmmo--;
         OnAmmoChange?.Invoke(currentClipAmmo, currentStockpileAmmo);
+    }
+
+    public bool IsFullOnAmmo()
+    {
+        return currentStockpileAmmo == maxAmmo;
     }
 
     public bool CanReload()

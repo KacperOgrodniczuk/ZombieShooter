@@ -122,6 +122,74 @@ NavMeshSettings:
     debug:
       m_Flags: 0
   m_NavMeshData: {fileID: 0}
+--- !u!1001 &16887811
+PrefabInstance:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    serializedVersion: 3
+    m_TransformParent: {fileID: 0}
+    m_Modifications:
+    - target: {fileID: 3372488581935982929, guid: 8f3d92a9da894194baf901376f1229a6,
+        type: 3}
+      propertyPath: m_Name
+      value: Ammo Drop Prefab (22)
+      objectReference: {fileID: 0}
+    - target: {fileID: 4413410517975272434, guid: 8f3d92a9da894194baf901376f1229a6,
+        type: 3}
+      propertyPath: m_LocalPosition.x
+      value: 7.862
+      objectReference: {fileID: 0}
+    - target: {fileID: 4413410517975272434, guid: 8f3d92a9da894194baf901376f1229a6,
+        type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4413410517975272434, guid: 8f3d92a9da894194baf901376f1229a6,
+        type: 3}
+      propertyPath: m_LocalPosition.z
+      value: -4.283
+      objectReference: {fileID: 0}
+    - target: {fileID: 4413410517975272434, guid: 8f3d92a9da894194baf901376f1229a6,
+        type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 4413410517975272434, guid: 8f3d92a9da894194baf901376f1229a6,
+        type: 3}
+      propertyPath: m_LocalRotation.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4413410517975272434, guid: 8f3d92a9da894194baf901376f1229a6,
+        type: 3}
+      propertyPath: m_LocalRotation.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4413410517975272434, guid: 8f3d92a9da894194baf901376f1229a6,
+        type: 3}
+      propertyPath: m_LocalRotation.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4413410517975272434, guid: 8f3d92a9da894194baf901376f1229a6,
+        type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4413410517975272434, guid: 8f3d92a9da894194baf901376f1229a6,
+        type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4413410517975272434, guid: 8f3d92a9da894194baf901376f1229a6,
+        type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    m_RemovedComponents: []
+    m_RemovedGameObjects: []
+    m_AddedGameObjects: []
+    m_AddedComponents: []
+  m_SourcePrefab: {fileID: 100100000, guid: 8f3d92a9da894194baf901376f1229a6, type: 3}
 --- !u!1 &28051715
 GameObject:
   m_ObjectHideFlags: 0
@@ -191,6 +259,210 @@ Transform:
   - {fileID: 1728962127}
   m_Father: {fileID: 1587328444}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1001 &102519570
+PrefabInstance:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    serializedVersion: 3
+    m_TransformParent: {fileID: 0}
+    m_Modifications:
+    - target: {fileID: 3372488581935982929, guid: 8f3d92a9da894194baf901376f1229a6,
+        type: 3}
+      propertyPath: m_Name
+      value: Ammo Drop Prefab (8)
+      objectReference: {fileID: 0}
+    - target: {fileID: 4413410517975272434, guid: 8f3d92a9da894194baf901376f1229a6,
+        type: 3}
+      propertyPath: m_LocalPosition.x
+      value: 9.283
+      objectReference: {fileID: 0}
+    - target: {fileID: 4413410517975272434, guid: 8f3d92a9da894194baf901376f1229a6,
+        type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4413410517975272434, guid: 8f3d92a9da894194baf901376f1229a6,
+        type: 3}
+      propertyPath: m_LocalPosition.z
+      value: -5.111
+      objectReference: {fileID: 0}
+    - target: {fileID: 4413410517975272434, guid: 8f3d92a9da894194baf901376f1229a6,
+        type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 4413410517975272434, guid: 8f3d92a9da894194baf901376f1229a6,
+        type: 3}
+      propertyPath: m_LocalRotation.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4413410517975272434, guid: 8f3d92a9da894194baf901376f1229a6,
+        type: 3}
+      propertyPath: m_LocalRotation.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4413410517975272434, guid: 8f3d92a9da894194baf901376f1229a6,
+        type: 3}
+      propertyPath: m_LocalRotation.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4413410517975272434, guid: 8f3d92a9da894194baf901376f1229a6,
+        type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4413410517975272434, guid: 8f3d92a9da894194baf901376f1229a6,
+        type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4413410517975272434, guid: 8f3d92a9da894194baf901376f1229a6,
+        type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    m_RemovedComponents: []
+    m_RemovedGameObjects: []
+    m_AddedGameObjects: []
+    m_AddedComponents: []
+  m_SourcePrefab: {fileID: 100100000, guid: 8f3d92a9da894194baf901376f1229a6, type: 3}
+--- !u!1001 &137811231
+PrefabInstance:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    serializedVersion: 3
+    m_TransformParent: {fileID: 0}
+    m_Modifications:
+    - target: {fileID: 3372488581935982929, guid: 8f3d92a9da894194baf901376f1229a6,
+        type: 3}
+      propertyPath: m_Name
+      value: Ammo Drop Prefab (13)
+      objectReference: {fileID: 0}
+    - target: {fileID: 4413410517975272434, guid: 8f3d92a9da894194baf901376f1229a6,
+        type: 3}
+      propertyPath: m_LocalPosition.x
+      value: 8.175
+      objectReference: {fileID: 0}
+    - target: {fileID: 4413410517975272434, guid: 8f3d92a9da894194baf901376f1229a6,
+        type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4413410517975272434, guid: 8f3d92a9da894194baf901376f1229a6,
+        type: 3}
+      propertyPath: m_LocalPosition.z
+      value: -5.005
+      objectReference: {fileID: 0}
+    - target: {fileID: 4413410517975272434, guid: 8f3d92a9da894194baf901376f1229a6,
+        type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 4413410517975272434, guid: 8f3d92a9da894194baf901376f1229a6,
+        type: 3}
+      propertyPath: m_LocalRotation.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4413410517975272434, guid: 8f3d92a9da894194baf901376f1229a6,
+        type: 3}
+      propertyPath: m_LocalRotation.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4413410517975272434, guid: 8f3d92a9da894194baf901376f1229a6,
+        type: 3}
+      propertyPath: m_LocalRotation.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4413410517975272434, guid: 8f3d92a9da894194baf901376f1229a6,
+        type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4413410517975272434, guid: 8f3d92a9da894194baf901376f1229a6,
+        type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4413410517975272434, guid: 8f3d92a9da894194baf901376f1229a6,
+        type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    m_RemovedComponents: []
+    m_RemovedGameObjects: []
+    m_AddedGameObjects: []
+    m_AddedComponents: []
+  m_SourcePrefab: {fileID: 100100000, guid: 8f3d92a9da894194baf901376f1229a6, type: 3}
+--- !u!1001 &203423337
+PrefabInstance:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    serializedVersion: 3
+    m_TransformParent: {fileID: 0}
+    m_Modifications:
+    - target: {fileID: 3372488581935982929, guid: 8f3d92a9da894194baf901376f1229a6,
+        type: 3}
+      propertyPath: m_Name
+      value: Ammo Drop Prefab (10)
+      objectReference: {fileID: 0}
+    - target: {fileID: 4413410517975272434, guid: 8f3d92a9da894194baf901376f1229a6,
+        type: 3}
+      propertyPath: m_LocalPosition.x
+      value: 8.88
+      objectReference: {fileID: 0}
+    - target: {fileID: 4413410517975272434, guid: 8f3d92a9da894194baf901376f1229a6,
+        type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4413410517975272434, guid: 8f3d92a9da894194baf901376f1229a6,
+        type: 3}
+      propertyPath: m_LocalPosition.z
+      value: -4.351
+      objectReference: {fileID: 0}
+    - target: {fileID: 4413410517975272434, guid: 8f3d92a9da894194baf901376f1229a6,
+        type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 4413410517975272434, guid: 8f3d92a9da894194baf901376f1229a6,
+        type: 3}
+      propertyPath: m_LocalRotation.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4413410517975272434, guid: 8f3d92a9da894194baf901376f1229a6,
+        type: 3}
+      propertyPath: m_LocalRotation.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4413410517975272434, guid: 8f3d92a9da894194baf901376f1229a6,
+        type: 3}
+      propertyPath: m_LocalRotation.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4413410517975272434, guid: 8f3d92a9da894194baf901376f1229a6,
+        type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4413410517975272434, guid: 8f3d92a9da894194baf901376f1229a6,
+        type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4413410517975272434, guid: 8f3d92a9da894194baf901376f1229a6,
+        type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    m_RemovedComponents: []
+    m_RemovedGameObjects: []
+    m_AddedGameObjects: []
+    m_AddedComponents: []
+  m_SourcePrefab: {fileID: 100100000, guid: 8f3d92a9da894194baf901376f1229a6, type: 3}
 --- !u!1 &252119921
 GameObject:
   m_ObjectHideFlags: 0
@@ -964,6 +1236,74 @@ Mesh:
     offset: 0
     size: 0
     path: 
+--- !u!1001 &384623766
+PrefabInstance:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    serializedVersion: 3
+    m_TransformParent: {fileID: 0}
+    m_Modifications:
+    - target: {fileID: 3372488581935982929, guid: 8f3d92a9da894194baf901376f1229a6,
+        type: 3}
+      propertyPath: m_Name
+      value: Ammo Drop Prefab (7)
+      objectReference: {fileID: 0}
+    - target: {fileID: 4413410517975272434, guid: 8f3d92a9da894194baf901376f1229a6,
+        type: 3}
+      propertyPath: m_LocalPosition.x
+      value: 9.143
+      objectReference: {fileID: 0}
+    - target: {fileID: 4413410517975272434, guid: 8f3d92a9da894194baf901376f1229a6,
+        type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4413410517975272434, guid: 8f3d92a9da894194baf901376f1229a6,
+        type: 3}
+      propertyPath: m_LocalPosition.z
+      value: -5.33
+      objectReference: {fileID: 0}
+    - target: {fileID: 4413410517975272434, guid: 8f3d92a9da894194baf901376f1229a6,
+        type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 4413410517975272434, guid: 8f3d92a9da894194baf901376f1229a6,
+        type: 3}
+      propertyPath: m_LocalRotation.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4413410517975272434, guid: 8f3d92a9da894194baf901376f1229a6,
+        type: 3}
+      propertyPath: m_LocalRotation.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4413410517975272434, guid: 8f3d92a9da894194baf901376f1229a6,
+        type: 3}
+      propertyPath: m_LocalRotation.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4413410517975272434, guid: 8f3d92a9da894194baf901376f1229a6,
+        type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4413410517975272434, guid: 8f3d92a9da894194baf901376f1229a6,
+        type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4413410517975272434, guid: 8f3d92a9da894194baf901376f1229a6,
+        type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    m_RemovedComponents: []
+    m_RemovedGameObjects: []
+    m_AddedGameObjects: []
+    m_AddedComponents: []
+  m_SourcePrefab: {fileID: 100100000, guid: 8f3d92a9da894194baf901376f1229a6, type: 3}
 --- !u!1 &410087039
 GameObject:
   m_ObjectHideFlags: 0
@@ -1881,6 +2221,210 @@ Mesh:
     offset: 0
     size: 0
     path: 
+--- !u!1001 &615241026
+PrefabInstance:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    serializedVersion: 3
+    m_TransformParent: {fileID: 0}
+    m_Modifications:
+    - target: {fileID: 3372488581935982929, guid: 8f3d92a9da894194baf901376f1229a6,
+        type: 3}
+      propertyPath: m_Name
+      value: Ammo Drop Prefab (15)
+      objectReference: {fileID: 0}
+    - target: {fileID: 4413410517975272434, guid: 8f3d92a9da894194baf901376f1229a6,
+        type: 3}
+      propertyPath: m_LocalPosition.x
+      value: 8.936
+      objectReference: {fileID: 0}
+    - target: {fileID: 4413410517975272434, guid: 8f3d92a9da894194baf901376f1229a6,
+        type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4413410517975272434, guid: 8f3d92a9da894194baf901376f1229a6,
+        type: 3}
+      propertyPath: m_LocalPosition.z
+      value: -5.712
+      objectReference: {fileID: 0}
+    - target: {fileID: 4413410517975272434, guid: 8f3d92a9da894194baf901376f1229a6,
+        type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 4413410517975272434, guid: 8f3d92a9da894194baf901376f1229a6,
+        type: 3}
+      propertyPath: m_LocalRotation.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4413410517975272434, guid: 8f3d92a9da894194baf901376f1229a6,
+        type: 3}
+      propertyPath: m_LocalRotation.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4413410517975272434, guid: 8f3d92a9da894194baf901376f1229a6,
+        type: 3}
+      propertyPath: m_LocalRotation.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4413410517975272434, guid: 8f3d92a9da894194baf901376f1229a6,
+        type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4413410517975272434, guid: 8f3d92a9da894194baf901376f1229a6,
+        type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4413410517975272434, guid: 8f3d92a9da894194baf901376f1229a6,
+        type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    m_RemovedComponents: []
+    m_RemovedGameObjects: []
+    m_AddedGameObjects: []
+    m_AddedComponents: []
+  m_SourcePrefab: {fileID: 100100000, guid: 8f3d92a9da894194baf901376f1229a6, type: 3}
+--- !u!1001 &653975027
+PrefabInstance:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    serializedVersion: 3
+    m_TransformParent: {fileID: 0}
+    m_Modifications:
+    - target: {fileID: 3372488581935982929, guid: 8f3d92a9da894194baf901376f1229a6,
+        type: 3}
+      propertyPath: m_Name
+      value: Ammo Drop Prefab (19)
+      objectReference: {fileID: 0}
+    - target: {fileID: 4413410517975272434, guid: 8f3d92a9da894194baf901376f1229a6,
+        type: 3}
+      propertyPath: m_LocalPosition.x
+      value: 9.017
+      objectReference: {fileID: 0}
+    - target: {fileID: 4413410517975272434, guid: 8f3d92a9da894194baf901376f1229a6,
+        type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4413410517975272434, guid: 8f3d92a9da894194baf901376f1229a6,
+        type: 3}
+      propertyPath: m_LocalPosition.z
+      value: -4.076
+      objectReference: {fileID: 0}
+    - target: {fileID: 4413410517975272434, guid: 8f3d92a9da894194baf901376f1229a6,
+        type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 4413410517975272434, guid: 8f3d92a9da894194baf901376f1229a6,
+        type: 3}
+      propertyPath: m_LocalRotation.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4413410517975272434, guid: 8f3d92a9da894194baf901376f1229a6,
+        type: 3}
+      propertyPath: m_LocalRotation.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4413410517975272434, guid: 8f3d92a9da894194baf901376f1229a6,
+        type: 3}
+      propertyPath: m_LocalRotation.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4413410517975272434, guid: 8f3d92a9da894194baf901376f1229a6,
+        type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4413410517975272434, guid: 8f3d92a9da894194baf901376f1229a6,
+        type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4413410517975272434, guid: 8f3d92a9da894194baf901376f1229a6,
+        type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    m_RemovedComponents: []
+    m_RemovedGameObjects: []
+    m_AddedGameObjects: []
+    m_AddedComponents: []
+  m_SourcePrefab: {fileID: 100100000, guid: 8f3d92a9da894194baf901376f1229a6, type: 3}
+--- !u!1001 &681809555
+PrefabInstance:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    serializedVersion: 3
+    m_TransformParent: {fileID: 0}
+    m_Modifications:
+    - target: {fileID: 3372488581935982929, guid: 8f3d92a9da894194baf901376f1229a6,
+        type: 3}
+      propertyPath: m_Name
+      value: Ammo Drop Prefab (12)
+      objectReference: {fileID: 0}
+    - target: {fileID: 4413410517975272434, guid: 8f3d92a9da894194baf901376f1229a6,
+        type: 3}
+      propertyPath: m_LocalPosition.x
+      value: 8.169
+      objectReference: {fileID: 0}
+    - target: {fileID: 4413410517975272434, guid: 8f3d92a9da894194baf901376f1229a6,
+        type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4413410517975272434, guid: 8f3d92a9da894194baf901376f1229a6,
+        type: 3}
+      propertyPath: m_LocalPosition.z
+      value: -4.663
+      objectReference: {fileID: 0}
+    - target: {fileID: 4413410517975272434, guid: 8f3d92a9da894194baf901376f1229a6,
+        type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 4413410517975272434, guid: 8f3d92a9da894194baf901376f1229a6,
+        type: 3}
+      propertyPath: m_LocalRotation.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4413410517975272434, guid: 8f3d92a9da894194baf901376f1229a6,
+        type: 3}
+      propertyPath: m_LocalRotation.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4413410517975272434, guid: 8f3d92a9da894194baf901376f1229a6,
+        type: 3}
+      propertyPath: m_LocalRotation.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4413410517975272434, guid: 8f3d92a9da894194baf901376f1229a6,
+        type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4413410517975272434, guid: 8f3d92a9da894194baf901376f1229a6,
+        type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4413410517975272434, guid: 8f3d92a9da894194baf901376f1229a6,
+        type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    m_RemovedComponents: []
+    m_RemovedGameObjects: []
+    m_AddedGameObjects: []
+    m_AddedComponents: []
+  m_SourcePrefab: {fileID: 100100000, guid: 8f3d92a9da894194baf901376f1229a6, type: 3}
 --- !u!43 &694411414
 Mesh:
   m_ObjectHideFlags: 0
@@ -2046,6 +2590,74 @@ Mesh:
     offset: 0
     size: 0
     path: 
+--- !u!1001 &720887943
+PrefabInstance:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    serializedVersion: 3
+    m_TransformParent: {fileID: 0}
+    m_Modifications:
+    - target: {fileID: 3372488581935982929, guid: 8f3d92a9da894194baf901376f1229a6,
+        type: 3}
+      propertyPath: m_Name
+      value: Ammo Drop Prefab (18)
+      objectReference: {fileID: 0}
+    - target: {fileID: 4413410517975272434, guid: 8f3d92a9da894194baf901376f1229a6,
+        type: 3}
+      propertyPath: m_LocalPosition.x
+      value: 9.515
+      objectReference: {fileID: 0}
+    - target: {fileID: 4413410517975272434, guid: 8f3d92a9da894194baf901376f1229a6,
+        type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4413410517975272434, guid: 8f3d92a9da894194baf901376f1229a6,
+        type: 3}
+      propertyPath: m_LocalPosition.z
+      value: -4.501
+      objectReference: {fileID: 0}
+    - target: {fileID: 4413410517975272434, guid: 8f3d92a9da894194baf901376f1229a6,
+        type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 4413410517975272434, guid: 8f3d92a9da894194baf901376f1229a6,
+        type: 3}
+      propertyPath: m_LocalRotation.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4413410517975272434, guid: 8f3d92a9da894194baf901376f1229a6,
+        type: 3}
+      propertyPath: m_LocalRotation.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4413410517975272434, guid: 8f3d92a9da894194baf901376f1229a6,
+        type: 3}
+      propertyPath: m_LocalRotation.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4413410517975272434, guid: 8f3d92a9da894194baf901376f1229a6,
+        type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4413410517975272434, guid: 8f3d92a9da894194baf901376f1229a6,
+        type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4413410517975272434, guid: 8f3d92a9da894194baf901376f1229a6,
+        type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    m_RemovedComponents: []
+    m_RemovedGameObjects: []
+    m_AddedGameObjects: []
+    m_AddedComponents: []
+  m_SourcePrefab: {fileID: 100100000, guid: 8f3d92a9da894194baf901376f1229a6, type: 3}
 --- !u!1 &729132029
 GameObject:
   m_ObjectHideFlags: 0
@@ -2234,6 +2846,74 @@ MonoBehaviour:
       z: 1
     m_MaintainPositionOffset: 0
     m_MaintainRotationOffset: 0
+--- !u!1001 &769848702
+PrefabInstance:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    serializedVersion: 3
+    m_TransformParent: {fileID: 0}
+    m_Modifications:
+    - target: {fileID: 3372488581935982929, guid: 8f3d92a9da894194baf901376f1229a6,
+        type: 3}
+      propertyPath: m_Name
+      value: Ammo Drop Prefab (5)
+      objectReference: {fileID: 0}
+    - target: {fileID: 4413410517975272434, guid: 8f3d92a9da894194baf901376f1229a6,
+        type: 3}
+      propertyPath: m_LocalPosition.x
+      value: 8.493
+      objectReference: {fileID: 0}
+    - target: {fileID: 4413410517975272434, guid: 8f3d92a9da894194baf901376f1229a6,
+        type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4413410517975272434, guid: 8f3d92a9da894194baf901376f1229a6,
+        type: 3}
+      propertyPath: m_LocalPosition.z
+      value: -5.1
+      objectReference: {fileID: 0}
+    - target: {fileID: 4413410517975272434, guid: 8f3d92a9da894194baf901376f1229a6,
+        type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 4413410517975272434, guid: 8f3d92a9da894194baf901376f1229a6,
+        type: 3}
+      propertyPath: m_LocalRotation.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4413410517975272434, guid: 8f3d92a9da894194baf901376f1229a6,
+        type: 3}
+      propertyPath: m_LocalRotation.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4413410517975272434, guid: 8f3d92a9da894194baf901376f1229a6,
+        type: 3}
+      propertyPath: m_LocalRotation.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4413410517975272434, guid: 8f3d92a9da894194baf901376f1229a6,
+        type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4413410517975272434, guid: 8f3d92a9da894194baf901376f1229a6,
+        type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4413410517975272434, guid: 8f3d92a9da894194baf901376f1229a6,
+        type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    m_RemovedComponents: []
+    m_RemovedGameObjects: []
+    m_AddedGameObjects: []
+    m_AddedComponents: []
+  m_SourcePrefab: {fileID: 100100000, guid: 8f3d92a9da894194baf901376f1229a6, type: 3}
 --- !u!1 &787404016
 GameObject:
   m_ObjectHideFlags: 0
@@ -2756,6 +3436,74 @@ Transform:
   m_Children: []
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1001 &835582600
+PrefabInstance:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    serializedVersion: 3
+    m_TransformParent: {fileID: 0}
+    m_Modifications:
+    - target: {fileID: 3372488581935982929, guid: 8f3d92a9da894194baf901376f1229a6,
+        type: 3}
+      propertyPath: m_Name
+      value: Ammo Drop Prefab (14)
+      objectReference: {fileID: 0}
+    - target: {fileID: 4413410517975272434, guid: 8f3d92a9da894194baf901376f1229a6,
+        type: 3}
+      propertyPath: m_LocalPosition.x
+      value: 8.415
+      objectReference: {fileID: 0}
+    - target: {fileID: 4413410517975272434, guid: 8f3d92a9da894194baf901376f1229a6,
+        type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4413410517975272434, guid: 8f3d92a9da894194baf901376f1229a6,
+        type: 3}
+      propertyPath: m_LocalPosition.z
+      value: -5.753
+      objectReference: {fileID: 0}
+    - target: {fileID: 4413410517975272434, guid: 8f3d92a9da894194baf901376f1229a6,
+        type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 4413410517975272434, guid: 8f3d92a9da894194baf901376f1229a6,
+        type: 3}
+      propertyPath: m_LocalRotation.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4413410517975272434, guid: 8f3d92a9da894194baf901376f1229a6,
+        type: 3}
+      propertyPath: m_LocalRotation.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4413410517975272434, guid: 8f3d92a9da894194baf901376f1229a6,
+        type: 3}
+      propertyPath: m_LocalRotation.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4413410517975272434, guid: 8f3d92a9da894194baf901376f1229a6,
+        type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4413410517975272434, guid: 8f3d92a9da894194baf901376f1229a6,
+        type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4413410517975272434, guid: 8f3d92a9da894194baf901376f1229a6,
+        type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    m_RemovedComponents: []
+    m_RemovedGameObjects: []
+    m_AddedGameObjects: []
+    m_AddedComponents: []
+  m_SourcePrefab: {fileID: 100100000, guid: 8f3d92a9da894194baf901376f1229a6, type: 3}
 --- !u!43 &839444523
 Mesh:
   m_ObjectHideFlags: 0
@@ -2921,6 +3669,74 @@ Mesh:
     offset: 0
     size: 0
     path: 
+--- !u!1001 &851397848
+PrefabInstance:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    serializedVersion: 3
+    m_TransformParent: {fileID: 0}
+    m_Modifications:
+    - target: {fileID: 3372488581935982929, guid: 8f3d92a9da894194baf901376f1229a6,
+        type: 3}
+      propertyPath: m_Name
+      value: Ammo Drop Prefab (9)
+      objectReference: {fileID: 0}
+    - target: {fileID: 4413410517975272434, guid: 8f3d92a9da894194baf901376f1229a6,
+        type: 3}
+      propertyPath: m_LocalPosition.x
+      value: 9.295
+      objectReference: {fileID: 0}
+    - target: {fileID: 4413410517975272434, guid: 8f3d92a9da894194baf901376f1229a6,
+        type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4413410517975272434, guid: 8f3d92a9da894194baf901376f1229a6,
+        type: 3}
+      propertyPath: m_LocalPosition.z
+      value: -4.66
+      objectReference: {fileID: 0}
+    - target: {fileID: 4413410517975272434, guid: 8f3d92a9da894194baf901376f1229a6,
+        type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 4413410517975272434, guid: 8f3d92a9da894194baf901376f1229a6,
+        type: 3}
+      propertyPath: m_LocalRotation.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4413410517975272434, guid: 8f3d92a9da894194baf901376f1229a6,
+        type: 3}
+      propertyPath: m_LocalRotation.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4413410517975272434, guid: 8f3d92a9da894194baf901376f1229a6,
+        type: 3}
+      propertyPath: m_LocalRotation.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4413410517975272434, guid: 8f3d92a9da894194baf901376f1229a6,
+        type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4413410517975272434, guid: 8f3d92a9da894194baf901376f1229a6,
+        type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4413410517975272434, guid: 8f3d92a9da894194baf901376f1229a6,
+        type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    m_RemovedComponents: []
+    m_RemovedGameObjects: []
+    m_AddedGameObjects: []
+    m_AddedComponents: []
+  m_SourcePrefab: {fileID: 100100000, guid: 8f3d92a9da894194baf901376f1229a6, type: 3}
 --- !u!1 &877157190
 GameObject:
   m_ObjectHideFlags: 0
@@ -3391,6 +4207,74 @@ MonoBehaviour:
   m_SelectedFaces: 
   m_SelectedEdges: []
   m_SelectedVertices: 
+--- !u!1001 &909961284
+PrefabInstance:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    serializedVersion: 3
+    m_TransformParent: {fileID: 0}
+    m_Modifications:
+    - target: {fileID: 3372488581935982929, guid: 8f3d92a9da894194baf901376f1229a6,
+        type: 3}
+      propertyPath: m_Name
+      value: Ammo Drop Prefab (21)
+      objectReference: {fileID: 0}
+    - target: {fileID: 4413410517975272434, guid: 8f3d92a9da894194baf901376f1229a6,
+        type: 3}
+      propertyPath: m_LocalPosition.x
+      value: 7.862
+      objectReference: {fileID: 0}
+    - target: {fileID: 4413410517975272434, guid: 8f3d92a9da894194baf901376f1229a6,
+        type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4413410517975272434, guid: 8f3d92a9da894194baf901376f1229a6,
+        type: 3}
+      propertyPath: m_LocalPosition.z
+      value: -4.283
+      objectReference: {fileID: 0}
+    - target: {fileID: 4413410517975272434, guid: 8f3d92a9da894194baf901376f1229a6,
+        type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 4413410517975272434, guid: 8f3d92a9da894194baf901376f1229a6,
+        type: 3}
+      propertyPath: m_LocalRotation.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4413410517975272434, guid: 8f3d92a9da894194baf901376f1229a6,
+        type: 3}
+      propertyPath: m_LocalRotation.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4413410517975272434, guid: 8f3d92a9da894194baf901376f1229a6,
+        type: 3}
+      propertyPath: m_LocalRotation.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4413410517975272434, guid: 8f3d92a9da894194baf901376f1229a6,
+        type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4413410517975272434, guid: 8f3d92a9da894194baf901376f1229a6,
+        type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4413410517975272434, guid: 8f3d92a9da894194baf901376f1229a6,
+        type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    m_RemovedComponents: []
+    m_RemovedGameObjects: []
+    m_AddedGameObjects: []
+    m_AddedComponents: []
+  m_SourcePrefab: {fileID: 100100000, guid: 8f3d92a9da894194baf901376f1229a6, type: 3}
 --- !u!1 &918799325
 GameObject:
   m_ObjectHideFlags: 0
@@ -3525,6 +4409,74 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 918799325}
   m_CullTransparentMesh: 1
+--- !u!1001 &943399665
+PrefabInstance:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    serializedVersion: 3
+    m_TransformParent: {fileID: 0}
+    m_Modifications:
+    - target: {fileID: 3372488581935982929, guid: 8f3d92a9da894194baf901376f1229a6,
+        type: 3}
+      propertyPath: m_Name
+      value: Ammo Drop Prefab (3)
+      objectReference: {fileID: 0}
+    - target: {fileID: 4413410517975272434, guid: 8f3d92a9da894194baf901376f1229a6,
+        type: 3}
+      propertyPath: m_LocalPosition.x
+      value: 8.275
+      objectReference: {fileID: 0}
+    - target: {fileID: 4413410517975272434, guid: 8f3d92a9da894194baf901376f1229a6,
+        type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4413410517975272434, guid: 8f3d92a9da894194baf901376f1229a6,
+        type: 3}
+      propertyPath: m_LocalPosition.z
+      value: -5.232
+      objectReference: {fileID: 0}
+    - target: {fileID: 4413410517975272434, guid: 8f3d92a9da894194baf901376f1229a6,
+        type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 4413410517975272434, guid: 8f3d92a9da894194baf901376f1229a6,
+        type: 3}
+      propertyPath: m_LocalRotation.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4413410517975272434, guid: 8f3d92a9da894194baf901376f1229a6,
+        type: 3}
+      propertyPath: m_LocalRotation.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4413410517975272434, guid: 8f3d92a9da894194baf901376f1229a6,
+        type: 3}
+      propertyPath: m_LocalRotation.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4413410517975272434, guid: 8f3d92a9da894194baf901376f1229a6,
+        type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4413410517975272434, guid: 8f3d92a9da894194baf901376f1229a6,
+        type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4413410517975272434, guid: 8f3d92a9da894194baf901376f1229a6,
+        type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    m_RemovedComponents: []
+    m_RemovedGameObjects: []
+    m_AddedGameObjects: []
+    m_AddedComponents: []
+  m_SourcePrefab: {fileID: 100100000, guid: 8f3d92a9da894194baf901376f1229a6, type: 3}
 --- !u!1 &1009657371
 GameObject:
   m_ObjectHideFlags: 0
@@ -3674,6 +4626,74 @@ Transform:
   m_Children: []
   m_Father: {fileID: 1882787873296550876}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1001 &1079295598
+PrefabInstance:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    serializedVersion: 3
+    m_TransformParent: {fileID: 0}
+    m_Modifications:
+    - target: {fileID: 3372488581935982929, guid: 8f3d92a9da894194baf901376f1229a6,
+        type: 3}
+      propertyPath: m_Name
+      value: Ammo Drop Prefab (2)
+      objectReference: {fileID: 0}
+    - target: {fileID: 4413410517975272434, guid: 8f3d92a9da894194baf901376f1229a6,
+        type: 3}
+      propertyPath: m_LocalPosition.x
+      value: 8.717
+      objectReference: {fileID: 0}
+    - target: {fileID: 4413410517975272434, guid: 8f3d92a9da894194baf901376f1229a6,
+        type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4413410517975272434, guid: 8f3d92a9da894194baf901376f1229a6,
+        type: 3}
+      propertyPath: m_LocalPosition.z
+      value: -4.929
+      objectReference: {fileID: 0}
+    - target: {fileID: 4413410517975272434, guid: 8f3d92a9da894194baf901376f1229a6,
+        type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 4413410517975272434, guid: 8f3d92a9da894194baf901376f1229a6,
+        type: 3}
+      propertyPath: m_LocalRotation.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4413410517975272434, guid: 8f3d92a9da894194baf901376f1229a6,
+        type: 3}
+      propertyPath: m_LocalRotation.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4413410517975272434, guid: 8f3d92a9da894194baf901376f1229a6,
+        type: 3}
+      propertyPath: m_LocalRotation.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4413410517975272434, guid: 8f3d92a9da894194baf901376f1229a6,
+        type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4413410517975272434, guid: 8f3d92a9da894194baf901376f1229a6,
+        type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4413410517975272434, guid: 8f3d92a9da894194baf901376f1229a6,
+        type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    m_RemovedComponents: []
+    m_RemovedGameObjects: []
+    m_AddedGameObjects: []
+    m_AddedComponents: []
+  m_SourcePrefab: {fileID: 100100000, guid: 8f3d92a9da894194baf901376f1229a6, type: 3}
 --- !u!1 &1105700031
 GameObject:
   m_ObjectHideFlags: 0
@@ -4082,6 +5102,74 @@ Transform:
   m_Children: []
   m_Father: {fileID: 1458141423}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1001 &1224910611
+PrefabInstance:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    serializedVersion: 3
+    m_TransformParent: {fileID: 0}
+    m_Modifications:
+    - target: {fileID: 3372488581935982929, guid: 8f3d92a9da894194baf901376f1229a6,
+        type: 3}
+      propertyPath: m_Name
+      value: Ammo Drop Prefab (4)
+      objectReference: {fileID: 0}
+    - target: {fileID: 4413410517975272434, guid: 8f3d92a9da894194baf901376f1229a6,
+        type: 3}
+      propertyPath: m_LocalPosition.x
+      value: 8.705
+      objectReference: {fileID: 0}
+    - target: {fileID: 4413410517975272434, guid: 8f3d92a9da894194baf901376f1229a6,
+        type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4413410517975272434, guid: 8f3d92a9da894194baf901376f1229a6,
+        type: 3}
+      propertyPath: m_LocalPosition.z
+      value: -5.408
+      objectReference: {fileID: 0}
+    - target: {fileID: 4413410517975272434, guid: 8f3d92a9da894194baf901376f1229a6,
+        type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 4413410517975272434, guid: 8f3d92a9da894194baf901376f1229a6,
+        type: 3}
+      propertyPath: m_LocalRotation.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4413410517975272434, guid: 8f3d92a9da894194baf901376f1229a6,
+        type: 3}
+      propertyPath: m_LocalRotation.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4413410517975272434, guid: 8f3d92a9da894194baf901376f1229a6,
+        type: 3}
+      propertyPath: m_LocalRotation.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4413410517975272434, guid: 8f3d92a9da894194baf901376f1229a6,
+        type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4413410517975272434, guid: 8f3d92a9da894194baf901376f1229a6,
+        type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4413410517975272434, guid: 8f3d92a9da894194baf901376f1229a6,
+        type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    m_RemovedComponents: []
+    m_RemovedGameObjects: []
+    m_AddedGameObjects: []
+    m_AddedComponents: []
+  m_SourcePrefab: {fileID: 100100000, guid: 8f3d92a9da894194baf901376f1229a6, type: 3}
 --- !u!95 &1226149992
 Animator:
   serializedVersion: 5
@@ -4119,6 +5207,74 @@ MonoBehaviour:
   - m_Rig: {fileID: 1105700033}
     m_Active: 1
   m_Effectors: []
+--- !u!1001 &1252831913
+PrefabInstance:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    serializedVersion: 3
+    m_TransformParent: {fileID: 0}
+    m_Modifications:
+    - target: {fileID: 3372488581935982929, guid: 8f3d92a9da894194baf901376f1229a6,
+        type: 3}
+      propertyPath: m_Name
+      value: Ammo Drop Prefab (20)
+      objectReference: {fileID: 0}
+    - target: {fileID: 4413410517975272434, guid: 8f3d92a9da894194baf901376f1229a6,
+        type: 3}
+      propertyPath: m_LocalPosition.x
+      value: 8.489
+      objectReference: {fileID: 0}
+    - target: {fileID: 4413410517975272434, guid: 8f3d92a9da894194baf901376f1229a6,
+        type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4413410517975272434, guid: 8f3d92a9da894194baf901376f1229a6,
+        type: 3}
+      propertyPath: m_LocalPosition.z
+      value: -4.063
+      objectReference: {fileID: 0}
+    - target: {fileID: 4413410517975272434, guid: 8f3d92a9da894194baf901376f1229a6,
+        type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 4413410517975272434, guid: 8f3d92a9da894194baf901376f1229a6,
+        type: 3}
+      propertyPath: m_LocalRotation.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4413410517975272434, guid: 8f3d92a9da894194baf901376f1229a6,
+        type: 3}
+      propertyPath: m_LocalRotation.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4413410517975272434, guid: 8f3d92a9da894194baf901376f1229a6,
+        type: 3}
+      propertyPath: m_LocalRotation.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4413410517975272434, guid: 8f3d92a9da894194baf901376f1229a6,
+        type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4413410517975272434, guid: 8f3d92a9da894194baf901376f1229a6,
+        type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4413410517975272434, guid: 8f3d92a9da894194baf901376f1229a6,
+        type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    m_RemovedComponents: []
+    m_RemovedGameObjects: []
+    m_AddedGameObjects: []
+    m_AddedComponents: []
+  m_SourcePrefab: {fileID: 100100000, guid: 8f3d92a9da894194baf901376f1229a6, type: 3}
 --- !u!43 &1254569946
 Mesh:
   m_ObjectHideFlags: 0
@@ -5077,6 +6233,74 @@ Transform:
   m_Children: []
   m_Father: {fileID: 252119922}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1001 &1389905664
+PrefabInstance:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    serializedVersion: 3
+    m_TransformParent: {fileID: 0}
+    m_Modifications:
+    - target: {fileID: 3372488581935982929, guid: 8f3d92a9da894194baf901376f1229a6,
+        type: 3}
+      propertyPath: m_Name
+      value: Ammo Drop Prefab (11)
+      objectReference: {fileID: 0}
+    - target: {fileID: 4413410517975272434, guid: 8f3d92a9da894194baf901376f1229a6,
+        type: 3}
+      propertyPath: m_LocalPosition.x
+      value: 8.496
+      objectReference: {fileID: 0}
+    - target: {fileID: 4413410517975272434, guid: 8f3d92a9da894194baf901376f1229a6,
+        type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4413410517975272434, guid: 8f3d92a9da894194baf901376f1229a6,
+        type: 3}
+      propertyPath: m_LocalPosition.z
+      value: -4.336
+      objectReference: {fileID: 0}
+    - target: {fileID: 4413410517975272434, guid: 8f3d92a9da894194baf901376f1229a6,
+        type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 4413410517975272434, guid: 8f3d92a9da894194baf901376f1229a6,
+        type: 3}
+      propertyPath: m_LocalRotation.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4413410517975272434, guid: 8f3d92a9da894194baf901376f1229a6,
+        type: 3}
+      propertyPath: m_LocalRotation.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4413410517975272434, guid: 8f3d92a9da894194baf901376f1229a6,
+        type: 3}
+      propertyPath: m_LocalRotation.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4413410517975272434, guid: 8f3d92a9da894194baf901376f1229a6,
+        type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4413410517975272434, guid: 8f3d92a9da894194baf901376f1229a6,
+        type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4413410517975272434, guid: 8f3d92a9da894194baf901376f1229a6,
+        type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    m_RemovedComponents: []
+    m_RemovedGameObjects: []
+    m_AddedGameObjects: []
+    m_AddedComponents: []
+  m_SourcePrefab: {fileID: 100100000, guid: 8f3d92a9da894194baf901376f1229a6, type: 3}
 --- !u!1 &1414303394
 GameObject:
   m_ObjectHideFlags: 0
@@ -5535,6 +6759,74 @@ MonoBehaviour:
   m_SelectedFaces: 
   m_SelectedEdges: []
   m_SelectedVertices: 
+--- !u!1001 &1422823277
+PrefabInstance:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    serializedVersion: 3
+    m_TransformParent: {fileID: 0}
+    m_Modifications:
+    - target: {fileID: 3372488581935982929, guid: 8f3d92a9da894194baf901376f1229a6,
+        type: 3}
+      propertyPath: m_Name
+      value: Ammo Drop Prefab (16)
+      objectReference: {fileID: 0}
+    - target: {fileID: 4413410517975272434, guid: 8f3d92a9da894194baf901376f1229a6,
+        type: 3}
+      propertyPath: m_LocalPosition.x
+      value: 9.362
+      objectReference: {fileID: 0}
+    - target: {fileID: 4413410517975272434, guid: 8f3d92a9da894194baf901376f1229a6,
+        type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4413410517975272434, guid: 8f3d92a9da894194baf901376f1229a6,
+        type: 3}
+      propertyPath: m_LocalPosition.z
+      value: -5.6
+      objectReference: {fileID: 0}
+    - target: {fileID: 4413410517975272434, guid: 8f3d92a9da894194baf901376f1229a6,
+        type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 4413410517975272434, guid: 8f3d92a9da894194baf901376f1229a6,
+        type: 3}
+      propertyPath: m_LocalRotation.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4413410517975272434, guid: 8f3d92a9da894194baf901376f1229a6,
+        type: 3}
+      propertyPath: m_LocalRotation.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4413410517975272434, guid: 8f3d92a9da894194baf901376f1229a6,
+        type: 3}
+      propertyPath: m_LocalRotation.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4413410517975272434, guid: 8f3d92a9da894194baf901376f1229a6,
+        type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4413410517975272434, guid: 8f3d92a9da894194baf901376f1229a6,
+        type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4413410517975272434, guid: 8f3d92a9da894194baf901376f1229a6,
+        type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    m_RemovedComponents: []
+    m_RemovedGameObjects: []
+    m_AddedGameObjects: []
+    m_AddedComponents: []
+  m_SourcePrefab: {fileID: 100100000, guid: 8f3d92a9da894194baf901376f1229a6, type: 3}
 --- !u!1 &1438484691
 GameObject:
   m_ObjectHideFlags: 0
@@ -5986,6 +7278,74 @@ MonoBehaviour:
     m_HintWeight: 1
     m_MaintainTargetPositionOffset: 0
     m_MaintainTargetRotationOffset: 0
+--- !u!1001 &1465973605
+PrefabInstance:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    serializedVersion: 3
+    m_TransformParent: {fileID: 0}
+    m_Modifications:
+    - target: {fileID: 3372488581935982929, guid: 8f3d92a9da894194baf901376f1229a6,
+        type: 3}
+      propertyPath: m_Name
+      value: Ammo Drop Prefab
+      objectReference: {fileID: 0}
+    - target: {fileID: 4413410517975272434, guid: 8f3d92a9da894194baf901376f1229a6,
+        type: 3}
+      propertyPath: m_LocalPosition.x
+      value: 8.66
+      objectReference: {fileID: 0}
+    - target: {fileID: 4413410517975272434, guid: 8f3d92a9da894194baf901376f1229a6,
+        type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4413410517975272434, guid: 8f3d92a9da894194baf901376f1229a6,
+        type: 3}
+      propertyPath: m_LocalPosition.z
+      value: -4.61
+      objectReference: {fileID: 0}
+    - target: {fileID: 4413410517975272434, guid: 8f3d92a9da894194baf901376f1229a6,
+        type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 4413410517975272434, guid: 8f3d92a9da894194baf901376f1229a6,
+        type: 3}
+      propertyPath: m_LocalRotation.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4413410517975272434, guid: 8f3d92a9da894194baf901376f1229a6,
+        type: 3}
+      propertyPath: m_LocalRotation.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4413410517975272434, guid: 8f3d92a9da894194baf901376f1229a6,
+        type: 3}
+      propertyPath: m_LocalRotation.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4413410517975272434, guid: 8f3d92a9da894194baf901376f1229a6,
+        type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4413410517975272434, guid: 8f3d92a9da894194baf901376f1229a6,
+        type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4413410517975272434, guid: 8f3d92a9da894194baf901376f1229a6,
+        type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    m_RemovedComponents: []
+    m_RemovedGameObjects: []
+    m_AddedGameObjects: []
+    m_AddedComponents: []
+  m_SourcePrefab: {fileID: 100100000, guid: 8f3d92a9da894194baf901376f1229a6, type: 3}
 --- !u!1 &1492373565
 GameObject:
   m_ObjectHideFlags: 0
@@ -6685,6 +8045,74 @@ MeshFilter:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1690253096}
   m_Mesh: {fileID: 5896320725846998527, guid: 56408ef21c9530d4ba44acb37d35dfef, type: 3}
+--- !u!1001 &1710468244
+PrefabInstance:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    serializedVersion: 3
+    m_TransformParent: {fileID: 0}
+    m_Modifications:
+    - target: {fileID: 3372488581935982929, guid: 8f3d92a9da894194baf901376f1229a6,
+        type: 3}
+      propertyPath: m_Name
+      value: Ammo Drop Prefab (6)
+      objectReference: {fileID: 0}
+    - target: {fileID: 4413410517975272434, guid: 8f3d92a9da894194baf901376f1229a6,
+        type: 3}
+      propertyPath: m_LocalPosition.x
+      value: 9.007
+      objectReference: {fileID: 0}
+    - target: {fileID: 4413410517975272434, guid: 8f3d92a9da894194baf901376f1229a6,
+        type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4413410517975272434, guid: 8f3d92a9da894194baf901376f1229a6,
+        type: 3}
+      propertyPath: m_LocalPosition.z
+      value: -4.865
+      objectReference: {fileID: 0}
+    - target: {fileID: 4413410517975272434, guid: 8f3d92a9da894194baf901376f1229a6,
+        type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 4413410517975272434, guid: 8f3d92a9da894194baf901376f1229a6,
+        type: 3}
+      propertyPath: m_LocalRotation.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4413410517975272434, guid: 8f3d92a9da894194baf901376f1229a6,
+        type: 3}
+      propertyPath: m_LocalRotation.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4413410517975272434, guid: 8f3d92a9da894194baf901376f1229a6,
+        type: 3}
+      propertyPath: m_LocalRotation.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4413410517975272434, guid: 8f3d92a9da894194baf901376f1229a6,
+        type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4413410517975272434, guid: 8f3d92a9da894194baf901376f1229a6,
+        type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4413410517975272434, guid: 8f3d92a9da894194baf901376f1229a6,
+        type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    m_RemovedComponents: []
+    m_RemovedGameObjects: []
+    m_AddedGameObjects: []
+    m_AddedComponents: []
+  m_SourcePrefab: {fileID: 100100000, guid: 8f3d92a9da894194baf901376f1229a6, type: 3}
 --- !u!1 &1728962126
 GameObject:
   m_ObjectHideFlags: 0
@@ -12274,6 +13702,142 @@ MeshFilter:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 2012978967}
   m_Mesh: {fileID: 10202, guid: 0000000000000000e000000000000000, type: 0}
+--- !u!1001 &2057824799
+PrefabInstance:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    serializedVersion: 3
+    m_TransformParent: {fileID: 0}
+    m_Modifications:
+    - target: {fileID: 3372488581935982929, guid: 8f3d92a9da894194baf901376f1229a6,
+        type: 3}
+      propertyPath: m_Name
+      value: Ammo Drop Prefab (1)
+      objectReference: {fileID: 0}
+    - target: {fileID: 4413410517975272434, guid: 8f3d92a9da894194baf901376f1229a6,
+        type: 3}
+      propertyPath: m_LocalPosition.x
+      value: 8.405
+      objectReference: {fileID: 0}
+    - target: {fileID: 4413410517975272434, guid: 8f3d92a9da894194baf901376f1229a6,
+        type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4413410517975272434, guid: 8f3d92a9da894194baf901376f1229a6,
+        type: 3}
+      propertyPath: m_LocalPosition.z
+      value: -4.727
+      objectReference: {fileID: 0}
+    - target: {fileID: 4413410517975272434, guid: 8f3d92a9da894194baf901376f1229a6,
+        type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 4413410517975272434, guid: 8f3d92a9da894194baf901376f1229a6,
+        type: 3}
+      propertyPath: m_LocalRotation.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4413410517975272434, guid: 8f3d92a9da894194baf901376f1229a6,
+        type: 3}
+      propertyPath: m_LocalRotation.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4413410517975272434, guid: 8f3d92a9da894194baf901376f1229a6,
+        type: 3}
+      propertyPath: m_LocalRotation.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4413410517975272434, guid: 8f3d92a9da894194baf901376f1229a6,
+        type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4413410517975272434, guid: 8f3d92a9da894194baf901376f1229a6,
+        type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4413410517975272434, guid: 8f3d92a9da894194baf901376f1229a6,
+        type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    m_RemovedComponents: []
+    m_RemovedGameObjects: []
+    m_AddedGameObjects: []
+    m_AddedComponents: []
+  m_SourcePrefab: {fileID: 100100000, guid: 8f3d92a9da894194baf901376f1229a6, type: 3}
+--- !u!1001 &2069386069
+PrefabInstance:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    serializedVersion: 3
+    m_TransformParent: {fileID: 0}
+    m_Modifications:
+    - target: {fileID: 3372488581935982929, guid: 8f3d92a9da894194baf901376f1229a6,
+        type: 3}
+      propertyPath: m_Name
+      value: Ammo Drop Prefab (17)
+      objectReference: {fileID: 0}
+    - target: {fileID: 4413410517975272434, guid: 8f3d92a9da894194baf901376f1229a6,
+        type: 3}
+      propertyPath: m_LocalPosition.x
+      value: 9.689
+      objectReference: {fileID: 0}
+    - target: {fileID: 4413410517975272434, guid: 8f3d92a9da894194baf901376f1229a6,
+        type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4413410517975272434, guid: 8f3d92a9da894194baf901376f1229a6,
+        type: 3}
+      propertyPath: m_LocalPosition.z
+      value: -5.119
+      objectReference: {fileID: 0}
+    - target: {fileID: 4413410517975272434, guid: 8f3d92a9da894194baf901376f1229a6,
+        type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 4413410517975272434, guid: 8f3d92a9da894194baf901376f1229a6,
+        type: 3}
+      propertyPath: m_LocalRotation.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4413410517975272434, guid: 8f3d92a9da894194baf901376f1229a6,
+        type: 3}
+      propertyPath: m_LocalRotation.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4413410517975272434, guid: 8f3d92a9da894194baf901376f1229a6,
+        type: 3}
+      propertyPath: m_LocalRotation.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4413410517975272434, guid: 8f3d92a9da894194baf901376f1229a6,
+        type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4413410517975272434, guid: 8f3d92a9da894194baf901376f1229a6,
+        type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4413410517975272434, guid: 8f3d92a9da894194baf901376f1229a6,
+        type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    m_RemovedComponents: []
+    m_RemovedGameObjects: []
+    m_AddedGameObjects: []
+    m_AddedComponents: []
+  m_SourcePrefab: {fileID: 100100000, guid: 8f3d92a9da894194baf901376f1229a6, type: 3}
 --- !u!1 &2093436494
 GameObject:
   m_ObjectHideFlags: 0
@@ -22301,3 +23865,26 @@ SceneRoots:
   - {fileID: 6627073034657236959}
   - {fileID: 3635956067686858938}
   - {fileID: 877157191}
+  - {fileID: 1465973605}
+  - {fileID: 2057824799}
+  - {fileID: 1079295598}
+  - {fileID: 943399665}
+  - {fileID: 1224910611}
+  - {fileID: 769848702}
+  - {fileID: 1710468244}
+  - {fileID: 384623766}
+  - {fileID: 102519570}
+  - {fileID: 851397848}
+  - {fileID: 203423337}
+  - {fileID: 1389905664}
+  - {fileID: 681809555}
+  - {fileID: 137811231}
+  - {fileID: 835582600}
+  - {fileID: 615241026}
+  - {fileID: 1422823277}
+  - {fileID: 2069386069}
+  - {fileID: 720887943}
+  - {fileID: 653975027}
+  - {fileID: 1252831913}
+  - {fileID: 909961284}
+  - {fileID: 16887811}

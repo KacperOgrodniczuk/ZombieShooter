@@ -6,6 +6,7 @@ public class UIManager : MonoBehaviour
     [SerializeField] TMP_Text ammoText;
     [SerializeField] TMP_Text survivalPointsText;
     [SerializeField] TMP_Text interactPromptText;
+    [SerializeField] TMP_Text waveNumberText;
 
     // Fields to keep track of scripts subscribed to.
     PlayerSurvivalPointsManager survivalPointsManager;
