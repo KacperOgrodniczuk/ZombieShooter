@@ -1,72 +1,32 @@
+using System;
 using TMPro;
 using UnityEngine;
 
 public class UIManager : MonoBehaviour
 {
+    [Header("Text Components")]
     [SerializeField] TMP_Text ammoText;
     [SerializeField] TMP_Text survivalPointsText;
     [SerializeField] TMP_Text interactPromptText;
     [SerializeField] TMP_Text waveNumberText;
 
-    // Fields to keep track of scripts subscribed to.
-    PlayerSurvivalPointsManager survivalPointsManager;
-    AmmoConfigScriptableObject lastAmmoSubscribedTo;
-
-    public void SubscribeToSurvivalPointsEvents(PlayerSurvivalPointsManager survivalPointsManager)
-    {
-        if (survivalPointsManager == null)
-        {
-            Debug.LogWarning("Attempting to subscribe to a null AmmoConfigScriptableObject");
-            return;
-        }
-
-        survivalPointsManager.OnSurvivalPointsChange += UpdateSurvivalPointUI;
-        survivalPointsManager.TriggerOnSurvivalPointsChange();
-        this.survivalPointsManager = survivalPointsManager;
+    public void UpdateWaveNumberUI(int waveNumber)
+    { 
+        waveNumberText.text = waveNumber.ToString();
     }
 
-    void UpdateSurvivalPointUI(int currentSurvivalPoints)
-    { 
+    public void UpdateSurvivalPointUI(int currentSurvivalPoints)
+    {
         survivalPointsText.text = currentSurvivalPoints.ToString();
     }
 
     public void UpdateInteractPromptUI(string interactPrompt)
-    { 
+    {
         interactPromptText.text = interactPrompt;
     }
 
-    public void SubscribeToAmmoEvents(AmmoConfigScriptableObject ammoScriptableObject)
+    public void UpdateAmmoUI(int currentClipAmmo, int currentStockpileAmmo)
     {
-        if (ammoScriptableObject == null) {
-            Debug.LogWarning("Attempting to subscribe to a null AmmoConfigScriptableObject");
-            return;
-        }
-
-        if(lastAmmoSubscribedTo != null) {
-            lastAmmoSubscribedTo.OnAmmoChange -= UpdateAmmoUI;
-        }
-
-        ammoScriptableObject.OnAmmoChange += UpdateAmmoUI;
-        ammoScriptableObject.TriggerOnAmmoChangeEvent();
-        lastAmmoSubscribedTo = ammoScriptableObject;
-    }
-
-    void UpdateAmmoUI(int currentClipAmmo, int currentStockpileAmmo) 
-    {
-        //Code to update ammo on the UI
         ammoText.text = $"{currentClipAmmo} / {currentStockpileAmmo}";
-    }
-
-    private void OnDestroy()
-    {
-        if (lastAmmoSubscribedTo != null)
-        {
-            lastAmmoSubscribedTo.OnAmmoChange -= UpdateAmmoUI;
-        }
-
-        if (survivalPointsManager != null)
-        {
-            survivalPointsManager.OnSurvivalPointsChange -= UpdateSurvivalPointUI;
-        }
     }
 }

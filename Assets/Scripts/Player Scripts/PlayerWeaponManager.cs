@@ -44,6 +44,12 @@ public class PlayerWeaponManager : MonoBehaviour
             renderer.shadowCastingMode = UnityEngine.Rendering.ShadowCastingMode.Off;
         }
 
-        playerManager.UIManager.SubscribeToAmmoEvents(activeGun.ammoConfig);
+        activeGun.ammoConfig.OnAmmoChange += playerManager.UIManager.UpdateAmmoUI;
+        activeGun.ammoConfig.TriggerOnAmmoChangeEvent();
+    }
+
+    public void OnDisable()
+    {
+        activeGun.ammoConfig.OnAmmoChange += playerManager.UIManager.UpdateAmmoUI;
     }
 }

@@ -1,11 +1,11 @@
+using System;
 using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 
 public class WaveSpawner : MonoBehaviour
 {
-    public Transform[] SpawnPoints;
     public GameObject enemyPrefab;
+    Transform[] SpawnPoints;
 
     [Header("Base Wave Settings")]
     float startSpawnInterval = 10f;
@@ -28,10 +28,23 @@ public class WaveSpawner : MonoBehaviour
 
     bool waveSpawning = false;
 
+    public event Action<int> OnWaveChange;
+
+    //Temporary before an event manager script is implemented.
+    [SerializeField] UIManager UIManager;
+
     private void Start()
     {
         StartCoroutine(SpawnWave(currentWaveIndex));
         GetSpawnPoints();
+    }
+
+    private void OnEnable()
+    {
+        if (UIManager != null)
+            OnWaveChange += UIManager.UpdateWaveNumberUI;
+
+        TriggerWaveChangeEvent();
     }
 
     void GetSpawnPoints() {
@@ -53,6 +66,8 @@ public class WaveSpawner : MonoBehaviour
 
     IEnumerator SpawnWave(int waveIndex)
     {
+        TriggerWaveChangeEvent();
+
         waveSpawning = true;
 
         yield return new WaitForSeconds(waveStartDelay);
@@ -75,7 +90,7 @@ public class WaveSpawner : MonoBehaviour
 
     void SpawnEnemy()
     {
-        Transform spawnPoint = SpawnPoints[Random.Range(0, SpawnPoints.Length)];
+        Transform spawnPoint = SpawnPoints[UnityEngine.Random.Range(0, SpawnPoints.Length)];
         GameObject spawnedEnemy = Instantiate(enemyPrefab, spawnPoint.position, spawnPoint.rotation);
 
         EnemyManager enemyManager = spawnedEnemy.GetComponent<EnemyManager>();
@@ -108,5 +123,16 @@ public class WaveSpawner : MonoBehaviour
     float CalculateSpawnInterval(int waveIndex)
     {
         return Mathf.Max(startSpawnInterval / Mathf.Pow(enemySpawnTimeScaling, waveIndex), 1f);
+    }
+
+    private void TriggerWaveChangeEvent()
+    {
+        OnWaveChange?.Invoke(currentWaveIndex);
+    }
+
+    private void OnDisable()
+    {
+        if (UIManager != null)
+            OnWaveChange -= UIManager.UpdateWaveNumberUI;
     }
 }

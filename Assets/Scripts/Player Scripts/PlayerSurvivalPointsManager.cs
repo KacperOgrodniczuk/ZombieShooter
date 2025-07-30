@@ -9,10 +9,15 @@ public class PlayerSurvivalPointsManager : MonoBehaviour
 
     public event Action<int> OnSurvivalPointsChange;
 
-    private void Start()
+    private void Awake()
     {
         playerManager = GetComponent<PlayerManager>();
-        playerManager.UIManager.SubscribeToSurvivalPointsEvents(this);
+    }
+
+    private void OnEnable()
+    {
+        OnSurvivalPointsChange += playerManager.UIManager.UpdateSurvivalPointUI;
+        TriggerOnSurvivalPointsChange();
     }
 
     public void TriggerOnSurvivalPointsChange()
@@ -34,5 +39,10 @@ public class PlayerSurvivalPointsManager : MonoBehaviour
         currentSurvivalPoints -= amount;
         TriggerOnSurvivalPointsChange();
         return true;
+    }
+
+    private void OnDisable()
+    {
+        OnSurvivalPointsChange -= playerManager.UIManager.UpdateSurvivalPointUI;
     }
 }
