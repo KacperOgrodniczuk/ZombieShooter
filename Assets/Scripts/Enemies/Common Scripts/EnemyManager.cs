@@ -3,27 +3,23 @@ using UnityEngine.AI;
 
 public class EnemyManager : MonoBehaviour
 {
-    [Header("Enemy Fields")]
-    [SerializeField]
-    float _stopChaseRange = 1f;     //how close the enemy needs to get before it stops chasing and does something else like attack.
-    [SerializeField]
-    int _attackDamage = 50;
-    [SerializeField]
-    float _speedMultiplier = 1f;
-    [SerializeField]
-    float _deathDissolveDuration = 1f;
+    [Header("Stats")]
+    [SerializeField] int BaseHealth = 100;
+    [SerializeField] int BaseDamage = 50;
+    [SerializeField] float SpeedMultiplier = 1f;
 
-    //Variables - done this way so that they show up in the inspector and can be tweaked.
-    public float AttackRange { get => _stopChaseRange;  private set => _stopChaseRange = value; }
-    public int AttackDamage { get => _attackDamage;  private set => _attackDamage = value; }
-    public float SpeedMultiplier { get => _speedMultiplier;  private set => _speedMultiplier = value; }
-    public float DeathDissolveDuration { get => _deathDissolveDuration; private set => _deathDissolveDuration = value; }
+    public float StopChaseRange = 1f;     //how close the enemy needs to get before it stops chasing and does something else like attack.
+    public float DeathDissolveDuration = 1f;
+
+    public float CurrentHealth;
+    public float CurrentDamage;
+    public float CurrentSpeedMultiplier;
 
     //Components
     public Transform Player { get; private set; }
     public NavMeshAgent Agent { get; private set; }
     public Animator Animator { get; private set; }
-    public IDamageable Damageable { get; private set; }
+    public EnemyHealth EnemyHealth { get; private set; }
 
     //State management
     EnemyState currentState;
@@ -48,11 +44,7 @@ public class EnemyManager : MonoBehaviour
         Player = GameObject.FindWithTag("Player").transform;
         Agent = GetComponent<NavMeshAgent>();
         Animator = GetComponent<Animator>();
-        Damageable = GetComponent<IDamageable>();
-
-        Agent.updatePosition = false;
-        Animator.applyRootMotion = true;
-        Animator.speed = SpeedMultiplier;
+        EnemyHealth = GetComponent<EnemyHealth>();
     }
 
     private void OnEnable()
@@ -72,6 +64,17 @@ public class EnemyManager : MonoBehaviour
         currentState = newState;
 
         currentState?.EnterState();
+    }
+
+    public void ScaleEnemy(float healthMultiplier, float damageMultiplier, float speedMultiplier)
+    {
+        CurrentHealth = BaseHealth * healthMultiplier;
+        CurrentDamage = BaseDamage * damageMultiplier;
+        CurrentSpeedMultiplier = SpeedMultiplier * speedMultiplier;
+
+        EnemyHealth.SetMaxHealth(CurrentHealth);
+        //set damage
+        //set speed
     }
 
     public void OnDeathAnimationEnd()

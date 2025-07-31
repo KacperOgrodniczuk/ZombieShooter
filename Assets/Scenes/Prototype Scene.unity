@@ -15070,9 +15070,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 350aedf5c65de9b4ca6b4fcf7ef5fe07, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _stopChaseRange: 1
   _attackDamage: 50
   _speedMultiplier: 1
+  _stopChaseRange: 1
   _deathDissolveDuration: 0
   isPerformingAction: 0
 --- !u!1 &213984007502343007
@@ -16605,7 +16605,7 @@ RectTransform:
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
   m_AnchoredPosition: {x: 0, y: 0}
-  m_SizeDelta: {x: 100, y: 100}
+  m_SizeDelta: {x: 50, y: 50}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!1 &1801326006565818525
 GameObject:
@@ -18501,6 +18501,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 3555549718714893452, guid: dd19d7580ff851747a6eba1194be4d57,
         type: 3}
+      propertyPath: UIManager
+      value: 
+      objectReference: {fileID: 5161331428131195270}
+    - target: {fileID: 3555549718714893452, guid: dd19d7580ff851747a6eba1194be4d57,
+        type: 3}
       propertyPath: SpawnPointsRoot
       value: 
       objectReference: {fileID: 1925490779}
@@ -20036,7 +20041,6 @@ MonoBehaviour:
   survivalPointsText: {fileID: 918799327}
   interactPromptText: {fileID: 1329250522}
   waveNumberText: {fileID: 864197336}
-  survivalPointsManager: {fileID: 8894558403242705518}
 --- !u!4 &5162660892755818297
 Transform:
   m_ObjectHideFlags: 0
@@ -20335,9 +20339,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 350aedf5c65de9b4ca6b4fcf7ef5fe07, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _stopChaseRange: 1
   _attackDamage: 50
   _speedMultiplier: 1
+  _stopChaseRange: 1
   _deathDissolveDuration: 0
   isPerformingAction: 0
 --- !u!114 &5462020477757691479
@@ -20352,9 +20356,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 350aedf5c65de9b4ca6b4fcf7ef5fe07, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _stopChaseRange: 1
   _attackDamage: 50
   _speedMultiplier: 1
+  _stopChaseRange: 1
   _deathDissolveDuration: 0
   isPerformingAction: 0
 --- !u!1 &5477380869370712243

@@ -3,9 +3,9 @@ using UnityEngine;
 public class EnemyHealth : MonoBehaviour, IDamageable
 {
     [SerializeField]
-    private int _maxHealth = 100;
+    private float _maxHealth = 100;
     [SerializeField]
-    private int _currentHealth;
+    private float _currentHealth;
     [Header("Survival Points")]
     [SerializeField]
     private int damagePoints = 10;
@@ -13,8 +13,8 @@ public class EnemyHealth : MonoBehaviour, IDamageable
     private int killPoints = 100;
     private bool dead = false;
 
-    public int MaxHealth { get => _maxHealth; private set => _maxHealth = value; }
-    public int CurrentHealth { get => _currentHealth; private set => _currentHealth = value; }
+    public float MaxHealth { get => _maxHealth; private set => _maxHealth = value; }
+    public float CurrentHealth { get => _currentHealth; private set => _currentHealth = value; }
 
     public event IDamageable.TakeDamageEvent OnTakeDamage;
     public event IDamageable.DeathEvent OnDeath;
@@ -28,6 +28,12 @@ public class EnemyHealth : MonoBehaviour, IDamageable
     private void Awake()
     {
         _enemyManager = GetComponent<EnemyManager>();
+    }
+
+    public void SetMaxHealth(float maxHealth)
+    { 
+        MaxHealth = maxHealth;
+        CurrentHealth = MaxHealth;
     }
 
     public void TakeDamage(int damage, PlayerSurvivalPointsManager playerSurvivalPointsManager = null)     // Need to have a think about how to grab the specific player

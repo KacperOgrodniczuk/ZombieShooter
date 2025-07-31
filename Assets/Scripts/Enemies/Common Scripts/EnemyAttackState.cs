@@ -32,7 +32,7 @@ public class EnemyAttackState : EnemyState
         Vector3 newPosition = enemy.transform.position + rootMotion;
         enemy.Agent.nextPosition = newPosition;
 
-        if (_enemyAttack.shouldDealDamage)  _enemyAttack.ApplyDamage(enemy.AttackDamage);
+        if (_enemyAttack.shouldDealDamage)  _enemyAttack.ApplyDamage(enemy.CurrentDamage);
 
         if (!enemy.isPerformingAction)  //isPerformingAction is changed back to false in animator action layer, on transition to the empty state.
         {

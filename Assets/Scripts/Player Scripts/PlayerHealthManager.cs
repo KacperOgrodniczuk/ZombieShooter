@@ -6,13 +6,13 @@ public class PlayerHealthManager : MonoBehaviour
     // Add EnemyHealth regen after not being hit for a few seconds
 
     [SerializeField]
-    private int _maxHealth = 100;
+    private float _maxHealth = 100;
     [SerializeField]
-    private int _currentHealth;
-    public int MaxHealth { get => _maxHealth; private set => _maxHealth = value; }
-    public int CurrentHealth { get => _currentHealth; private set => _currentHealth = value; }
+    private float _currentHealth;
+    public float MaxHealth { get => _maxHealth; private set => _maxHealth = value; }
+    public float CurrentHealth { get => _currentHealth; private set => _currentHealth = value; }
 
-    public void TakeDamage(int damage, PlayerSurvivalPointsManager playerSurvivalPointsManager = null)
+    public void TakeDamage(float damage, PlayerSurvivalPointsManager playerSurvivalPointsManager = null)
     {
         CurrentHealth -= damage;
 

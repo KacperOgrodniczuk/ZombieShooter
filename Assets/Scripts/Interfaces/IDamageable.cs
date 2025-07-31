@@ -1,8 +1,9 @@
 
 public interface IDamageable 
 {
-    int MaxHealth { get;}
-    int CurrentHealth { get;}
+    float MaxHealth { get;}
+
+    float CurrentHealth { get;}
 
     delegate void TakeDamageEvent();
     event TakeDamageEvent OnTakeDamage;

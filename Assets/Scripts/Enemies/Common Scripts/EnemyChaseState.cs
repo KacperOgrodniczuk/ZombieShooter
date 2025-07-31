@@ -37,7 +37,7 @@ public class EnemyChaseState : EnemyState
         enemy.Agent.nextPosition = newPosition;
 
         //Transition logic here.
-        if (DistanceFromPlayer() < enemy.AttackRange)
+        if (DistanceFromPlayer() < enemy.StopChaseRange)
         {
             enemy.ChangeState(enemy.AttackState);
         }

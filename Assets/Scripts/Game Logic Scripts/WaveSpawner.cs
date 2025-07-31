@@ -17,9 +17,9 @@ public class WaveSpawner : MonoBehaviour
 
     public Transform SpawnPointsRoot;  //the script will automatically grab all the transforms attached to this object.
 
-    //TODO:
-    // Implement the zombies speeding up over time.
-    // Implement the zombie damage scaling overtime.
+    float currentHealthMultiplier;
+    float currentDamageMultiplier;
+    float currentSpeedMultiplier;
 
     int currentWaveIndex = 1;
     int enemiesAlive = 0;
@@ -94,7 +94,7 @@ public class WaveSpawner : MonoBehaviour
         GameObject spawnedEnemy = Instantiate(enemyPrefab, spawnPoint.position, spawnPoint.rotation);
 
         EnemyManager enemyManager = spawnedEnemy.GetComponent<EnemyManager>();
-
+        enemyManager.ScaleEnemy();
 
         IDamageable damageable = spawnedEnemy.GetComponent<IDamageable>();          // For now this works but I need to adapt it to use objectPools in the future.
         damageable.OnDeath += OnEnemyDeath;                                         // I will also need to grab the enemy manager script and access the reference to IDamageable
@@ -123,6 +123,13 @@ public class WaveSpawner : MonoBehaviour
     float CalculateSpawnInterval(int waveIndex)
     {
         return Mathf.Max(startSpawnInterval / Mathf.Pow(enemySpawnTimeScaling, waveIndex), 1f);
+    }
+
+    void CalculateRoundMultipliers()
+    {
+        currentHealthMultiplier = ;
+        currentDamageMultiplier = ;
+        currentSpeedMultiplier = ;
     }
 
     private void TriggerWaveChangeEvent()

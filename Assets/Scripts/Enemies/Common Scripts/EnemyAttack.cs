@@ -14,7 +14,7 @@ public class EnemyAttack : MonoBehaviour
 
     private List<Collider> alreadyHit = new List<Collider>();
 
-    public void ApplyDamage(int damage)
+    public void ApplyDamage(float damage)
     {
         Collider[] hitColliders = Physics.OverlapSphere(attackTransform.position, attackRadius, playerLayer);
     

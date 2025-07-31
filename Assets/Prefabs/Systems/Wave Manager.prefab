@@ -25,7 +25,7 @@ Transform:
   m_GameObject: {fileID: 3593477530231773583}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -17.58, y: 0, z: 0.56}
+  m_LocalPosition: {x: -6.14, y: 0, z: 15.58}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -108,7 +108,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 07974c3a7fda0334fa4e3afe57a86a98, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  spawnPoints:
-  - {fileID: 1469487098148670025}
   enemyPrefab: {fileID: 1581245993405351180, guid: 757192ab60feff94688a7f6b2c681631,
     type: 3}
+  SpawnPointsRoot: {fileID: 6805906915303478945}
+  UIManager: {fileID: 0}
