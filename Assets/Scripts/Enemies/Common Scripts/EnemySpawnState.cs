@@ -13,7 +13,7 @@ public class EnemySpawnState : EnemyState
     {
         enemy.Agent.updatePosition = false;
         enemy.Animator.applyRootMotion = true;
-        enemy.Animator.speed = enemy.CurrentSpeedMultiplier;
+        enemy.Animator.SetFloat("Speed", enemy.CurrentSpeed);
 
         Vector3 enemyPosition = enemy.transform.position;
         enemyPosition.y -= 2f;    // This is the root motion climbing animation offset.

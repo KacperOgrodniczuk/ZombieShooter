@@ -13,7 +13,7 @@ public class EnemyManager : MonoBehaviour
 
     public float CurrentHealth;
     public float CurrentDamage;
-    public float CurrentSpeedMultiplier;
+    public float CurrentSpeed;
 
     //Components
     public Transform Player { get; private set; }
@@ -47,8 +47,9 @@ public class EnemyManager : MonoBehaviour
         EnemyHealth = GetComponent<EnemyHealth>();
     }
 
-    private void OnEnable()
+    public void Spawn()
     {
+        Debug.Log("Spawning enenmy");
         ChangeState(spawnState);
     }
 
@@ -70,11 +71,11 @@ public class EnemyManager : MonoBehaviour
     {
         CurrentHealth = BaseHealth * healthMultiplier;
         CurrentDamage = BaseDamage * damageMultiplier;
-        CurrentSpeedMultiplier = SpeedMultiplier * speedMultiplier;
+        CurrentSpeed = SpeedMultiplier * speedMultiplier;
 
         EnemyHealth.SetMaxHealth(CurrentHealth);
         //set damage
-        //set speed
+
     }
 
     public void OnDeathAnimationEnd()

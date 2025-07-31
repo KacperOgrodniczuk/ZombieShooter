@@ -21,7 +21,7 @@ public class WaveSpawner : MonoBehaviour
     float currentDamageMultiplier;
     float currentSpeedMultiplier;
 
-    int currentWaveIndex = 1;
+    int currentWaveIndex = 10;
     int enemiesAlive = 0;
     int maxEnemiesAllowedAlive = 3;
     int waveStartDelay = 10;    // The wave delay is the same for every wave
@@ -67,6 +67,7 @@ public class WaveSpawner : MonoBehaviour
     IEnumerator SpawnWave(int waveIndex)
     {
         TriggerWaveChangeEvent();
+        CalculateEnemyScaling();
 
         waveSpawning = true;
 
@@ -94,11 +95,12 @@ public class WaveSpawner : MonoBehaviour
         GameObject spawnedEnemy = Instantiate(enemyPrefab, spawnPoint.position, spawnPoint.rotation);
 
         EnemyManager enemyManager = spawnedEnemy.GetComponent<EnemyManager>();
-        enemyManager.ScaleEnemy();
+        enemyManager.ScaleEnemy(currentHealthMultiplier, currentDamageMultiplier, currentSpeedMultiplier);
 
         IDamageable damageable = spawnedEnemy.GetComponent<IDamageable>();          // For now this works but I need to adapt it to use objectPools in the future.
         damageable.OnDeath += OnEnemyDeath;                                         // I will also need to grab the enemy manager script and access the reference to IDamageable
                                                                                     // through there. I will need to access other components because I want enemies to scale over time.
+        enemyManager.Spawn();
         enemiesAlive++;
     }
 
@@ -125,11 +127,11 @@ public class WaveSpawner : MonoBehaviour
         return Mathf.Max(startSpawnInterval / Mathf.Pow(enemySpawnTimeScaling, waveIndex), 1f);
     }
 
-    void CalculateRoundMultipliers()
+    void CalculateEnemyScaling()
     {
-        currentHealthMultiplier = ;
-        currentDamageMultiplier = ;
-        currentSpeedMultiplier = ;
+        currentHealthMultiplier = Mathf.Pow(1 + (0.1f * (currentWaveIndex - 1)), 2);
+        currentDamageMultiplier = 1;    //todo later
+        currentSpeedMultiplier = Mathf.Min(Mathf.Pow(1 + (0.05f * (currentWaveIndex - 1)), 2),  3);    //yuck
     }
 
     private void TriggerWaveChangeEvent()

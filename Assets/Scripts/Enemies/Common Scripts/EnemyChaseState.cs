@@ -4,12 +4,6 @@ public class EnemyChaseState : EnemyState
 {
     public override EnemyManager enemy { get; protected set; }
 
-    public float speed { get; protected set; }
-
-    //TODO need to implement a function that switches the animation from walking to running (and later on to sprinting) based on speed.
-    // e.g. if the speed it 1 set animation to walking, if 1.15 set the animation to walking and the animation speed to 1.15
-    // and if above certain threshold change animation to running and adjust animation speed.
-
     public EnemyChaseState(EnemyManager enemy)
     { 
         this.enemy = enemy;
@@ -28,6 +22,7 @@ public class EnemyChaseState : EnemyState
 
     public override void UpdateState()
     {
+        enemy.Animator.SetFloat("Speed", enemy.CurrentSpeed);
         enemy.Agent.SetDestination(enemy.Player.position);
 
         //fixing ai agent

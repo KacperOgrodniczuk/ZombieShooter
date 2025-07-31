@@ -13726,12 +13726,6 @@ Mesh:
     offset: 0
     size: 0
     path: 
---- !u!4 &1925490779 stripped
-Transform:
-  m_CorrespondingSourceObject: {fileID: 6805906915303478945, guid: dd19d7580ff851747a6eba1194be4d57,
-    type: 3}
-  m_PrefabInstance: {fileID: 3635956067686858938}
-  m_PrefabAsset: {fileID: 0}
 --- !u!1 &1976903974
 GameObject:
   m_ObjectHideFlags: 0
@@ -15070,10 +15064,14 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 350aedf5c65de9b4ca6b4fcf7ef5fe07, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _attackDamage: 50
-  _speedMultiplier: 1
-  _stopChaseRange: 1
-  _deathDissolveDuration: 0
+  BaseHealth: 100
+  BaseDamage: 50
+  SpeedMultiplier: 1
+  StopChaseRange: 1
+  DeathDissolveDuration: 1
+  CurrentHealth: 0
+  CurrentDamage: 0
+  CurrentSpeed: 0
   isPerformingAction: 0
 --- !u!1 &213984007502343007
 GameObject:
@@ -18489,26 +18487,11 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 0}
     m_Modifications:
-    - target: {fileID: 1469487098148670025, guid: dd19d7580ff851747a6eba1194be4d57,
-        type: 3}
-      propertyPath: m_LocalPosition.x
-      value: -6.14
-      objectReference: {fileID: 0}
-    - target: {fileID: 1469487098148670025, guid: dd19d7580ff851747a6eba1194be4d57,
-        type: 3}
-      propertyPath: m_LocalPosition.z
-      value: 15.58
-      objectReference: {fileID: 0}
     - target: {fileID: 3555549718714893452, guid: dd19d7580ff851747a6eba1194be4d57,
         type: 3}
       propertyPath: UIManager
       value: 
       objectReference: {fileID: 5161331428131195270}
-    - target: {fileID: 3555549718714893452, guid: dd19d7580ff851747a6eba1194be4d57,
-        type: 3}
-      propertyPath: SpawnPointsRoot
-      value: 
-      objectReference: {fileID: 1925490779}
     - target: {fileID: 5062414457039037506, guid: dd19d7580ff851747a6eba1194be4d57,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -20339,10 +20322,14 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 350aedf5c65de9b4ca6b4fcf7ef5fe07, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _attackDamage: 50
-  _speedMultiplier: 1
-  _stopChaseRange: 1
-  _deathDissolveDuration: 0
+  BaseHealth: 100
+  BaseDamage: 50
+  SpeedMultiplier: 1
+  StopChaseRange: 1
+  DeathDissolveDuration: 1
+  CurrentHealth: 0
+  CurrentDamage: 0
+  CurrentSpeed: 0
   isPerformingAction: 0
 --- !u!114 &5462020477757691479
 MonoBehaviour:
@@ -20356,10 +20343,14 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 350aedf5c65de9b4ca6b4fcf7ef5fe07, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _attackDamage: 50
-  _speedMultiplier: 1
-  _stopChaseRange: 1
-  _deathDissolveDuration: 0
+  BaseHealth: 100
+  BaseDamage: 50
+  SpeedMultiplier: 1
+  StopChaseRange: 1
+  DeathDissolveDuration: 1
+  CurrentHealth: 0
+  CurrentDamage: 0
+  CurrentSpeed: 0
   isPerformingAction: 0
 --- !u!1 &5477380869370712243
 GameObject:
