@@ -8,6 +8,10 @@ public class PlayerGameplayActionsManager : MonoBehaviour
 
     public bool isPerformingAction = false;
 
+    bool shootInput;
+    bool canShoot;
+    bool aimInput;
+
     private void Awake()
     {
         playerManager = GetComponent<PlayerManager>();
@@ -16,15 +20,17 @@ public class PlayerGameplayActionsManager : MonoBehaviour
     public void HandleAllActionInput()
     {
         HandleLeftClick();
+        HandleRightClick();
         HandleReloadInput();
     }
 
     void HandleLeftClick()
     {
+        shootInput = PlayerInputManager.instance.leftClick;
+
         if (playerManager.PlayerWeaponManager.activeGun == null) return;
 
-        bool shootInput = PlayerInputManager.instance.leftClick;
-        bool canShoot = !isPerformingAction && !playerManager.PlayerLocomotionManager.isSprinting;
+        canShoot = !isPerformingAction && !playerManager.PlayerLocomotionManager.isSprinting;
 
         playerManager.PlayerWeaponManager.activeGun.Tick(shootInput, canShoot);
 
@@ -32,6 +38,15 @@ public class PlayerGameplayActionsManager : MonoBehaviour
         {
             Reload();
         }
+    }
+
+    void HandleRightClick()
+    {
+        aimInput = PlayerInputManager.instance.rightClick;
+
+        if (playerManager.PlayerWeaponManager.activeGun == null) return;
+
+        
     }
 
     void HandleReloadInput()

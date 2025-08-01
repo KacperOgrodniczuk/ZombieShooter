@@ -21,7 +21,7 @@ public class WaveSpawner : MonoBehaviour
     float currentDamageMultiplier;
     float currentSpeedMultiplier;
 
-    int currentWaveIndex = 10;
+    int currentWaveIndex = 1;
     int enemiesAlive = 0;
     int maxEnemiesAllowedAlive = 3;
     int waveStartDelay = 10;    // The wave delay is the same for every wave

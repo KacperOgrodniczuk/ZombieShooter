@@ -11,6 +11,7 @@ public class PlayerInputManager : MonoBehaviour
     public Vector2 movementInput {get; private set;}
     public Vector2 mouseInput { get; private set;}
     public bool leftClick { get;  private set;}
+    public bool rightClick { get; private set;}
     public bool reloadInput {get; private set;}
     public bool sprintInput { get; private set;}
     public bool interactInput { get; private set; }
@@ -39,6 +40,7 @@ public class PlayerInputManager : MonoBehaviour
 
             // Player Actions
             playerControls.PlayerActions.LeftClick.performed += i => leftClick = i.ReadValueAsButton();
+            playerControls.PlayerActions.RightClick.performed += i => rightClick = i.ReadValueAsButton();
             playerControls.PlayerActions.Reload.performed += i => reloadInput = i.ReadValueAsButton();
             playerControls.PlayerActions.Interact.performed += i => interactInput = i.ReadValueAsButton();
         }

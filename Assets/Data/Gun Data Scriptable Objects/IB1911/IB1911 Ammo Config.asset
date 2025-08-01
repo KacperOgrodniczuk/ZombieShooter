@@ -12,7 +12,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 002d9ae67489d4d4aa92b50dd3783238, type: 3}
   m_Name: IB1911 Ammo Config
   m_EditorClassIdentifier: 
-  maxAmmo: 60
+  maxAmmo: 120
   clipSize: 15
-  currentAmmo: 60
-  currentClipAmmo: 14
+  currentStockpileAmmo: 105
+  currentClipAmmo: 15

@@ -1,6 +1,4 @@
-using System;
 using System.Collections;
-using System.Linq;
 using UnityEngine;
 using UnityEngine.Pool;
 
@@ -13,6 +11,8 @@ public class GunScriptableObject : ScriptableObject
     public GameObject modelPrefab;
     public Vector3 spawnPosition;
     public Vector3 spawnRotation;
+    public Vector3 adsPosition;
+    public Vector3 adsRotation;
 
     [Header("Scriptable Obejct Configs")]
     public ShootConfigScriptableObject shootConfig;
@@ -133,7 +133,7 @@ public class GunScriptableObject : ScriptableObject
         PlayerCameraManager.instance.ApplyCameraRecoil();
     }
 
-    void RecoverFromRecoil()
+    void RecoverModelFromRecoil()
     {
         //Smoothly move back to original position and rotation      this recoil system will need a rework at some point.
         model.transform.localPosition = Vector3.Lerp(model.transform.localPosition, spawnPosition, Time.deltaTime / shootConfig.recoilRecoveryTime);

@@ -1,5 +1,3 @@
-using System;
-using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.Animations.Rigging;
@@ -16,6 +14,9 @@ public class PlayerWeaponManager : MonoBehaviour
     private List<GunScriptableObject> guns;
 
     PlayerManager playerManager;
+
+    [SerializeField] private TwoBoneIKConstraint leftHandIk;
+    [SerializeField] private TwoBoneIKConstraint rightHandIk;
 
     [Space]
     [Header("Runtime Filled")]
