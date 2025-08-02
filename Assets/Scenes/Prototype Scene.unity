@@ -532,7 +532,7 @@ MonoBehaviour:
     m_Root: {fileID: 5743483969010356001}
     m_Mid: {fileID: 8743840706654146343}
     m_Tip: {fileID: 1882787873296550876}
-    m_Target: {fileID: 1389287080}
+    m_Target: {fileID: 0}
     m_Hint: {fileID: 1545549825}
     m_TargetPositionWeight: 1
     m_TargetRotationWeight: 1
@@ -9999,18 +9999,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   enableSwayAndBop: 1
-  swayAndBopArmsOnlyTransform: {fileID: 543450652118567744}
-  step: 0.0015
-  maxStepDistance: 0.035
-  rotationStep: 0.75
-  maxRotationStep: 2.5
-  smooth: 12
-  smoothRot: 14
-  travelLimit: {x: 0.015, y: 0.015, z: 0.01}
-  bopLimit: {x: 0.005, y: 0.0075, z: 0.005}
-  speedCurveMultiplier: 3
-  armsOffsetPosition: {x: 0, y: 0, z: 0}
-  spineOffsetPosition: {x: 0, y: 0, z: 0}
+  configScript: {fileID: 11400000, guid: 7e63c5e4f58ec1f439c0562c94c3ba2b, type: 2}
+  armsTransform: {fileID: 543450652118567744}
+  adsWeight: 0
 --- !u!1 &668560268538450259
 GameObject:
   m_ObjectHideFlags: 0

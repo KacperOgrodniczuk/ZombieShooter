@@ -4,55 +4,45 @@ public class SwayAndBop : MonoBehaviour
 {
     public bool enableSwayAndBop = true;
 
+    CharacterController characterController;
+    public SwayAndBopConfigScriptableObject configScript;
+
     [Header("Sway and Bop Target Object Transforms")]
     [SerializeField]
-    private Transform swayAndBopArmsOnlyTransform;
+    private Transform armsTransform;
 
     [Header("Input Variables")]
     Vector2 movementInput;
     Vector2 mouseInput;
 
-    [Header("Default Sway Variables")]
-    public float step = 0.001f;
-    public float maxStepDistance = 0.05f;
+    Vector3 swayPositionOffset;
+    Vector3 swayRotationEuler;
 
-    public float rotationStep = 1f;
-    public float maxRotationStep = 4f;
-
-    Vector3 swayPos;
-    Vector3 swayEulerRot;
-
-    public float smooth = 10f;
-    public float smoothRot = 12f;
-
-    [Header("Default Bobbing Variable")]
-    public Vector3 travelLimit = Vector3.one * 0.025f; //The maximum limits of travel from move input
-    public Vector3 bopLimit = Vector3.one * 0.01f; //the limits of travel from bopping over time.
 
     // Currently no multiplier but can introduce one if I need the level of bop to vary e.g. after sprinting  when the character is breating heavier.
     [Header("Curve Settings")]
-    float speedCurve;
-    float curveSin { get => Mathf.Sin(speedCurve); }
-    float curveCos { get => Mathf.Cos(speedCurve); }
-    public float speedCurveMultiplier = 2f;
+    float bopCycleProgress;
+    float curveSin { get => Mathf.Sin(bopCycleProgress); }
+    float curveCos { get => Mathf.Cos(bopCycleProgress); }
 
-    Vector3 bopPosition;
-    Vector3 bobEulerRotation;
+    [Range(0f, 1f)] public float adsWeight = 0f;
 
-    Vector3 armsOffsetPosition;
+    Vector3 bopPositionOffset;
+    Vector3 bopEulerRotation;
 
-    CharacterController characterController;
+    Vector3 armsInitialLocalPosition;
+
 
     private void Awake()
     {
         characterController = GetComponent<CharacterController>();
 
-        armsOffsetPosition = swayAndBopArmsOnlyTransform.localPosition;
+        armsInitialLocalPosition = armsTransform.localPosition;
     }
 
     public void HandleAllSwayAndBop()
     {
-        if (!enableSwayAndBop || swayAndBopArmsOnlyTransform == null) return;        //we don't have a target therefore don't do anything
+        if (!enableSwayAndBop || armsTransform == null) return;        //we don't have a target therefore don't do anything
 
         GetInput();
         Sway();
@@ -69,32 +59,33 @@ public class SwayAndBop : MonoBehaviour
 
     void Sway()
     {
-        Vector3 invertLook = (mouseInput * -step);
-        invertLook.x = Mathf.Clamp(invertLook.x, -maxStepDistance, maxStepDistance);
-        invertLook.y = Mathf.Clamp(invertLook.y, -maxStepDistance, maxStepDistance);
+        Vector3 invertLook = (mouseInput * -configScript.positionStep);
+        invertLook.x = Mathf.Clamp(invertLook.x, -configScript.maxPositionStep, configScript.maxPositionStep);
+        invertLook.y = Mathf.Clamp(invertLook.y, -configScript.maxPositionStep, configScript.maxPositionStep);
 
-        swayPos = invertLook;
+        swayPositionOffset = invertLook;
 
-        Vector2 invertLookRot = mouseInput * -rotationStep;
-        invertLookRot.x = Mathf.Clamp(invertLookRot.x, -maxRotationStep, maxRotationStep);
-        invertLookRot.y = Mathf.Clamp(invertLookRot.y, -maxRotationStep, maxRotationStep);
+        Vector2 invertLookRot = mouseInput * -configScript.rotationStep;
+        invertLookRot.x = Mathf.Clamp(invertLookRot.x, -configScript.maxRotationStep, configScript.maxRotationStep);
+        invertLookRot.y = Mathf.Clamp(invertLookRot.y, -configScript.maxRotationStep, configScript.maxRotationStep);
 
-        swayEulerRot = new Vector3(invertLookRot.y, invertLookRot.x, invertLookRot.x);
+        swayRotationEuler = new Vector3(invertLookRot.y, invertLookRot.x, invertLookRot.x);
+
     }
     void Bop()
     {
-        speedCurve += Time.deltaTime * ((characterController.velocity.magnitude > 0.1f ? characterController.velocity.magnitude : 1) * speedCurveMultiplier);
+        bopCycleProgress += Time.deltaTime * ((characterController.velocity.magnitude > 0.1f ? characterController.velocity.magnitude : 1) * configScript.bopSpeedMultiplier);
 
-        bopPosition.x = (curveCos * bopLimit.x * (characterController.isGrounded ? 1 : 0)) - (movementInput.x * travelLimit.x);
-        bopPosition.y = (curveSin * bopLimit.y) - (characterController.velocity.y * travelLimit.y);
-        bopPosition.z = -(movementInput.y * travelLimit.z);
+        bopPositionOffset.x = (curveCos * configScript.bopLimit.x * (characterController.isGrounded ? 1 : 0)) - (movementInput.x * configScript.travelLimit.x);
+        bopPositionOffset.y = (curveSin * configScript.bopLimit.y) - (characterController.velocity.y * configScript.travelLimit.y);
+        bopPositionOffset.z = -(movementInput.y * configScript.travelLimit.z);
 
     }
 
     void ApplySwayAndBop()
     {
-        swayAndBopArmsOnlyTransform.localPosition = Vector3.Lerp(swayAndBopArmsOnlyTransform.localPosition, swayPos + bopPosition + armsOffsetPosition, Time.deltaTime * smooth);
-        swayAndBopArmsOnlyTransform.localRotation = Quaternion.Slerp(swayAndBopArmsOnlyTransform.localRotation, Quaternion.Euler(swayEulerRot) * Quaternion.Euler(bobEulerRotation), Time.deltaTime * smoothRot);
+        armsTransform.localPosition = Vector3.Lerp(armsTransform.localPosition, swayPositionOffset + bopPositionOffset + armsInitialLocalPosition, Time.deltaTime * configScript.positionSmooth);
+        armsTransform.localRotation = Quaternion.Slerp(armsTransform.localRotation, Quaternion.Euler(swayRotationEuler) * Quaternion.Euler(bopEulerRotation), Time.deltaTime * configScript.rotationSmooth);
     }
 
 
