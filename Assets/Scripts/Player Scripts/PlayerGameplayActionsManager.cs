@@ -46,7 +46,7 @@ public class PlayerGameplayActionsManager : MonoBehaviour
 
         if (playerManager.PlayerWeaponManager.activeGun == null) return;
 
-        
+        playerManager.PlayerWeaponManager.HandleAimDownSight(aimInput);
     }
 
     void HandleReloadInput()

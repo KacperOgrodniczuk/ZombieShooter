@@ -12,7 +12,7 @@ public class SwayAndBop : MonoBehaviour
     Vector2 movementInput;
     Vector2 mouseInput;
 
-    [Header("Sway Variables")]
+    [Header("Default Sway Variables")]
     public float step = 0.001f;
     public float maxStepDistance = 0.05f;
 
@@ -25,7 +25,7 @@ public class SwayAndBop : MonoBehaviour
     public float smooth = 10f;
     public float smoothRot = 12f;
 
-    [Header("Bobbing Variable")]
+    [Header("Default Bobbing Variable")]
     public Vector3 travelLimit = Vector3.one * 0.025f; //The maximum limits of travel from move input
     public Vector3 bopLimit = Vector3.one * 0.01f; //the limits of travel from bopping over time.
 
@@ -39,8 +39,7 @@ public class SwayAndBop : MonoBehaviour
     Vector3 bopPosition;
     Vector3 bobEulerRotation;
 
-    public Vector3 armsOffsetPosition;
-    public Vector3 spineOffsetPosition;
+    Vector3 armsOffsetPosition;
 
     CharacterController characterController;
 
