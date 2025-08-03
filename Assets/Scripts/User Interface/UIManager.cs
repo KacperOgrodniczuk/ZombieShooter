@@ -4,6 +4,8 @@ using UnityEngine;
 
 public class UIManager : MonoBehaviour
 {
+    public UICrosshair UICrosshair;
+    
     [Header("Text Components")]
     [SerializeField] TMP_Text ammoText;
     [SerializeField] TMP_Text survivalPointsText;

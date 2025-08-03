@@ -110,6 +110,7 @@ public class PlayerWeaponManager : MonoBehaviour
 
         playerManager.PlayerAnimationManager.Animator.SetFloat("Aim Blend", aimDownSightWeight);
         playerManager.PlayerSwayAndBop.adsWeight = aimDownSightWeight;
+        playerManager.UIManager.UICrosshair.alphaWeight = 1f - aimDownSightWeight;
     }
 
     public void OnDisable()
