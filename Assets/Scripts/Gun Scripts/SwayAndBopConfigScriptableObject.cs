@@ -18,8 +18,10 @@ public class SwayAndBopConfigScriptableObject : ScriptableObject
     public Vector3 bopLimit = Vector3.one * 0.01f; //the limits of travel from bopping over time.
     public float bopSpeedMultiplier = 2f;
 
-    [Header("ADS Multipliers")]
+    [Header("ADS Settings")]
     public float adsPositionStepMultiplier = 0.2f;
-    public float adsRotationStepMultiplier = 0.2f;
+    public float adsRotationStepMultiplier = 0.02f;
     public float adsBoppingMultiplier = 0.1f;
+    public float adsSmoothTime = 0.15f;
+
 }

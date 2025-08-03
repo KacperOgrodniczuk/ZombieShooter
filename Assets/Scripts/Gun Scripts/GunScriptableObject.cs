@@ -18,18 +18,21 @@ public class GunScriptableObject : ScriptableObject
     public ShootConfigScriptableObject shootConfig;
     public TrailConfigScriptableObject trailConfig;
     public AmmoConfigScriptableObject ammoConfig;
+    public SwayAndBopConfigScriptableObject swayAndBopConfig;
 
     [Header("Private Fields")]
+    private PlayerManager playerManager;
     private MonoBehaviour activeMonoBehaviour;
     private GameObject model;
     private ParticleSystem shootSystem;
     private ObjectPool<TrailRenderer> trailPool;
+
     private float lastShootTime;
     private float recoilValue = 0;
+
     private Vector3 targetPosition;
     private Quaternion originalRotation;
     private Quaternion targetRotation;
-    private PlayerManager playerManager;
 
     public GameObject Spawn(Transform parent, MonoBehaviour activeMonoBehaviour)
     {
@@ -125,11 +128,11 @@ public class GunScriptableObject : ScriptableObject
 
         //targetRotation = Quaternion.Euler(recoilRotation);
 
-        //Can't decide which one I want to use, will need further testing after camera recoil is added.
+        //Can't decide which one I want to use, will need further testing after Camera recoil is added.
         //model.transform.localPosition += targetPosition;
         //model.transform.localRotation *= targetRotation;
 
-        //Apply camera recoil
+        //Apply Camera recoil
         PlayerCameraManager.instance.ApplyCameraRecoil();
     }
 

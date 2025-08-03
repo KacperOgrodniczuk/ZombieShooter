@@ -37,11 +37,11 @@ public class PlayerInteractionManager : MonoBehaviour
 
     void DetectInteratables()
     {
-        Ray ray = new Ray(PlayerCameraManager.instance.camera.transform.position, PlayerCameraManager.instance.camera.transform.forward);
+        Ray ray = new Ray(PlayerCameraManager.instance.Camera.transform.position, PlayerCameraManager.instance.Camera.transform.forward);
         RaycastHit hit;
 
         //Debug
-        Debug.DrawRay(PlayerCameraManager.instance.camera.transform.position, PlayerCameraManager.instance.camera.transform.forward * interactRange, Color.red);
+        Debug.DrawRay(PlayerCameraManager.instance.Camera.transform.position, PlayerCameraManager.instance.Camera.transform.forward * interactRange, Color.red);
 
 
         currentInteractable = null;

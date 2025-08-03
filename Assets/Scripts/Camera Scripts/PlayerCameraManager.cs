@@ -3,9 +3,9 @@ using UnityEngine;
 public class PlayerCameraManager : MonoBehaviour
 {
     public static PlayerCameraManager instance;
-    public Transform cameraPivotTransform;      //Attach the camera to this.
+    public Transform cameraPivotTransform;      //Attach the Camera to this.
 
-    public Camera camera { get; private set; }
+    public Camera Camera { get; private set; }
 
     [Header("Recoil")]
     public Transform cameraRecoil;     //Separate transform to keep track of recoil used purely to allow recoil to automatically recover back
@@ -16,7 +16,7 @@ public class PlayerCameraManager : MonoBehaviour
     float mouseX;
     float mouseY;
 
-    float mouseSensitivity = 25f;
+    public float mouseSensitivity = 25f;
 
     float minPivot = -85;
     float maxPivot = 85;
@@ -34,7 +34,7 @@ public class PlayerCameraManager : MonoBehaviour
         Cursor.lockState = CursorLockMode.Locked;
         Cursor.visible = false;
 
-        camera = GetComponentInChildren<Camera>();
+        Camera = GetComponentInChildren<Camera>();
     }
 
     public void HandleAllCameraMovement() 

@@ -24,9 +24,8 @@ public class PlayerWeaponManager : MonoBehaviour
     public GunScriptableObject activeGun;
     [SerializeField] GameObject spawnedGun;
 
-    float aimDownSightWeight = 0f;
-    float aimDownSightDuration = 0.15f;
-    float aimDownSightVelocity = 0;
+    [Range(0f, 1f)]  float aimDownSightWeight = 0f;
+    float aimDownSightVelocity;
 
     private void Start()
     {
@@ -61,13 +60,15 @@ public class PlayerWeaponManager : MonoBehaviour
         // If needed, manually assign IK targets
         leftHandWeaponTarget = spawnedGun.transform.Find("Left Hand IK Target");
         leftHandIk.data.target = leftHandWeaponTarget;
+        leftHandIk.data.target.transform.localPosition = Vector3.zero;
+        leftHandIk.data.target.transform.localRotation = Quaternion.identity;
 
         // rightHandIk.data.target = spawnedGun.transform.Find("RightHandIKTarget");
-
 
         if (Application.isPlaying)
         {
             PlayerCameraManager.instance.CurrentGunData(activeGun);
+            playerManager.PlayerSwayAndBop.swayAndBopConfig = activeGun.swayAndBopConfig;
             activeGun.ammoConfig.OnAmmoChange += playerManager.UIManager.UpdateAmmoUI;
             activeGun.ammoConfig.TriggerOnAmmoChangeEvent();
         }
@@ -86,26 +87,34 @@ public class PlayerWeaponManager : MonoBehaviour
                 DestroyImmediate(spawnedGun);
             }
         }
+
+        if(activeGun != null)
+        {
+            activeGun.ammoConfig.OnAmmoChange -= playerManager.UIManager.UpdateAmmoUI;
+            activeGun = null;
+        }
+
     }
 
-    public void HandleAimDownSight(bool aimInput)
+    public void HandleAimDownSight(bool aimInput, bool canADS)
     {
-        if (aimInput)
+        if (aimInput && canADS)
         {
-            aimDownSightWeight = Mathf.SmoothDamp(aimDownSightWeight, 1f, ref aimDownSightVelocity, aimDownSightDuration);
+            aimDownSightWeight = Mathf.SmoothDamp(aimDownSightWeight, 1f, ref aimDownSightVelocity, activeGun.swayAndBopConfig.adsSmoothTime);
         }
 
         else
         { 
-            aimDownSightWeight = Mathf.SmoothDamp(aimDownSightWeight, 0f, ref aimDownSightVelocity, aimDownSightDuration);
+            aimDownSightWeight = Mathf.SmoothDamp(aimDownSightWeight, 0f, ref aimDownSightVelocity, activeGun.swayAndBopConfig.adsSmoothTime);
         }
 
         playerManager.PlayerAnimationManager.Animator.SetFloat("Aim Blend", aimDownSightWeight);
+        playerManager.PlayerSwayAndBop.adsWeight = aimDownSightWeight;
     }
 
     public void OnDisable()
     {
-        activeGun.ammoConfig.OnAmmoChange += playerManager.UIManager.UpdateAmmoUI;
+        activeGun.ammoConfig.OnAmmoChange -= playerManager.UIManager.UpdateAmmoUI;
     }
 
     public void EditorSpawnGun()

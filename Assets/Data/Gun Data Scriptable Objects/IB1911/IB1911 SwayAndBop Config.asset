@@ -12,12 +12,16 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d7015eeb18732674899463d04b166731, type: 3}
   m_Name: IB1911 SwayAndBop Config
   m_EditorClassIdentifier: 
-  positionStep: 0.001
-  maxPositionStep: 0.05
-  rotationStep: 1
-  maxRotationStep: 4
-  positionSmooth: 10
-  rotationSmooth: 12
-  travelLimit: {x: 0.025, y: 0.025, z: 0.025}
-  bopLimit: {x: 0.01, y: 0.01, z: 0.01}
-  bobSpeedMultiplier: 2
+  positionStep: 0.002
+  maxPositionStep: 0.03
+  rotationStep: 0.8
+  maxRotationStep: 3
+  positionSmooth: 12
+  rotationSmooth: 14
+  travelLimit: {x: 0.015, y: 0.015, z: 0.02}
+  bopLimit: {x: 0.008, y: 0.008, z: 0.01}
+  bopSpeedMultiplier: 1.8
+  adsPositionStepMultiplier: 0.25
+  adsRotationStepMultiplier: 0.05
+  adsBoppingMultiplier: 0
+  adsSmoothTime: 0.12

@@ -13,6 +13,7 @@ public class ResetPlayerFlags : StateMachineBehaviour
             playerManager = animator.GetComponentInParent<PlayerManager>();
 
         playerManager.PlayerActions.isPerformingAction = false;
+        playerManager.PlayerActions.isReloading = false;
     }
 
     // OnStateUpdate is called on each Update frame between OnStateEnter and OnStateExit callbacks

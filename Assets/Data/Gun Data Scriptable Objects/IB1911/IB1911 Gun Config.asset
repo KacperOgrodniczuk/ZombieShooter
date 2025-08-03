@@ -23,3 +23,4 @@ MonoBehaviour:
   shootConfig: {fileID: 11400000, guid: af6dbf7fb095e1241b1e4e2941c525c7, type: 2}
   trailConfig: {fileID: 11400000, guid: dddf09db78fc8f945aca87f18bb2c6c2, type: 2}
   ammoConfig: {fileID: 11400000, guid: 4141b107f5364214681ec62b1cba0328, type: 2}
+  swayAndBopConfig: {fileID: 11400000, guid: 7e63c5e4f58ec1f439c0562c94c3ba2b, type: 2}

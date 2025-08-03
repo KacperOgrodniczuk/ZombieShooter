@@ -7,6 +7,7 @@ public class PlayerGameplayActionsManager : MonoBehaviour
     private PlayerManager playerManager;
 
     public bool isPerformingAction = false;
+    public bool isReloading = false;
 
     bool shootInput;
     bool canShoot;
@@ -46,7 +47,7 @@ public class PlayerGameplayActionsManager : MonoBehaviour
 
         if (playerManager.PlayerWeaponManager.activeGun == null) return;
 
-        playerManager.PlayerWeaponManager.HandleAimDownSight(aimInput);
+        playerManager.PlayerWeaponManager.HandleAimDownSight(aimInput, CanADS());
     }
 
     void HandleReloadInput()
@@ -62,9 +63,16 @@ public class PlayerGameplayActionsManager : MonoBehaviour
         return !isPerformingAction && playerManager.PlayerWeaponManager.activeGun.ammoConfig.CanReload();
     }
 
+    // Can Aim Down Sight
+    bool CanADS()
+    {
+        return !isReloading && !isPerformingAction;
+    }
+
     void Reload() 
     {
         playerManager.PlayerAnimationManager.PlayTargetAnimation("Reload", true);
+        isReloading = true;
     }
 
     public void EndReload()
