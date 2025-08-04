@@ -23,5 +23,5 @@ public class SwayAndBopConfigScriptableObject : ScriptableObject
     public float adsRotationStepMultiplier = 0.02f;
     public float adsBoppingMultiplier = 0.1f;
     public float adsSmoothTime = 0.15f;
-
+    public float adsFOV = 40;
 }

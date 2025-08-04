@@ -35,7 +35,7 @@ public class PlayerInputManager : MonoBehaviour
             playerControls.PlayerMovement.Movement.performed += i => movementInput = i.ReadValue<Vector2>();
             playerControls.PlayerMovement.Sprint.performed += i => sprintInput = i.ReadValueAsButton();
             
-            //Player Camera
+            //Player mainCamera
             playerControls.PlayerCamera.MouseDelta.performed += i => mouseInput = i.ReadValue<Vector2>();
 
             // Player Actions

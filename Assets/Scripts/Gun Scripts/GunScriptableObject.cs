@@ -11,8 +11,6 @@ public class GunScriptableObject : ScriptableObject
     public GameObject modelPrefab;
     public Vector3 spawnPosition;
     public Vector3 spawnRotation;
-    public Vector3 adsPosition;
-    public Vector3 adsRotation;
 
     [Header("Scriptable Obejct Configs")]
     public ShootConfigScriptableObject shootConfig;
@@ -128,11 +126,11 @@ public class GunScriptableObject : ScriptableObject
 
         //targetRotation = Quaternion.Euler(recoilRotation);
 
-        //Can't decide which one I want to use, will need further testing after Camera recoil is added.
+        //Can't decide which one I want to use, will need further testing after mainCamera recoil is added.
         //model.transform.localPosition += targetPosition;
         //model.transform.localRotation *= targetRotation;
 
-        //Apply Camera recoil
+        //Apply mainCamera recoil
         PlayerCameraManager.instance.ApplyCameraRecoil();
     }
 

@@ -16,7 +16,7 @@ public class ShootConfigScriptableObject : ScriptableObject
     [Tooltip("Recoil's effect on the rotation")]
     public Vector3 recoilRotation = new Vector3(1f, 1f, 0f);
 
-    //need to rework this to return a vector 3 and be used for spread and recoil on gun/Camera
+    //need to rework this to return a vector 3 and be used for spread and recoil on gun/mainCamera
     public Quaternion GetSpread(float shootTime)
     {
         Vector3 shootSpread = Vector3.Lerp(Vector3.zero, new Vector3(

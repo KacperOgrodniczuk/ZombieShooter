@@ -357,8 +357,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 6a3d6943444560e4f8ef39579d433730, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  fadeSpeed: 10
-  defaultTargetAlpha: 0.5
+  minAlpha: 0
+  maxAlpha: 0.5
+  alphaWeight: 0
+  transitionSpeed: 10
 --- !u!1 &6505081492918424317
 GameObject:
   m_ObjectHideFlags: 0
@@ -478,11 +480,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 0e472a9be4d0c944396f85c775065cdc, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  UICrosshair: {fileID: 5061889869053856221}
   ammoText: {fileID: 9157239416939092779}
   survivalPointsText: {fileID: 8866954835253634797}
   interactPromptText: {fileID: 8005422584854054026}
   waveNumberText: {fileID: 4973183012082576960}
-  CrosshairUI: {fileID: 0}
 --- !u!1 &7664095287430326594
 GameObject:
   m_ObjectHideFlags: 0
