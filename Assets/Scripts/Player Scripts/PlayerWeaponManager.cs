@@ -16,15 +16,13 @@ public class PlayerWeaponManager : MonoBehaviour
 
     [SerializeField] private TwoBoneIKConstraint leftHandIk;
     [SerializeField] private TwoBoneIKConstraint rightHandIk;
-    Transform leftHandWeaponTarget;
-    Transform rightHandWeaponTarget;
 
     [Space]
     [Header("Runtime Filled")]
     public GunScriptableObject activeGun;
     [SerializeField] GameObject spawnedGun;
 
-    [Range(0f, 1f)]  float aimDownSightWeight = 0f;
+    [Range(0f, 1f)] float aimDownSightWeight = 0f;
     float aimDownSightVelocity;
 
     private void Start()
@@ -57,16 +55,14 @@ public class PlayerWeaponManager : MonoBehaviour
             renderer.shadowCastingMode = UnityEngine.Rendering.ShadowCastingMode.Off;
         }
 
-        // If needed, manually assign IK targets
-        leftHandWeaponTarget = spawnedGun.transform.Find("Left Hand IK Target");
-        leftHandIk.data.target = leftHandWeaponTarget;
-        leftHandIk.data.target.transform.localPosition = Vector3.zero;
-        leftHandIk.data.target.transform.localRotation = Quaternion.identity;
-
-        // rightHandIk.data.target = spawnedGun.transform.Find("RightHandIKTarget");
-
         if (Application.isPlaying)
         {
+            // Only assign IK targets during gameplay so that the default targets can be used for animations
+            // reload animations are hand made and use ik to make animating easier, but the actual reload animations 
+            // set the rig weight to 0;
+            leftHandIk.data.target = spawnedGun.transform.Find("Left Hand IK Target");
+            rightHandIk.data.target = spawnedGun.transform.Find("Right Hand IK Target");
+
             PlayerCameraManager.instance.CurrentGunData(activeGun);
             PlayerCameraManager.instance.fovSmoothTime = activeGun.swayAndBopConfig.adsSmoothTime;
             playerManager.PlayerSwayAndBop.swayAndBopConfig = activeGun.swayAndBopConfig;
@@ -89,9 +85,12 @@ public class PlayerWeaponManager : MonoBehaviour
             }
         }
 
-        if(activeGun != null)
+        if (activeGun != null)
         {
-            activeGun.ammoConfig.OnAmmoChange -= playerManager.UIManager.UpdateAmmoUI;
+            if (Application.isPlaying)
+            {
+                activeGun.ammoConfig.OnAmmoChange -= playerManager.UIManager.UpdateAmmoUI;
+            }
             activeGun = null;
         }
 
@@ -105,7 +104,7 @@ public class PlayerWeaponManager : MonoBehaviour
         }
 
         else
-        { 
+        {
             aimDownSightWeight = Mathf.SmoothDamp(aimDownSightWeight, 0f, ref aimDownSightVelocity, activeGun.swayAndBopConfig.adsSmoothTime);
         }
 

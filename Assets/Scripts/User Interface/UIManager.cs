@@ -6,6 +6,9 @@ public class UIManager : MonoBehaviour
 {
     public UICrosshair UICrosshair;
     
+    [SerializeField] GameObject gameOverScreen;
+    [SerializeField] GameObject HUD;
+    
     [Header("Text Components")]
     [SerializeField] TMP_Text ammoText;
     [SerializeField] TMP_Text survivalPointsText;
@@ -30,5 +33,11 @@ public class UIManager : MonoBehaviour
     public void UpdateAmmoUI(int currentClipAmmo, int currentStockpileAmmo)
     {
         ammoText.text = $"{currentClipAmmo} / {currentStockpileAmmo}";
+    }
+
+    public void EnableGameOverScreen()
+    {
+        HUD?.SetActive(false);
+        gameOverScreen?.SetActive(true);
     }
 }

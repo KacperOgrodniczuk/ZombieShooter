@@ -24,6 +24,7 @@ public class GunScriptableObject : ScriptableObject
     private GameObject model;
     private ParticleSystem shootSystem;
     private ObjectPool<TrailRenderer> trailPool;
+    private GunShootAnimation gunAnimation;
 
     private float lastShootTime;
     private float recoilValue = 0;
@@ -48,6 +49,7 @@ public class GunScriptableObject : ScriptableObject
         targetRotation = originalRotation;
 
         shootSystem = model.GetComponentInChildren<ParticleSystem>();
+        gunAnimation = model.GetComponent<GunShootAnimation>();
 
         ammoConfig.currentStockpileAmmo = ammoConfig.maxAmmo;
         ammoConfig.currentClipAmmo = ammoConfig.clipSize;
@@ -70,7 +72,6 @@ public class GunScriptableObject : ScriptableObject
         }
     }
 
-
     public void Shoot()
     {
         if (Time.time > (shootConfig.fireRate + lastShootTime))
@@ -87,6 +88,9 @@ public class GunScriptableObject : ScriptableObject
             ammoConfig.DeductOneFromClip();
 
             ApplyRecoil();
+
+            gunAnimation.PlaySlide();
+
 
             if (Physics.Raycast(Camera.main.transform.position, shootDirection, out RaycastHit hit, float.MaxValue, shootConfig.HitMask))
             {

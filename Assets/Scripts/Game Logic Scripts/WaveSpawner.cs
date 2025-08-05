@@ -24,7 +24,7 @@ public class WaveSpawner : MonoBehaviour
     int currentWaveIndex = 1;
     int enemiesAlive = 0;
     int maxEnemiesAllowedAlive = 3;
-    int waveStartDelay = 10;    // The wave delay is the same for every wave
+    public int waveStartDelay = 10;    // The wave delay is the same for every wave
 
     bool waveSpawning = false;
 

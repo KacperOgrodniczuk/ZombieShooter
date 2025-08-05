@@ -7,6 +7,7 @@ public class PlayerCameraManager : MonoBehaviour
 
     public Camera mainCamera { get; private set; }
     public Camera armsAndWeaponCamera { get; private set; }
+    public DamagePostProcessingEffects effects { get; private set; }
 
     [Header("Recoil")]
     public Transform cameraRecoil;     //Separate transform to keep track of recoil used purely to allow recoil to automatically recover back
@@ -48,11 +49,13 @@ public class PlayerCameraManager : MonoBehaviour
         {
             if (cam.name == "Main Camera")
                 mainCamera = cam;
-            if (cam.name == "Arms and Weapon Camera") ;
+            if (cam.name == "Arms and Weapon Camera")
+                armsAndWeaponCamera = cam;
 
         }
 
         targetFov = defaultFov;
+        effects = GetComponentInChildren<DamagePostProcessingEffects>();
     }
 
     public void HandleAllCameraMovement()
