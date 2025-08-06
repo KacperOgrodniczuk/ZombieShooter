@@ -85,6 +85,7 @@ public class PlayerCameraManager : MonoBehaviour
             cameraPivotTransform.localRotation = Quaternion.Euler(cameraRotation);
     }
 
+    //this needs reworking so that recoilrecovery time is passed to the function.
     void HandleCameraRecoilRecovery()
     {
         if (activeShootConfig == null) return;
@@ -101,6 +102,7 @@ public class PlayerCameraManager : MonoBehaviour
         mainCamera.fieldOfView = Mathf.SmoothDamp(mainCamera.fieldOfView, targetFov, ref currentFovVelocity, fovSmoothTime);
     }
 
+    // This needs reworking so that the recoil is passed to the function.
     public void ApplyCameraRecoil()
     {
         if (activeShootConfig == null) return;

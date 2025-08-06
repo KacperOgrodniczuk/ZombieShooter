@@ -33,7 +33,7 @@ public class PlayerGameplayActionsManager : MonoBehaviour
 
         canShoot = !isPerformingAction && !playerManager.PlayerLocomotionManager.isSprinting;
 
-        playerManager.PlayerWeaponManager.activeGun.Tick(shootInput, canShoot);
+        playerManager.PlayerWeaponManager.activeGun.Tick(shootInput, canShoot, playerManager.PlayerWeaponManager.aimDownSightWeight);
 
         if (playerManager.PlayerWeaponManager.activeGun.ammoConfig.currentClipAmmo <= 0 && CanReload())
         {

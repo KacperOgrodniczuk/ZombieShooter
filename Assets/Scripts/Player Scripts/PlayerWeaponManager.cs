@@ -22,7 +22,7 @@ public class PlayerWeaponManager : MonoBehaviour
     public GunScriptableObject activeGun;
     [SerializeField] GameObject spawnedGun;
 
-    [Range(0f, 1f)] float aimDownSightWeight = 0f;
+    public float aimDownSightWeight { private set; get; }
     float aimDownSightVelocity;
 
     private void Start()
@@ -57,11 +57,14 @@ public class PlayerWeaponManager : MonoBehaviour
 
         if (Application.isPlaying)
         {
-            // Only assign IK targets during gameplay so that the default targets can be used for animations
-            // reload animations are hand made and use ik to make animating easier, but the actual reload animations 
-            // set the rig weight to 0;
             leftHandIk.data.target = spawnedGun.transform.Find("Left Hand IK Target");
             rightHandIk.data.target = spawnedGun.transform.Find("Right Hand IK Target");
+
+            leftHandIk.weight = 1f;
+            rightHandIk.weight = 1f;
+
+            playerManager.RigBuilder.Build();
+
 
             PlayerCameraManager.instance.CurrentGunData(activeGun);
             PlayerCameraManager.instance.fovSmoothTime = activeGun.swayAndBopConfig.adsSmoothTime;
@@ -93,7 +96,6 @@ public class PlayerWeaponManager : MonoBehaviour
             }
             activeGun = null;
         }
-
     }
 
     public void HandleAimDownSight(bool aimInput, bool canADS)
@@ -111,6 +113,7 @@ public class PlayerWeaponManager : MonoBehaviour
         playerManager.PlayerAnimationManager.Animator.SetFloat("Aim Blend", aimDownSightWeight);
         playerManager.PlayerSwayAndBop.adsWeight = aimDownSightWeight;
         playerManager.UIManager.UICrosshair.alphaWeight = 1f - aimDownSightWeight;
+
 
         //set target fov
         // Note: 60 and 90 are arbitrary values, need to expand the system with a configurable scriptableobject file per gun.

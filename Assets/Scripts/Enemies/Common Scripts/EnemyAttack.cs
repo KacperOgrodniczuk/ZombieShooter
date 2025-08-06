@@ -32,11 +32,11 @@ public class EnemyAttack : MonoBehaviour
         alreadyHit.Clear();
     }
 
-    public void StartAttack()   //startAttack called as animation event to indicate the first frame an attack shoudl deal damage.
+    public void StartAttack()   //startAttack called as animation event to indicate the first frame an attack shoudl deal baseDamage.
     { 
         shouldDealDamage = true;
     }
-    public void EndAttack()     //endAttack called as animation event to indicate the last frame an attack should deal damage.
+    public void EndAttack()     //endAttack called as animation event to indicate the last frame an attack should deal baseDamage.
     {
         shouldDealDamage = false;
     }

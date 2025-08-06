@@ -10,7 +10,7 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 93c8054b146740f4f8b91a3e2476b9da, type: 3}
-  m_Name: Pistol Trail Config
+  m_Name: IB1911 Trail Config
   m_EditorClassIdentifier: 
   material: {fileID: 2100000, guid: d6b81c211a5922a4a8d362665edd4c52, type: 2}
   widthCurve:
@@ -18,18 +18,18 @@ MonoBehaviour:
     m_Curve:
     - serializedVersion: 3
       time: 0.0006455778
-      value: 0.011778057
-      inSlope: -0.011802663
-      outSlope: -0.011802663
+      value: 0.010127113
+      inSlope: -0.0049593137
+      outSlope: -0.0049593137
       tangentMode: 34
       weightedMode: 0
       inWeight: 0
       outWeight: 0.33333334
     - serializedVersion: 3
       time: 1
-      value: -0.000016987324
-      inSlope: -0.011802663
-      outSlope: -0.011802663
+      value: 0.005171001
+      inSlope: -0.0049593137
+      outSlope: -0.0049593137
       tangentMode: 34
       weightedMode: 0
       inWeight: 0.33333334
@@ -37,7 +37,7 @@ MonoBehaviour:
     m_PreInfinity: 2
     m_PostInfinity: 2
     m_RotationOrder: 4
-  duration: 0.01
+  duration: 0.1
   minVertexDistance: 0.1
   colour:
     serializedVersion: 2
@@ -57,7 +57,7 @@ MonoBehaviour:
     ctime5: 0
     ctime6: 0
     ctime7: 0
-    atime0: 0
+    atime0: 21627
     atime1: 65535
     atime2: 0
     atime3: 0
@@ -69,5 +69,5 @@ MonoBehaviour:
     m_ColorSpace: -1
     m_NumColorKeys: 2
     m_NumAlphaKeys: 2
-  missDistance: 50
-  simulationSpeed: 50
+  missDistance: 75
+  simulationSpeed: 250

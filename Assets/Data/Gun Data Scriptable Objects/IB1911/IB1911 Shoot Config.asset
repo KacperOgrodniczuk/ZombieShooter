@@ -15,11 +15,13 @@ MonoBehaviour:
   HitMask:
     serializedVersion: 2
     m_Bits: 897
-  damage: 34
+  baseDamage: 35
   weakPointDamageMultiplier: 2
-  fireRate: 0.18
-  recoilRecoveryTime: 0.15
-  maxRecoilTime: 0.3
-  spread: {x: 0.3, y: 0.3}
-  recoilKick: {x: 0.005, y: 0, z: -0.02}
-  recoilRotation: {x: 1.2, y: 0.5, z: 0}
+  fireRate: 0.25
+  spread: {x: 0.5, y: 0.5}
+  spreadAdsMultiplier: 0.3
+  maxRecoilTime: 0.4
+  recoilRecoveryTime: 0.1
+  recoilKick: {x: 0, y: 0, z: 0.05}
+  recoilRotation: {x: 1.2, y: 1.2, z: 0.2}
+  recoilAdsMultiplier: 0.3

@@ -9,8 +9,6 @@ public class GunScriptableObject : ScriptableObject
     public GunType type;
     public string gunName;
     public GameObject modelPrefab;
-    public Vector3 spawnPosition;
-    public Vector3 spawnRotation;
 
     [Header("Scriptable Obejct Configs")]
     public ShootConfigScriptableObject shootConfig;
@@ -30,7 +28,6 @@ public class GunScriptableObject : ScriptableObject
     private float recoilValue = 0;
 
     private Vector3 targetPosition;
-    private Quaternion originalRotation;
     private Quaternion targetRotation;
 
     public GameObject Spawn(Transform parent, MonoBehaviour activeMonoBehaviour)
@@ -42,11 +39,6 @@ public class GunScriptableObject : ScriptableObject
 
         model = Instantiate(modelPrefab);
         model.transform.SetParent(parent, false);
-        model.transform.localPosition = spawnPosition;
-        model.transform.localRotation = Quaternion.Euler(spawnRotation);
-        originalRotation = Quaternion.Euler(spawnRotation);
-
-        targetRotation = originalRotation;
 
         shootSystem = model.GetComponentInChildren<ParticleSystem>();
         gunAnimation = model.GetComponent<GunShootAnimation>();
@@ -57,22 +49,24 @@ public class GunScriptableObject : ScriptableObject
         return model;
     }
 
-    public void Tick(bool wantsToShoot, bool canShoot)
+    public void Tick(bool wantsToShoot, bool canShoot, float adsWeight)
     {
         if (wantsToShoot)
         {
             if (ammoConfig.currentClipAmmo > 0 && canShoot)
             {
-                Shoot();
+                Shoot(adsWeight);
             }
         }
         else
         {
             recoilValue = Mathf.Clamp01(recoilValue - (Time.deltaTime / shootConfig.recoilRecoveryTime));
         }
+
+        RecoverModelFromRecoil();
     }
 
-    public void Shoot()
+    public void Shoot(float adsWeight)
     {
         if (Time.time > (shootConfig.fireRate + lastShootTime))
         {
@@ -80,14 +74,15 @@ public class GunScriptableObject : ScriptableObject
             lastShootTime = Time.time;
             shootSystem.Play();
 
-            Quaternion spread = shootConfig.GetSpread(recoilValue);
+            // I NEED THE ADSWEIGHT VALUE HERE SO I THINK I NEED TO PASS IT THROUGH THE TICK FUNCTION ABOVE
+            Quaternion spread = shootConfig.GetSpread(recoilValue, adsWeight);
 
             Vector3 shootDirection = spread * Camera.main.transform.forward;
             shootDirection.Normalize();
 
             ammoConfig.DeductOneFromClip();
 
-            ApplyRecoil();
+            ApplyRecoil(adsWeight);
 
             gunAnimation.PlaySlide();
 
@@ -97,12 +92,12 @@ public class GunScriptableObject : ScriptableObject
                 activeMonoBehaviour.StartCoroutine(PlayTrail(shootSystem.transform.position, hit.point, hit));
 
                 if (hit.collider.gameObject.layer == LayerMask.NameToLayer("EnemyWeakPoint"))
-                { 
-                    hit.collider.GetComponentInParent<IDamageable>()?.TakeDamage(Mathf.RoundToInt(shootConfig.damage * shootConfig.weakPointDamageMultiplier), playerManager.PlayerSurvivalPointsManager);
+                {
+                    hit.collider.GetComponentInParent<IDamageable>()?.TakeDamage(Mathf.RoundToInt(shootConfig.baseDamage * shootConfig.weakPointDamageMultiplier), playerManager.PlayerSurvivalPointsManager);
                 }
                 else if (hit.collider.gameObject.layer == LayerMask.NameToLayer("Enemy"))
                 {
-                    hit.collider.GetComponentInParent<IDamageable>()?.TakeDamage(shootConfig.damage, playerManager.PlayerSurvivalPointsManager);
+                    hit.collider.GetComponentInParent<IDamageable>()?.TakeDamage(shootConfig.baseDamage, playerManager.PlayerSurvivalPointsManager);
                 }
             }
             else
@@ -114,35 +109,35 @@ public class GunScriptableObject : ScriptableObject
             //Shoot system, at the moment it's entirely raycast based,
             //but I might make it hybrid, (projectile based with raycasts checking whether the bullets hit a target in between their locations each frame)
         }
-
     }
 
-    // The recoil system needs to be reworked, maybe just apply the recoil
-    // to the arms directly instead of the gun. This way i don't need to have
-    // IK targets that make the arms follow the gun as it recoils.
-    void ApplyRecoil()
+    void ApplyRecoil(float adsWeight)
     {
-        //Apply recoil position
-        //targetPosition = Vector3.back * shootConfig.recoilKick;
-
-        //Apply rotation position
-        //Vector3 recoilRotation = new Vector3(0, UnityEngine.Random.Range(-shootConfig.recoilRotation, shootConfig.recoilRotation), 0);
-
-        //targetRotation = Quaternion.Euler(recoilRotation);
-
-        //Can't decide which one I want to use, will need further testing after mainCamera recoil is added.
-        //model.transform.localPosition += targetPosition;
-        //model.transform.localRotation *= targetRotation;
-
-        //Apply mainCamera recoil
+        // Apply camera recoil
         PlayerCameraManager.instance.ApplyCameraRecoil();
+
+        float currentAdsMultiplier = Mathf.Lerp(1f, shootConfig.recoilAdsMultiplier, adsWeight);
+
+        // Recoil kick (position) using model's local Z-axis
+        Vector3 kickOffset = model.transform.localRotation * (Vector3.back * shootConfig.recoilKick.z * currentAdsMultiplier);
+        model.transform.localPosition += kickOffset;
+
+        // Recoil rotation (local space)
+        Vector3 randomRot = new Vector3(
+            Random.Range(-shootConfig.recoilRotation.x, shootConfig.recoilRotation.x),
+            Random.Range(-shootConfig.recoilRotation.y, shootConfig.recoilRotation.y),
+            Random.Range(-shootConfig.recoilRotation.z, shootConfig.recoilRotation.z)
+        ) * currentAdsMultiplier;
+
+        Quaternion localRotOffset = Quaternion.Euler(randomRot);
+        model.transform.localRotation *= localRotOffset;
     }
 
     void RecoverModelFromRecoil()
     {
-        //Smoothly move back to original position and rotation      this recoil system will need a rework at some point.
-        model.transform.localPosition = Vector3.Lerp(model.transform.localPosition, spawnPosition, Time.deltaTime / shootConfig.recoilRecoveryTime);
-        model.transform.localRotation = Quaternion.Slerp(model.transform.localRotation, originalRotation, Time.deltaTime / shootConfig.recoilRecoveryTime);
+        //Smoothly move back to original position and rotation
+        model.transform.localPosition = Vector3.Lerp(model.transform.localPosition, Vector3.zero, Time.deltaTime / shootConfig.recoilRecoveryTime);
+        model.transform.localRotation = Quaternion.Slerp(model.transform.localRotation, Quaternion.identity, Time.deltaTime / shootConfig.recoilRecoveryTime);
     }
 
     private IEnumerator PlayTrail(Vector3 startPoint, Vector3 endPoint, RaycastHit hit)

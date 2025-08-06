@@ -74,7 +74,7 @@ public class EnemyManager : MonoBehaviour
         CurrentSpeed = SpeedMultiplier * speedMultiplier;
 
         EnemyHealth.SetMaxHealth(CurrentHealth);
-        //set damage
+        //set baseDamage
 
     }
 

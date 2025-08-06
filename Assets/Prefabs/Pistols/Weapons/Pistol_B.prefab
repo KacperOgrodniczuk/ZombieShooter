@@ -92,6 +92,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 6912574994232187193}
+  - component: {fileID: 4995211494908408178}
   m_Layer: 6
   m_Name: Left Hand IK Target
   m_TagString: Untagged
@@ -114,6 +115,18 @@ Transform:
   m_Children: []
   m_Father: {fileID: 7549530855202475692}
   m_LocalEulerAnglesHint: {x: 81.885, y: 81.546, z: 81.017}
+--- !u!114 &4995211494908408178
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 684935879047798278}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 48948dfe9d76b07488dacd46a7955fa1, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &2706764867626547201
 GameObject:
   m_ObjectHideFlags: 0
@@ -206,6 +219,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 8499859713823996508}
+  - component: {fileID: 5865582130848492290}
   m_Layer: 6
   m_Name: Right Hand IK Target
   m_TagString: Untagged
@@ -223,11 +237,23 @@ Transform:
   serializedVersion: 2
   m_LocalRotation: {x: -0.57418174, y: -0.13009182, z: 0.0510866, w: -0.80671036}
   m_LocalPosition: {x: 0.014661752, y: -0.075847715, z: -0.13849244}
-  m_LocalScale: {x: 1, y: 0.99999994, z: 0.9999998}
+  m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 7549530855202475692}
   m_LocalEulerAnglesHint: {x: 81.885, y: 81.546, z: 81.017}
+--- !u!114 &5865582130848492290
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2977732180902102819}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 48948dfe9d76b07488dacd46a7955fa1, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &3373539096876641774
 GameObject:
   m_ObjectHideFlags: 0
@@ -5328,6 +5354,7 @@ GameObject:
   m_Component:
   - component: {fileID: 7549530855202475692}
   - component: {fileID: 1936387572501619825}
+  - component: {fileID: 5513189910678880633}
   m_Layer: 6
   m_Name: Pistol_B
   m_TagString: Untagged
@@ -5397,6 +5424,18 @@ MonoBehaviour:
     m_PreInfinity: 2
     m_PostInfinity: 2
     m_RotationOrder: 4
+--- !u!114 &5513189910678880633
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7173815278906741782}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 48948dfe9d76b07488dacd46a7955fa1, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &7179885103304642734
 GameObject:
   m_ObjectHideFlags: 0

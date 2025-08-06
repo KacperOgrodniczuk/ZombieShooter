@@ -1,4 +1,5 @@
 using UnityEngine;
+using UnityEngine.Animations.Rigging;
 
 // A manager class for the player, with easy access to any relevant references.
 public class PlayerManager : MonoBehaviour
@@ -9,6 +10,7 @@ public class PlayerManager : MonoBehaviour
     public PlayerSurvivalPointsManager PlayerSurvivalPointsManager { get; private set; }
     public PlayerWeaponManager PlayerWeaponManager { get; private set; }
     public PlayerAnimationManager PlayerAnimationManager { get; private set; }
+    public RigBuilder RigBuilder { get; private set; }
 
     [SerializeField]
     private UIManager _UIManager;
@@ -22,6 +24,7 @@ public class PlayerManager : MonoBehaviour
         PlayerSurvivalPointsManager = GetComponent<PlayerSurvivalPointsManager>();
         PlayerWeaponManager = GetComponent<PlayerWeaponManager>();
         PlayerAnimationManager = GetComponent<PlayerAnimationManager>();
+        RigBuilder = GetComponentInChildren<RigBuilder>();
     }
 
     private void Update()
@@ -33,6 +36,7 @@ public class PlayerManager : MonoBehaviour
 
     private void LateUpdate()
     {
+        RigBuilder.Build();
         PlayerCameraManager.instance.HandleAllCameraMovement();
     }
 }
