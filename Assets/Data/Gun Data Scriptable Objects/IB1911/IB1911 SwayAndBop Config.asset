@@ -20,7 +20,7 @@ MonoBehaviour:
   rotationSmooth: 15
   travelLimit: {x: 0.02, y: 0.01, z: 0.02}
   bopLimit: {x: 0.005, y: 0.005, z: 0.005}
-  bopSpeedMultiplier: 2.5
+  bopSpeedMultiplier: 0.25
   adsPositionStepMultiplier: 0.25
   adsRotationStepMultiplier: 0.03
   adsBoppingMultiplier: 0.05

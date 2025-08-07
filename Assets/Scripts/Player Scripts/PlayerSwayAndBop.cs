@@ -108,7 +108,7 @@ public class SwayAndBop : MonoBehaviour
         else
         {
             // Interpolate between 1 and ads multiplier
-            float targetBopSpeed = Mathf.Lerp(1f, swayAndBopConfig.adsBoppingMultiplier, adsWeight);
+            float targetBopSpeed = Mathf.Lerp(swayAndBopConfig.bopSpeedMultiplier, swayAndBopConfig.adsBoppingMultiplier, adsWeight);
             currentBopSpeedMultiplier = Mathf.SmoothDamp(currentBopSpeedMultiplier, targetBopSpeed, ref currentBopVelocity, swayAndBopConfig.adsSmoothTime);
 
             Vector3 targetBopLimit = swayAndBopConfig.bopLimit * targetBopSpeed;

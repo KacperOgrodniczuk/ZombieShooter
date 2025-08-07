@@ -31,7 +31,6 @@ public class PlayerCameraManager : MonoBehaviour
     float maxPivot = 85;
 
     GunScriptableObject activeGun;
-    ShootConfigScriptableObject activeShootConfig;
 
     private void Awake()
     {
@@ -58,10 +57,10 @@ public class PlayerCameraManager : MonoBehaviour
         effects = GetComponentInChildren<DamagePostProcessingEffects>();
     }
 
-    public void HandleAllCameraMovement()
+    public void HandleAllCameraMovement(float smoothTime)
     {
         HandleCameraRotation();
-        HandleCameraRecoilRecovery();
+        HandleCameraRecoilRecovery(smoothTime);
         HandleCameraFov();
     }
 
@@ -86,12 +85,8 @@ public class PlayerCameraManager : MonoBehaviour
     }
 
     //this needs reworking so that recoilrecovery time is passed to the function.
-    void HandleCameraRecoilRecovery()
+    void HandleCameraRecoilRecovery(float smoothTime)
     {
-        if (activeShootConfig == null) return;
-
-        float smoothTime = activeShootConfig.recoilRecoveryTime;
-
         currentRecoilEuler = Vector3.SmoothDamp(currentRecoilEuler, Vector3.zero, ref recoilVelocity, smoothTime);
 
         cameraRecoil.localRotation = Quaternion.Euler(currentRecoilEuler);
@@ -103,26 +98,8 @@ public class PlayerCameraManager : MonoBehaviour
     }
 
     // This needs reworking so that the recoil is passed to the function.
-    public void ApplyCameraRecoil()
+    public void ApplyCameraRecoil(Vector3 recoilRotation)
     {
-        if (activeShootConfig == null) return;
-
-        //Apply rotation position
-        Vector3 recoilRotation = new Vector3(
-            -activeShootConfig.recoilRotation.x,
-            Random.Range(-activeShootConfig.recoilRotation.y, activeShootConfig.recoilRotation.y),
-            0
-        );
-
         currentRecoilEuler += recoilRotation;
-    }
-
-    /// <summary>
-    /// Pass the current gun data for use in recoil methods.
-    /// </summary>
-    public void CurrentGunData(GunScriptableObject activeGun)
-    {
-        this.activeGun = activeGun;
-        activeShootConfig = activeGun.shootConfig;
     }
 }

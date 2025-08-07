@@ -65,8 +65,6 @@ public class PlayerWeaponManager : MonoBehaviour
 
             playerManager.RigBuilder.Build();
 
-
-            PlayerCameraManager.instance.CurrentGunData(activeGun);
             PlayerCameraManager.instance.fovSmoothTime = activeGun.swayAndBopConfig.adsSmoothTime;
             playerManager.PlayerSwayAndBop.swayAndBopConfig = activeGun.swayAndBopConfig;
             activeGun.ammoConfig.OnAmmoChange += playerManager.UIManager.UpdateAmmoUI;

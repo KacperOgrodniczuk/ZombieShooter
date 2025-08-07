@@ -113,10 +113,17 @@ public class GunScriptableObject : ScriptableObject
 
     void ApplyRecoil(float adsWeight)
     {
-        // Apply camera recoil
-        PlayerCameraManager.instance.ApplyCameraRecoil();
-
         float currentAdsMultiplier = Mathf.Lerp(1f, shootConfig.recoilAdsMultiplier, adsWeight);
+
+        //Apply rotation position
+        Vector3 recoilRotation = new Vector3(
+            -shootConfig.recoilRotation.x,
+            Random.Range(-shootConfig.recoilRotation.y, shootConfig.recoilRotation.y),
+            0
+        ) * currentAdsMultiplier;
+
+        // Apply camera recoil
+        PlayerCameraManager.instance.ApplyCameraRecoil(recoilRotation);
 
         // Recoil kick (position) using model's local Z-axis
         Vector3 kickOffset = model.transform.localRotation * (Vector3.back * shootConfig.recoilKick.z * currentAdsMultiplier);

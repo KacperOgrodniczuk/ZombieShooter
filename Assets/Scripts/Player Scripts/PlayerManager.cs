@@ -37,6 +37,6 @@ public class PlayerManager : MonoBehaviour
     private void LateUpdate()
     {
         RigBuilder.Build();
-        PlayerCameraManager.instance.HandleAllCameraMovement();
+        PlayerCameraManager.instance.HandleAllCameraMovement(PlayerWeaponManager.activeGun.shootConfig.recoilRecoveryTime);
     }
 }
