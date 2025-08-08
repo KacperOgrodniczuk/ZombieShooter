@@ -1,0 +1,28 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d7015eeb18732674899463d04b166731, type: 3}
+  m_Name: IF9 SwayAndBop Config
+  m_EditorClassIdentifier: 
+  positionStep: 0.0015
+  maxPositionStep: 0.04
+  rotationStep: 1.2
+  maxRotationStep: 3
+  positionSmooth: 12
+  rotationSmooth: 14
+  travelLimit: {x: 0.02, y: 0.015, z: 0.02}
+  bopLimit: {x: 0.008, y: 0.015, z: 0.008}
+  bopSpeedMultiplier: 2.4
+  adsPositionStepMultiplier: 0.25
+  adsRotationStepMultiplier: 0.03
+  adsBoppingMultiplier: 0.15
+  adsSmoothTime: 0.12
+  adsFOV: 50

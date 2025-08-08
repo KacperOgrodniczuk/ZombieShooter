@@ -2,8 +2,6 @@ using UnityEngine;
 
 public class SwayAndBop : MonoBehaviour
 {
-    PlayerManager playerManager;
-
     public bool enableSwayAndBop = true;
 
     CharacterController characterController;
@@ -48,7 +46,6 @@ public class SwayAndBop : MonoBehaviour
 
     private void Awake()
     {
-        playerManager = GetComponent<PlayerManager>();
         characterController = GetComponent<CharacterController>();
 
         armsInitialLocalPosition = armsTransform.localPosition;

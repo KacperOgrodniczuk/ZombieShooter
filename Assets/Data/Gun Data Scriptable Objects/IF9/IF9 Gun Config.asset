@@ -1,0 +1,22 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c672564bb5c9dc741ad58aece7bed4f7, type: 3}
+  m_Name: IF9 Gun Config
+  m_EditorClassIdentifier: 
+  type: 2
+  gunName: Iron Fang 9
+  modelPrefab: {fileID: 2225440571541060868, guid: 3d475f10d076c444d8584c1be775ba38,
+    type: 3}
+  shootConfig: {fileID: 11400000, guid: 5219bb944280b344c81c68ab3bce25e9, type: 2}
+  trailConfig: {fileID: 11400000, guid: b7fc20a1bb2b31f4fa7eff2957110375, type: 2}
+  ammoConfig: {fileID: 11400000, guid: 710df71e0dcfede48b806fe27752778c, type: 2}
+  swayAndBopConfig: {fileID: 11400000, guid: d4ceee613125b704999ea7b9d141d053, type: 2}
