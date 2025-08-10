@@ -21,6 +21,8 @@ public class PlayerWeaponManager : MonoBehaviour
     [Header("Runtime Filled")]
     public GunScriptableObject activeGun;
     [SerializeField] GameObject spawnedGun;
+    Transform rightHandIKTarget;
+    Transform leftHandIKTarget;
 
     public float aimDownSightWeight { private set; get; }
     float aimDownSightVelocity;
@@ -33,6 +35,20 @@ public class PlayerWeaponManager : MonoBehaviour
         DeleteGun();
 
         SpawnGun();
+    }
+
+    private void LateUpdate()
+    {
+        if (rightHandIKTarget != null)
+        {
+            rightHandIk.data.target.position = rightHandIKTarget.position;
+            rightHandIk.data.target.rotation = rightHandIKTarget.rotation;
+        }
+        if (leftHandIKTarget != null)
+        {
+            leftHandIk.data.target.position = leftHandIKTarget.position;
+            leftHandIk.data.target.rotation = leftHandIKTarget.rotation;
+        }
     }
 
     void SpawnGun()
@@ -57,8 +73,8 @@ public class PlayerWeaponManager : MonoBehaviour
 
         if (Application.isPlaying)
         {
-            leftHandIk.data.target = spawnedGun.transform.Find("Left Hand IK Target");
-            rightHandIk.data.target = spawnedGun.transform.Find("Right Hand IK Target");
+            leftHandIKTarget = spawnedGun.transform.Find("Left Hand IK Target");
+            rightHandIKTarget = spawnedGun.transform.Find("Right Hand IK Target");
 
             leftHandIk.weight = 1f;
             rightHandIk.weight = 1f;

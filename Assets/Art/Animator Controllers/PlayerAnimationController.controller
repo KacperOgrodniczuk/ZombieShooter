@@ -17,7 +17,7 @@ BlendTree:
     m_DirectBlendParameter: Aim Blend
     m_Mirror: 0
   - serializedVersion: 2
-    m_Motion: {fileID: 7400000, guid: f88699ebc3f577c4d82e4789b5b9c54a, type: 2}
+    m_Motion: {fileID: 7400000, guid: 609df3576f3badb4190bb5e493f1647a, type: 2}
     m_Threshold: 1
     m_Position: {x: 0, y: 0}
     m_TimeScale: 1
@@ -100,7 +100,7 @@ AnimatorState:
   m_MirrorParameterActive: 0
   m_CycleOffsetParameterActive: 0
   m_TimeParameterActive: 0
-  m_Motion: {fileID: 7400000, guid: 77e9552334c2fbb4ba4195352a2f06f2, type: 2}
+  m_Motion: {fileID: 7400000, guid: 9d0d7fd9036092542a1c46382d239a98, type: 2}
   m_Tag: 
   m_SpeedParameter: 
   m_MirrorParameter: 
@@ -300,7 +300,7 @@ AnimatorState:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_Name: Pistol Fast Run
+  m_Name: Run
   m_Speed: 1
   m_CycleOffset: 0
   m_Transitions:
@@ -314,7 +314,7 @@ AnimatorState:
   m_MirrorParameterActive: 0
   m_CycleOffsetParameterActive: 0
   m_TimeParameterActive: 0
-  m_Motion: {fileID: 7400000, guid: 5e2a6082eb44f414a8f3d98ee0e30239, type: 2}
+  m_Motion: {fileID: 7400000, guid: a4d6b9e3b17293f4ea2eadea459cee41, type: 2}
   m_Tag: 
   m_SpeedParameter: 
   m_MirrorParameter: 
