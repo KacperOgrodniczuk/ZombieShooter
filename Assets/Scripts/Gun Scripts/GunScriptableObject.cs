@@ -9,6 +9,7 @@ public class GunScriptableObject : ScriptableObject
     public GunType type;
     public string gunName;
     public GameObject modelPrefab;
+    public AnimatorOverrideController animatorOverrideController;
 
     [Header("Scriptable Obejct Configs")]
     public ShootConfigScriptableObject shootConfig;

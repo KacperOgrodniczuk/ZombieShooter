@@ -20,12 +20,7 @@ public class PurchasableDoor : Purchasable
         return purchased ? "" : "Cost: " + cost.ToString() + " points";
     }
 
-    public override void Interact(PlayerManager player)
-    { 
-        base.Interact(player);
-    }
-
-    protected override void OnPurchase()
+    protected override void OnPurchase(PlayerManager player = null)
     {
         //Play some particle/visual effects
         _dissolveEffect.StartDissolve();

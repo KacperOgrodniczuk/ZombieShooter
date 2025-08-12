@@ -16,6 +16,8 @@ MonoBehaviour:
   gunName: Iron Fang 9
   modelPrefab: {fileID: 2225440571541060868, guid: 3d475f10d076c444d8584c1be775ba38,
     type: 3}
+  animatorOverrideController: {fileID: 22100000, guid: 0a84ce5efa87c0541bb97d007b45e2fd,
+    type: 2}
   shootConfig: {fileID: 11400000, guid: 5219bb944280b344c81c68ab3bce25e9, type: 2}
   trailConfig: {fileID: 11400000, guid: b7fc20a1bb2b31f4fa7eff2957110375, type: 2}
   ammoConfig: {fileID: 11400000, guid: 710df71e0dcfede48b806fe27752778c, type: 2}

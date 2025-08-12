@@ -16,10 +16,8 @@ MonoBehaviour:
   gunName: Ironbite 1911
   modelPrefab: {fileID: 7173815278906741782, guid: e7461e3cb4dfd384ea54841be167ca84,
     type: 3}
-  spawnPosition: {x: -0.0462, y: 0.1485, z: -0.031}
-  spawnRotation: {x: -65.938, y: -41.199, z: 34.65}
-  adsPosition: {x: -0.0282, y: -0.1624, z: -0.2617}
-  adsRotation: {x: -65.554, y: -33.184, z: 25.781}
+  animatorOverrideController: {fileID: 22100000, guid: 0d977e321f2a24c4d950833e4b6d3811,
+    type: 2}
   shootConfig: {fileID: 11400000, guid: af6dbf7fb095e1241b1e4e2941c525c7, type: 2}
   trailConfig: {fileID: 11400000, guid: dddf09db78fc8f945aca87f18bb2c6c2, type: 2}
   ammoConfig: {fileID: 11400000, guid: 4141b107f5364214681ec62b1cba0328, type: 2}

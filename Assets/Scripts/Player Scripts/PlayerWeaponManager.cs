@@ -6,7 +6,7 @@ using UnityEngine.Animations.Rigging;
 public class PlayerWeaponManager : MonoBehaviour
 {
     [SerializeField]
-    private GunType gunType;
+    private GunType startingGunType;
     [SerializeField]
     private Transform gunHolderArms;
     [SerializeField]
@@ -14,8 +14,8 @@ public class PlayerWeaponManager : MonoBehaviour
 
     PlayerManager playerManager;
 
-    [SerializeField] private TwoBoneIKConstraint leftHandIk;
-    [SerializeField] private TwoBoneIKConstraint rightHandIk;
+    public TwoBoneIKConstraint leftHandIk;
+    public TwoBoneIKConstraint rightHandIk;
 
     [Space]
     [Header("Runtime Filled")]
@@ -31,13 +31,10 @@ public class PlayerWeaponManager : MonoBehaviour
     {
         playerManager = GetComponent<PlayerManager>();
 
-        // Double-check for leftover object even if destroyed in editor
-        DeleteGun();
-
-        SpawnGun();
+        SpawnGun(startingGunType);
     }
 
-    private void LateUpdate()
+    private void Update()
     {
         if (rightHandIKTarget != null)
         {
@@ -51,8 +48,11 @@ public class PlayerWeaponManager : MonoBehaviour
         }
     }
 
-    void SpawnGun()
+    public void SpawnGun(GunType gunType)
     {
+        // Double-check for leftover objects / previous guns
+        DeleteGun();
+
         GunScriptableObject gun = guns.Find(gun => gun.type == gunType);
 
         if (gun == null)
@@ -85,6 +85,15 @@ public class PlayerWeaponManager : MonoBehaviour
             playerManager.PlayerSwayAndBop.swayAndBopConfig = activeGun.swayAndBopConfig;
             activeGun.ammoConfig.OnAmmoChange += playerManager.UIManager.UpdateAmmoUI;
             activeGun.ammoConfig.TriggerOnAmmoChangeEvent();
+        }
+
+        if (gun.animatorOverrideController!= null)
+        {
+            playerManager.PlayerAnimationManager.Animator.runtimeAnimatorController = gun.animatorOverrideController;
+        }
+        else
+        {
+            Debug.LogWarning($"No AnimatorOverrideController assigned for gun: {gunType}");
         }
     }
 
@@ -143,9 +152,7 @@ public class PlayerWeaponManager : MonoBehaviour
     public void EditorSpawnGun()
     {
 #if UNITY_EDITOR
-        // Double-check for leftover object even if destroyed in editor
-        DeleteGun();
-        SpawnGun();
+        SpawnGun(startingGunType);
 
         // Mark scene dirty so Unity saves changes
         EditorSceneManager.MarkSceneDirty(gameObject.scene);

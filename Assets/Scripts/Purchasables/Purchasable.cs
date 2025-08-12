@@ -23,8 +23,8 @@ public abstract class Purchasable : MonoBehaviour, IInteractable
 
         purchased = true;
 
-        OnPurchase();
+        OnPurchase(player);
     }
 
-    protected abstract void OnPurchase();
+    protected abstract void OnPurchase(PlayerManager player);
 }

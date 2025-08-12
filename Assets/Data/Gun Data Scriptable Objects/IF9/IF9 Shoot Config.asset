@@ -21,7 +21,7 @@ MonoBehaviour:
   spread: {x: 1.8, y: 2.2}
   spreadAdsMultiplier: 0.55
   maxRecoilTime: 0.3
-  recoilRecoveryTime: 0.25
+  recoilRecoveryTime: 0.2
   recoilKick: {x: 0, y: 0, z: 0.04}
   recoilRotation: {x: 0.9, y: 1.1, z: 0.2}
   recoilAdsMultiplier: 0.65
