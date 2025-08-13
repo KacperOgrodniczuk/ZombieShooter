@@ -1,0 +1,24 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c672564bb5c9dc741ad58aece7bed4f7, type: 3}
+  m_Name: IJ12 Gun Config
+  m_EditorClassIdentifier: 
+  type: 3
+  gunName: Iron Jaw 12
+  modelPrefab: {fileID: 2225440571541060868, guid: 3d475f10d076c444d8584c1be775ba38,
+    type: 3}
+  animatorOverrideController: {fileID: 22100000, guid: 0a84ce5efa87c0541bb97d007b45e2fd,
+    type: 2}
+  shootConfig: {fileID: 11400000, guid: 82c1f36ceb78587468fa40157e2d7e25, type: 2}
+  trailConfig: {fileID: 11400000, guid: 61870cfd35275794eafd3954be174e5a, type: 2}
+  ammoConfig: {fileID: 11400000, guid: 3b04a25da9549f440987df07d304f955, type: 2}
+  swayAndBopConfig: {fileID: 11400000, guid: eff13dc0771a93a4d9a56bef58c97cda, type: 2}

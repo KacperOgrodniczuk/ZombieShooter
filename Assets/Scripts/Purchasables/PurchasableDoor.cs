@@ -1,11 +1,15 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.AI;
 
 [RequireComponent(typeof(DissolveEffect))]
+[RequireComponent(typeof(NavMeshObstacle))]
 public class PurchasableDoor : Purchasable
 {
     private DissolveEffect _dissolveEffect;
+
+    private NavMeshObstacle _obstacle;
 
     private void OnEnable()
     {
@@ -13,6 +17,8 @@ public class PurchasableDoor : Purchasable
             _dissolveEffect = GetComponent<DissolveEffect>();
 
         _dissolveEffect.onDissolveComplete += OpenDoors;
+
+        _obstacle = GetComponent<NavMeshObstacle>();
     }
 
     public override string GetInteractionPrompt()
@@ -29,6 +35,7 @@ public class PurchasableDoor : Purchasable
     void OpenDoors()
     {
         //disable/delete the door object.
+        _obstacle.carving = false;
         gameObject.SetActive(false);
     }
 

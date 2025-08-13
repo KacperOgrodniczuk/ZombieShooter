@@ -1,6 +1,7 @@
 using System;
 using System.Collections;
 using UnityEngine;
+using UnityEngine.AI;
 
 public class DissolveEffect : MonoBehaviour
 {
@@ -8,7 +9,7 @@ public class DissolveEffect : MonoBehaviour
     private Material _material;
 
     [Header("Dissolve Settings")]
-    [SerializeField] private float _dissolveDuration = 1;
+    [SerializeField] private float _dissolveDuration = 2;
 
     private float _dissolveAmount = 0;
     private bool _isDissolving = false;
@@ -23,6 +24,7 @@ public class DissolveEffect : MonoBehaviour
         {
             Debug.LogError("Material not using Dissolve shader.");
         }
+
     }
 
     public void StartDissolve()
