@@ -9,6 +9,7 @@ public class ShootConfigScriptableObject : ScriptableObject
     [Header("Damage")]
     public int baseDamage = 10;
     public float weakPointDamageMultiplier = 5f;
+    public int pelletsPerShot = 1;
 
     [Header("Firerate")]
     public float fireRate = 0.25f;

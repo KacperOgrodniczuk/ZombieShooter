@@ -15,6 +15,6 @@ public class PlayerAnimationManager : MonoBehaviour
     public void PlayTargetAnimation(string targetAnimation, bool ispPerformingAction)
     {
         Animator.CrossFade(targetAnimation, 0.15f);
-        PlayerManager.PlayerActions.isPerformingAction = ispPerformingAction;
+        PlayerManager.PlayerGameplayActionManager.isPerformingAction = ispPerformingAction;
     }
 }

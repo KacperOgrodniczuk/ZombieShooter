@@ -82,28 +82,28 @@ public class GunScriptableObject : ScriptableObject
             shootDirection.Normalize();
 
             ammoConfig.DeductOneFromClip();
-
             ApplyRecoil(adsWeight);
-
             gunAnimation.PlaySlide();
 
-
-            if (Physics.Raycast(Camera.main.transform.position, shootDirection, out RaycastHit hit, float.MaxValue, shootConfig.HitMask))
+            for (int i = 0; i < shootConfig.pelletsPerShot; i++)
             {
-                activeMonoBehaviour.StartCoroutine(PlayTrail(shootSystem.transform.position, hit.point, hit));
+                if (Physics.Raycast(Camera.main.transform.position, shootDirection, out RaycastHit hit, float.MaxValue, shootConfig.HitMask))
+                {
+                    activeMonoBehaviour.StartCoroutine(PlayTrail(shootSystem.transform.position, hit.point, hit));
 
-                if (hit.collider.gameObject.layer == LayerMask.NameToLayer("EnemyWeakPoint"))
-                {
-                    hit.collider.GetComponentInParent<IDamageable>()?.TakeDamage(Mathf.RoundToInt(shootConfig.baseDamage * shootConfig.weakPointDamageMultiplier), playerManager.PlayerSurvivalPointsManager);
+                    if (hit.collider.gameObject.layer == LayerMask.NameToLayer("EnemyWeakPoint"))
+                    {
+                        hit.collider.GetComponentInParent<IDamageable>()?.TakeDamage(Mathf.RoundToInt(shootConfig.baseDamage * shootConfig.weakPointDamageMultiplier), playerManager.PlayerSurvivalPointsManager);
+                    }
+                    else if (hit.collider.gameObject.layer == LayerMask.NameToLayer("Enemy"))
+                    {
+                        hit.collider.GetComponentInParent<IDamageable>()?.TakeDamage(shootConfig.baseDamage, playerManager.PlayerSurvivalPointsManager);
+                    }
                 }
-                else if (hit.collider.gameObject.layer == LayerMask.NameToLayer("Enemy"))
+                else
                 {
-                    hit.collider.GetComponentInParent<IDamageable>()?.TakeDamage(shootConfig.baseDamage, playerManager.PlayerSurvivalPointsManager);
+                    activeMonoBehaviour.StartCoroutine(PlayTrail(shootSystem.transform.position, Camera.main.transform.position + (shootDirection * trailConfig.missDistance), new RaycastHit()));
                 }
-            }
-            else
-            {
-                activeMonoBehaviour.StartCoroutine(PlayTrail(shootSystem.transform.position, Camera.main.transform.position + (shootDirection * trailConfig.missDistance), new RaycastHit()));
             }
 
             //TODO

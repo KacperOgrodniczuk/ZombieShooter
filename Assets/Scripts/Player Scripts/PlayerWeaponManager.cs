@@ -82,7 +82,7 @@ public class PlayerWeaponManager : MonoBehaviour
             playerManager.RigBuilder.Build();
 
             PlayerCameraManager.instance.fovSmoothTime = activeGun.swayAndBopConfig.adsSmoothTime;
-            playerManager.PlayerSwayAndBop.swayAndBopConfig = activeGun.swayAndBopConfig;
+            playerManager.PlayerSwayAndBopManager.swayAndBopConfig = activeGun.swayAndBopConfig;
             activeGun.ammoConfig.OnAmmoChange += playerManager.UIManager.UpdateAmmoUI;
             activeGun.ammoConfig.TriggerOnAmmoChangeEvent();
         }
@@ -134,12 +134,9 @@ public class PlayerWeaponManager : MonoBehaviour
         }
 
         playerManager.PlayerAnimationManager.Animator.SetFloat("Aim Blend", aimDownSightWeight);
-        playerManager.PlayerSwayAndBop.adsWeight = aimDownSightWeight;
+        playerManager.PlayerSwayAndBopManager.adsWeight = aimDownSightWeight;
         playerManager.UIManager.UICrosshair.alphaWeight = 1f - aimDownSightWeight;
 
-
-        //set target fov
-        // Note: 60 and 90 are arbitrary values, need to expand the system with a configurable scriptableobject file per gun.
         float targetFov = Mathf.Lerp(PlayerCameraManager.instance.defaultFov, activeGun.swayAndBopConfig.adsFOV, aimDownSightWeight);
         PlayerCameraManager.instance.targetFov = targetFov;
     }

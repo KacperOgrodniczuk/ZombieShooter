@@ -5,8 +5,8 @@ using UnityEngine.Animations.Rigging;
 public class PlayerManager : MonoBehaviour
 {
     public PlayerLocomotionManager PlayerLocomotionManager { get; private set; }
-    public PlayerGameplayActionsManager PlayerActions { get; private set; }
-    public SwayAndBop PlayerSwayAndBop { get; private set; }
+    public PlayerGameplayActionsManager PlayerGameplayActionManager { get; private set; }
+    public SwayAndBop PlayerSwayAndBopManager { get; private set; }
     public PlayerSurvivalPointsManager PlayerSurvivalPointsManager { get; private set; }
     public PlayerWeaponManager PlayerWeaponManager { get; private set; }
     public PlayerAnimationManager PlayerAnimationManager { get; private set; }
@@ -19,8 +19,8 @@ public class PlayerManager : MonoBehaviour
     private void Awake()
     {
         PlayerLocomotionManager = GetComponent<PlayerLocomotionManager>();
-        PlayerSwayAndBop = GetComponent<SwayAndBop>();
-        PlayerActions = GetComponent<PlayerGameplayActionsManager>();
+        PlayerSwayAndBopManager = GetComponent<SwayAndBop>();
+        PlayerGameplayActionManager = GetComponent<PlayerGameplayActionsManager>();
         PlayerSurvivalPointsManager = GetComponent<PlayerSurvivalPointsManager>();
         PlayerWeaponManager = GetComponent<PlayerWeaponManager>();
         PlayerAnimationManager = GetComponent<PlayerAnimationManager>();
@@ -30,8 +30,8 @@ public class PlayerManager : MonoBehaviour
     private void Update()
     {
         PlayerLocomotionManager.HandleAllMovement();
-        PlayerActions.HandleAllActionInput();
-        PlayerSwayAndBop.HandleAllSwayAndBop();
+        PlayerGameplayActionManager.HandleAllActionInput();
+        PlayerSwayAndBopManager.HandleAllSwayAndBop();
     }
 
     private void LateUpdate()

@@ -12,11 +12,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c672564bb5c9dc741ad58aece7bed4f7, type: 3}
   m_Name: IJ12 Gun Config
   m_EditorClassIdentifier: 
-  type: 3
+  type: 2
   gunName: Iron Jaw 12
-  modelPrefab: {fileID: 2225440571541060868, guid: 3d475f10d076c444d8584c1be775ba38,
+  modelPrefab: {fileID: 6758340239048193025, guid: 8dd42cfce9fbf934e97313e180757b63,
     type: 3}
-  animatorOverrideController: {fileID: 22100000, guid: 0a84ce5efa87c0541bb97d007b45e2fd,
+  animatorOverrideController: {fileID: 22100000, guid: 93d01369d8d5c0f4681f2bd475fb5824,
     type: 2}
   shootConfig: {fileID: 11400000, guid: 82c1f36ceb78587468fa40157e2d7e25, type: 2}
   trailConfig: {fileID: 11400000, guid: 61870cfd35275794eafd3954be174e5a, type: 2}

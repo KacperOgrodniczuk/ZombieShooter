@@ -12,7 +12,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c672564bb5c9dc741ad58aece7bed4f7, type: 3}
   m_Name: IB1911 Gun Config
   m_EditorClassIdentifier: 
-  type: 1
+  type: 0
   gunName: Ironbite 1911
   modelPrefab: {fileID: 7173815278906741782, guid: e7461e3cb4dfd384ea54841be167ca84,
     type: 3}

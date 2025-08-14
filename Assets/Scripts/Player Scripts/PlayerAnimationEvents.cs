@@ -11,8 +11,21 @@ public class PlayerAnimationEvents : MonoBehaviour
     private PlayerManager playerManager;
 
 
-    public void EndReload()
-    { 
-        playerManager.PlayerActions.EndReload();
+    public void EndNormalReload()
+    {
+        playerManager.PlayerWeaponManager.activeGun.ammoConfig.UpdateAmmoAfterNormalReload();
+    }
+
+    public void EndShellInsert()
+    {
+        playerManager.PlayerWeaponManager.activeGun.ammoConfig.UpdateAmmoAfterShellInsert();
+    }
+
+    public void CanRepeatInsertShell()
+    {
+        if (playerManager.PlayerWeaponManager.activeGun.ammoConfig.CanReload())
+        {
+            playerManager.PlayerAnimationManager.PlayTargetAnimation("Reload Insert", true);
+        }
     }
 }

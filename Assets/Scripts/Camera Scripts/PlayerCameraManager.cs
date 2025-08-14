@@ -95,6 +95,7 @@ public class PlayerCameraManager : MonoBehaviour
     void HandleCameraFov()
     {
         mainCamera.fieldOfView = Mathf.SmoothDamp(mainCamera.fieldOfView, targetFov, ref currentFovVelocity, fovSmoothTime);
+        armsAndWeaponCamera.fieldOfView = Mathf.SmoothDamp(armsAndWeaponCamera.fieldOfView, targetFov, ref currentFovVelocity, fovSmoothTime);
     }
 
     // This needs reworking so that the recoil is passed to the function.

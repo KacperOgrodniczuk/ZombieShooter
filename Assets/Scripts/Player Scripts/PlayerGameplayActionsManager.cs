@@ -71,12 +71,7 @@ public class PlayerGameplayActionsManager : MonoBehaviour
 
     void Reload() 
     {
-        playerManager.PlayerAnimationManager.PlayTargetAnimation("Reload", true);
+        playerManager.PlayerAnimationManager.PlayTargetAnimation("Reload Start", true);
         isReloading = true;
-    }
-
-    public void EndReload()
-    {
-        playerManager.PlayerWeaponManager.activeGun.ammoConfig.UpdateAmmoAfterReload();
     }
 }

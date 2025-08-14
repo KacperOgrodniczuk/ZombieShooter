@@ -22,7 +22,7 @@ public class AmmoConfigScriptableObject : ScriptableObject
     /// <summary>
     /// Update clip and ammo stockpile after a reload.
     /// </summary>
-    public void UpdateAmmoAfterReload()
+    public void UpdateAmmoAfterNormalReload()
     {
         //Check how many bullets we should reload.
         int clipMissingAmmo = clipSize - currentClipAmmo;
@@ -39,8 +39,18 @@ public class AmmoConfigScriptableObject : ScriptableObject
         TriggerOnAmmoChangeEvent();
     }
 
+    public void UpdateAmmoAfterShellInsert()
+    {
+        if (currentClipAmmo < clipSize && currentStockpileAmmo > 0)
+        {
+            currentClipAmmo += 1;
+            currentStockpileAmmo -= 1;
+            TriggerOnAmmoChangeEvent();
+        }
+    }
+
     public void AddAmmoToStockPile(int ammoCount)
-    { 
+    {
         currentStockpileAmmo += ammoCount;
 
         if (currentStockpileAmmo > maxAmmo)
@@ -66,7 +76,7 @@ public class AmmoConfigScriptableObject : ScriptableObject
     }
 
     public bool CanReload()
-    { 
+    {
         return currentClipAmmo < clipSize && currentStockpileAmmo > 0;
     }
 }

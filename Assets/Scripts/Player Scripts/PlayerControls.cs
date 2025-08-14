@@ -144,7 +144,7 @@ public partial class @PlayerControls: IInputActionCollection2, IDisposable
             ]
         },
         {
-            ""name"": ""PlayerActions"",
+            ""name"": ""PlayerGameplayActionManager"",
             ""id"": ""51cb60dc-f83f-4253-9e8b-3b43a0f91550"",
             ""actions"": [
                 {
@@ -241,8 +241,8 @@ public partial class @PlayerControls: IInputActionCollection2, IDisposable
         // PlayerCamera
         m_PlayerCamera = asset.FindActionMap("PlayerCamera", throwIfNotFound: true);
         m_PlayerCamera_MouseDelta = m_PlayerCamera.FindAction("MouseDelta", throwIfNotFound: true);
-        // PlayerActions
-        m_PlayerActions = asset.FindActionMap("PlayerActions", throwIfNotFound: true);
+        // PlayerGameplayActionManager
+        m_PlayerActions = asset.FindActionMap("PlayerGameplayActionManager", throwIfNotFound: true);
         m_PlayerActions_LeftClick = m_PlayerActions.FindAction("LeftClick", throwIfNotFound: true);
         m_PlayerActions_RightClick = m_PlayerActions.FindAction("RightClick", throwIfNotFound: true);
         m_PlayerActions_Reload = m_PlayerActions.FindAction("Reload", throwIfNotFound: true);
@@ -253,7 +253,7 @@ public partial class @PlayerControls: IInputActionCollection2, IDisposable
     {
         UnityEngine.Debug.Assert(!m_PlayerMovement.enabled, "This will cause a leak and performance issues, PlayerControls.PlayerMovement.Disable() has not been called.");
         UnityEngine.Debug.Assert(!m_PlayerCamera.enabled, "This will cause a leak and performance issues, PlayerControls.PlayerCamera.Disable() has not been called.");
-        UnityEngine.Debug.Assert(!m_PlayerActions.enabled, "This will cause a leak and performance issues, PlayerControls.PlayerActions.Disable() has not been called.");
+        UnityEngine.Debug.Assert(!m_PlayerActions.enabled, "This will cause a leak and performance issues, PlayerControls.PlayerGameplayActionManager.Disable() has not been called.");
     }
 
     public void Dispose()
@@ -412,7 +412,7 @@ public partial class @PlayerControls: IInputActionCollection2, IDisposable
     }
     public PlayerCameraActions @PlayerCamera => new PlayerCameraActions(this);
 
-    // PlayerActions
+    // PlayerGameplayActionManager
     private readonly InputActionMap m_PlayerActions;
     private List<IPlayerActionsActions> m_PlayerActionsActionsCallbackInterfaces = new List<IPlayerActionsActions>();
     private readonly InputAction m_PlayerActions_LeftClick;
