@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class PurchasableWeapon : Purchasable
 {
-    public GunType purchasableWeaponType;
+    public Gun purchasableWeaponType;
 
     public override string GetInteractionPrompt()
     {

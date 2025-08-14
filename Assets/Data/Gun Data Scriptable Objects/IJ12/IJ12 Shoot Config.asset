@@ -17,9 +17,11 @@ MonoBehaviour:
     m_Bits: 897
   baseDamage: 12
   weakPointDamageMultiplier: 2.5
+  pelletsPerShot: 9
   fireRate: 0.9
   spread: {x: 5, y: 5}
   spreadAdsMultiplier: 0.5
+  usePelletSpread: 0
   maxRecoilTime: 0.2
   recoilRecoveryTime: 0.4
   recoilKick: {x: 0, y: 0, z: 0.15}

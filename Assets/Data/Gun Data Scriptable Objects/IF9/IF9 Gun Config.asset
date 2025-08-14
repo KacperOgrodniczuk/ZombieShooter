@@ -12,7 +12,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c672564bb5c9dc741ad58aece7bed4f7, type: 3}
   m_Name: IF9 Gun Config
   m_EditorClassIdentifier: 
-  type: 1
+  gun: 1
   gunName: Iron Fang 9
   modelPrefab: {fileID: 2225440571541060868, guid: 3d475f10d076c444d8584c1be775ba38,
     type: 3}

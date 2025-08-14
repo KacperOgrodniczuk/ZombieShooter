@@ -1,4 +1,4 @@
-public enum GunType
+public enum Gun
 {
     IB1911,
     IF9,

@@ -17,6 +17,7 @@ public class ShootConfigScriptableObject : ScriptableObject
     [Header("Spread")]
     public Vector2 spread = new Vector3(1f, 1f);
     public float spreadAdsMultiplier = 0.2f;
+    public bool usePelletSpread = false;
 
     [Header("Recoil")]
     public float maxRecoilTime = 0.5f;
@@ -34,14 +35,30 @@ public class ShootConfigScriptableObject : ScriptableObject
     {
         currentAdsMultiplier = Mathf.Lerp(1f, spreadAdsMultiplier, adsWeight);
 
-        Vector3 shootSpread = Vector3.Lerp(Vector3.zero, new Vector3(
-                       Random.Range(-spread.x * currentAdsMultiplier, spread.x * currentAdsMultiplier),
-                       Random.Range(-spread.y * currentAdsMultiplier, spread.y * currentAdsMultiplier),
-                       0
-                       ),
-                       shootTime
-                       );
+        if (usePelletSpread)
+        {
+            float spreadRadiusX = spread.x * currentAdsMultiplier;
+            float spreadRadiusY = spread.y * currentAdsMultiplier;
 
-        return Quaternion.Euler(shootSpread);
+            Vector2 randomCircle = Random.insideUnitCircle;
+            float offsetX = randomCircle.x * spreadRadiusX;
+            float offsetY = randomCircle.y * spreadRadiusY;
+
+            return Quaternion.Euler(offsetY, offsetX, 0f);
+        }
+
+        else
+        {
+            Vector3 shootSpread = Vector3.Lerp(Vector3.zero, new Vector3(
+                           Random.Range(-spread.x * currentAdsMultiplier, spread.x * currentAdsMultiplier),
+                           Random.Range(-spread.y * currentAdsMultiplier, spread.y * currentAdsMultiplier),
+                           0
+                           ),
+                           shootTime
+                           );
+
+            return Quaternion.Euler(shootSpread);
+        }
+
     }
 }

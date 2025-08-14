@@ -1,12 +1,10 @@
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 
 // I don't even know if this needs to be a monobehaviour, will test this out some other time.
 public class PlayerAnimationEvents : MonoBehaviour
 {
     // A wrapper class to pass functions for animation events to.
-    
+
     [SerializeField]
     private PlayerManager playerManager;
 
@@ -23,9 +21,7 @@ public class PlayerAnimationEvents : MonoBehaviour
 
     public void CanRepeatInsertShell()
     {
-        if (playerManager.PlayerWeaponManager.activeGun.ammoConfig.CanReload())
-        {
-            playerManager.PlayerAnimationManager.PlayTargetAnimation("Reload Insert", true);
-        }
+        bool canReloadAgain = playerManager.PlayerWeaponManager.activeGun.ammoConfig.CanReload();
+        playerManager.PlayerAnimationManager.Animator.SetBool("Repeat Reload", canReloadAgain);
     }
 }

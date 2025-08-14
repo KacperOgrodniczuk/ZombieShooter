@@ -6,7 +6,7 @@ using UnityEngine.Pool;
 public class GunScriptableObject : ScriptableObject
 {
     [Header("Fields")]
-    public GunType type;
+    public Gun gun;
     public string gunName;
     public GameObject modelPrefab;
     public AnimatorOverrideController animatorOverrideController;
@@ -75,18 +75,19 @@ public class GunScriptableObject : ScriptableObject
             lastShootTime = Time.time;
             shootSystem.Play();
 
-            // I NEED THE ADSWEIGHT VALUE HERE SO I THINK I NEED TO PASS IT THROUGH THE TICK FUNCTION ABOVE
-            Quaternion spread = shootConfig.GetSpread(recoilValue, adsWeight);
-
-            Vector3 shootDirection = spread * Camera.main.transform.forward;
-            shootDirection.Normalize();
-
             ammoConfig.DeductOneFromClip();
             ApplyRecoil(adsWeight);
             gunAnimation.PlaySlide();
 
             for (int i = 0; i < shootConfig.pelletsPerShot; i++)
             {
+                
+
+                Quaternion spread = shootConfig.GetSpread(recoilValue, adsWeight);
+
+                Vector3 shootDirection = spread * Camera.main.transform.forward;
+                shootDirection.Normalize();
+
                 if (Physics.Raycast(Camera.main.transform.position, shootDirection, out RaycastHit hit, float.MaxValue, shootConfig.HitMask))
                 {
                     activeMonoBehaviour.StartCoroutine(PlayTrail(shootSystem.transform.position, hit.point, hit));

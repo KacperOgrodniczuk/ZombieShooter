@@ -6,7 +6,7 @@ using UnityEngine.Animations.Rigging;
 public class PlayerWeaponManager : MonoBehaviour
 {
     [SerializeField]
-    private GunType startingGunType;
+    private Gun startingGunType;
     [SerializeField]
     private Transform gunHolderArms;
     [SerializeField]
@@ -48,16 +48,16 @@ public class PlayerWeaponManager : MonoBehaviour
         }
     }
 
-    public void SpawnGun(GunType gunType)
+    public void SpawnGun(Gun gunType)
     {
         // Double-check for leftover objects / previous guns
         DeleteGun();
 
-        GunScriptableObject gun = guns.Find(gun => gun.type == gunType);
+        GunScriptableObject gun = guns.Find(gun => gun.gun == gunType);
 
         if (gun == null)
         {
-            Debug.LogError($"No GunScriptableObject found for GunType: {gun}");
+            Debug.LogError($"No GunScriptableObject found for Gun: {gun}");
             return;
         }
 
