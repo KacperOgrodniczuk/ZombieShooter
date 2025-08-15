@@ -77,12 +77,10 @@ public class GunScriptableObject : ScriptableObject
 
             ammoConfig.DeductOneFromClip();
             ApplyRecoil(adsWeight);
-            gunAnimation.PlaySlide();
+            gunAnimation?.PlaySlide();
 
             for (int i = 0; i < shootConfig.pelletsPerShot; i++)
             {
-                
-
                 Quaternion spread = shootConfig.GetSpread(recoilValue, adsWeight);
 
                 Vector3 shootDirection = spread * Camera.main.transform.forward;
@@ -106,6 +104,8 @@ public class GunScriptableObject : ScriptableObject
                     activeMonoBehaviour.StartCoroutine(PlayTrail(shootSystem.transform.position, Camera.main.transform.position + (shootDirection * trailConfig.missDistance), new RaycastHit()));
                 }
             }
+
+            playerManager.PlayerAnimationManager.PlayTargetAnimation("After Shot", true);
 
             //TODO
             //Shoot system, at the moment it's entirely raycast based,
